@@ -1,0 +1,178 @@
+/* MASDOS8, direction B: THE GALLERY.
+   Near-black, almost no chrome, the portfolio doing all the talking. One
+   filterable wall of work instead of three service cards, because for a
+   barber and a tattooist the work IS the product. Quiet type, wide gutters.
+   Private to /b/. Shares nothing with /a/ or /c/. */
+
+@font-face{font-family:'Chi';src:url('fonts/chillax-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Chi';src:url('fonts/chillax-600.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Sw';src:url('fonts/switzer-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Sw';src:url('fonts/switzer-500.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Sw';src:url('fonts/switzer-700.woff2') format('woff2');font-weight:700;font-display:swap}
+
+:root{
+  --bk:#0A0B0C; --bk2:#121416; --bk3:#1A1D20;
+  --w:#EDEDEA; --w-d:#93968F;
+  --navy:#2E6FA8;            /* their badge navy, lifted to clear AA on black */
+  --ox:#C4444A;              /* their badge oxblood, lifted to clear AA on black */
+  --ln:rgba(237,237,234,.11); --ln2:rgba(237,237,234,.24);
+  --shell:1700px; --pad:clamp(20px,3.4vw,68px);
+  --ez:cubic-bezier(.2,.72,.3,1);
+}
+*{margin:0;box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overscroll-behavior-y:none}
+body{background:var(--bk);color:var(--w);font-family:'Sw',system-ui,sans-serif;font-size:16px;
+  line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--ox);outline-offset:3px}
+::selection{background:var(--ox);color:var(--w)}
+.w{width:min(100% - 2*var(--pad),var(--shell));margin-inline:auto}
+
+.ch{font-family:'Chi',system-ui,sans-serif;font-weight:600;line-height:1.02;letter-spacing:-.028em}
+.c1{font-size:clamp(36px,5.2vw,80px)}
+.c2{font-size:clamp(25px,3vw,46px)}
+.c3{font-size:clamp(18px,1.6vw,24px)}
+.kk{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--w-d);font-weight:500}
+.tx{color:var(--w-d);max-width:56ch}
+.num{font-variant-numeric:tabular-nums}
+
+[data-rv]{opacity:0;transform:translateY(20px);transition:opacity .65s var(--ez),transform .65s var(--ez);
+  transition-delay:calc(var(--i,0)*70ms)}
+[data-rv].in{opacity:1;transform:none}
+
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:14px 26px;
+  border-radius:999px;font-weight:500;font-size:14.5px;border:1px solid transparent;
+  transition:background .2s var(--ez),color .2s var(--ez),border-color .2s var(--ez)}
+.bt--w{background:var(--w);color:var(--bk)}
+.bt--w:hover{background:#fff}
+.bt--o{border-color:var(--ln2);color:var(--w)}
+.bt--o:hover{border-color:var(--w)}
+.bt--x{background:var(--ox);color:#fff}
+.bt--x:hover{background:#D4565C}
+
+.nav{position:fixed;inset:0 0 auto;z-index:80;display:flex;align-items:center;gap:20px;
+  padding:12px var(--pad);background:rgba(10,11,12,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .3s var(--ez)}
+.nav.pin{border-bottom-color:var(--ln)}
+.nav__lg{display:flex;align-items:center;gap:10px}
+.nav__lg img{height:42px;border-radius:50%;background:#fff}
+.nav__lg b{font-family:'Chi',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.02em}
+.nav__l{display:flex;gap:26px;margin-inline:auto}
+.nav__l a{font-size:14px;color:var(--w-d)}
+.nav__l a:hover{color:var(--w)}
+.lang{display:flex;gap:1px}
+.lang button{padding:7px 11px;font-size:12px;border-radius:999px;color:var(--w-d)}
+.lang button[aria-pressed="true"]{background:var(--w);color:var(--bk)}
+.brg{display:none;width:44px;height:44px;place-content:center;gap:6px}
+.brg span{display:block;width:22px;height:1.6px;background:var(--w)}
+.drw{display:none}
+
+/* HERO: a wall of work, type sits quietly on top */
+.hero{position:relative;padding:clamp(96px,12vh,140px) 0 0}
+.hero__t{position:relative;z-index:3}
+.hero__t h1{max-width:16ch}
+.hero__t em{font-style:normal;color:var(--ox)}
+.hero__row{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-end;justify-content:space-between;margin-top:24px}
+/* the wall: six plates at different ratios, drifting on scroll */
+.wall{display:grid;grid-template-columns:repeat(12,1fr);gap:10px;margin-top:clamp(26px,4vw,58px)}
+.wall figure{margin:0;position:relative;overflow:hidden;background:var(--bk2)}
+.wall img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ez),filter .5s var(--ez)}
+.wall figure:hover img{transform:scale(1.05)}
+.wall figcaption{position:absolute;left:12px;bottom:10px;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--w);text-shadow:0 2px 10px rgba(0,0,0,.8)}
+.wall figure:nth-child(1){grid-column:span 4;aspect-ratio:3/4}
+.wall figure:nth-child(2){grid-column:span 5;aspect-ratio:4/3}
+.wall figure:nth-child(3){grid-column:span 3;aspect-ratio:3/4}
+.wall figure:nth-child(4){grid-column:span 3;aspect-ratio:1}
+.wall figure:nth-child(5){grid-column:span 4;aspect-ratio:4/3}
+.wall figure:nth-child(6){grid-column:span 5;aspect-ratio:16/10}
+
+.sec{padding-block:clamp(54px,7vw,120px)}
+.hd{display:grid;gap:12px;margin-bottom:clamp(24px,3.2vw,50px)}
+
+/* filter chips over one gallery */
+.fl{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}
+.fl button{border:1px solid var(--ln2);border-radius:999px;padding:9px 18px;font-size:14px;color:var(--w-d);
+  transition:background .2s var(--ez),color .2s var(--ez),border-color .2s var(--ez)}
+.fl button:hover{border-color:var(--w);color:var(--w)}
+.fl button[aria-pressed="true"]{background:var(--w);color:var(--bk);border-color:var(--w)}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.gal figure{margin:0;position:relative;overflow:hidden;background:var(--bk2)}
+.gal img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform .6s var(--ez)}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figcaption{position:absolute;inset:auto 0 0 0;padding:26px 14px 12px;font-size:12px;
+  background:linear-gradient(180deg,transparent,rgba(10,11,12,.9));color:var(--w-d)}
+.gal figure[hidden]{display:none}
+
+/* the man, wide plate */
+.man{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(22px,4vw,70px);align-items:center}
+.man img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.man__q{font-family:'Chi',sans-serif;font-weight:400;font-size:clamp(19px,2vw,29px);line-height:1.32}
+.man__c{color:var(--w-d);font-size:14px;margin-top:14px;display:block}
+
+/* price columns, quiet rules */
+.pr{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:0 clamp(28px,4vw,72px)}
+.pr__h{font-family:'Chi',sans-serif;font-weight:600;font-size:18px;padding:20px 0 10px;border-bottom:1px solid var(--ln2)}
+.pr__r{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--ln)}
+.pr__r span{font-size:15px}
+.pr__r em{font-style:normal;display:block;font-size:12.5px;color:var(--w-d)}
+.pr__r b{font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* proof strip */
+.pf{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:clamp(18px,3vw,44px);
+  border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);padding-block:clamp(28px,3.6vw,54px)}
+.pf b{display:block;font-family:'Chi',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,52px);line-height:1;font-variant-numeric:tabular-nums}
+.pf span{display:block;font-size:13.5px;color:var(--w-d);margin-top:6px}
+.pf i{display:block;font-style:normal;font-size:11px;color:var(--ox);margin-top:3px}
+
+/* reviews as quiet quotes */
+.rv{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(16px,2.4vw,36px)}
+.rv blockquote{margin:0;display:grid;gap:12px}
+.rv p{font-family:'Chi',sans-serif;font-weight:400;font-size:17px;line-height:1.44}
+.rv cite{font-style:normal;font-size:13px;color:var(--w-d)}
+.rv .st{color:var(--ox);letter-spacing:.16em;font-size:13px}
+
+/* booking bar */
+.bkb{position:sticky;bottom:0;z-index:70;background:var(--bk2);border-top:1px solid var(--ln2);
+  backdrop-filter:blur(10px)}
+.bkb__g{display:grid;grid-template-columns:auto repeat(2,minmax(0,1fr)) auto;gap:14px;align-items:center;padding:11px 0}
+.bkb__t{font-family:'Chi',sans-serif;font-weight:600;font-size:16px;white-space:nowrap}
+.bkb label{display:grid;gap:3px}
+.bkb label span{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-d)}
+.bkb select,.bkb input{background:var(--bk);border:1px solid var(--ln2);border-radius:999px;color:var(--w);
+  font:inherit;font-size:14px;padding:9px 14px;min-height:40px;width:100%;appearance:none;-webkit-appearance:none}
+.bkb select option{background:var(--bk2)}
+.bkb__out{grid-column:1/-1;font-size:12.5px;color:var(--w-d);padding-bottom:9px}
+
+.ft{border-top:1px solid var(--ln);padding-block:clamp(34px,4.4vw,60px)}
+.ft__g{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:clamp(20px,3vw,48px)}
+.ft h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ox);margin-bottom:12px}
+.ft__c{display:grid;gap:9px;align-content:start;font-size:14.5px;color:var(--w-d)}
+.ft__c a:hover{color:var(--w)}
+.ft__b{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid var(--ln);
+  margin-top:clamp(22px,3vw,38px);padding-top:16px;font-size:12px;color:var(--w-d)}
+
+[lang-en]{display:none}
+body.en [lang-cz]{display:none}
+body.en [lang-en]{display:revert}
+
+@media (max-width:1000px){
+  .wall figure{grid-column:span 6!important}
+  .man{grid-template-columns:1fr}
+  .ft__g{grid-template-columns:1fr 1fr}
+  .bkb__g{grid-template-columns:1fr 1fr;gap:10px}
+  .bkb__t,.bkb .bt{grid-column:1/-1}
+}
+@media (max-width:780px){
+  .nav__l{display:none}.brg{display:grid}
+  .drw{display:grid;position:fixed;inset:74px 12px auto;z-index:79;background:var(--bk2);
+    border:1px solid var(--ln2);border-radius:18px;padding:10px;gap:2px}
+  .drw[hidden]{display:none}
+  .drw a{padding:14px;border-radius:12px;font-family:'Chi',sans-serif;font-weight:600;font-size:17px}
+  .wall figure{grid-column:span 12!important}
+  .ft__g{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:1ms!important}}
