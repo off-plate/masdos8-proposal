@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MasDos8 Praha 4. Vyberte službu</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preload" href="fonts/bebas-neue-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="img/logo.png">
+<style>
+@font-face{font-family:'Bb';src:url('fonts/bebas-neue-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Sy';src:url('fonts/synonym-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Sy';src:url('fonts/synonym-500.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Sy';src:url('fonts/synonym-700.woff2') format('woff2');font-weight:700;font-display:swap}
+:root{--bk:#0B0A09;--gold:#D6A22E;--gold-l:#F0C765;--w:#F4F1E9;--w-d:#A8A296;
+ --ez:cubic-bezier(.25,.8,.3,1)}
+*{margin:0;box-sizing:border-box}
+body{background:var(--bk);color:var(--w);font-family:'Sy',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--gold-l);outline-offset:-5px}
+
+/* a slim gold header bar, then three full-height horizontal bands */
+.top{position:fixed;inset:0 0 auto;z-index:30;display:flex;align-items:center;justify-content:space-between;
+ gap:16px;padding:9px clamp(14px,3vw,40px);background:var(--gold);color:var(--bk)}
+.top b{font-family:'Bb',sans-serif;font-size:20px;letter-spacing:.14em}
+.top span{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.top a{font-family:'Bb',sans-serif;font-size:17px;letter-spacing:.1em;border-bottom:2px solid var(--bk)}
+
+.bands{padding-top:42px}
+.band{position:relative;display:grid;align-content:center;isolation:isolate;overflow:hidden;
+ min-height:calc((100dvh - 42px)/3);padding:clamp(20px,3.4vw,52px) clamp(16px,4vw,64px)}
+.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+ filter:grayscale(1) brightness(.34) contrast(1.2);transition:filter .6s var(--ez),transform 1s var(--ez)}
+.band:hover img,.band:focus-visible img{filter:grayscale(.15) brightness(.5) contrast(1.06);transform:scale(1.05)}
+.band::after{content:'';position:absolute;inset:0;z-index:-1;
+ background:linear-gradient(90deg,rgba(11,10,9,.9) 0%,rgba(11,10,9,.5) 52%,rgba(11,10,9,.82) 100%)}
+/* the torn edge, from the reference. A single repeating wedge, no image asset. */
+.band+.band::before{content:'';position:absolute;inset:-1px 0 auto 0;height:16px;z-index:2;background:var(--bk);
+ -webkit-mask-image:conic-gradient(from -45deg at 50% 100%,#000 90deg,transparent 0);
+ mask-image:conic-gradient(from -45deg at 50% 100%,#000 90deg,transparent 0);
+ -webkit-mask-size:34px 16px;mask-size:34px 16px;-webkit-mask-repeat:repeat-x;mask-repeat:repeat-x}
+.band__g{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(14px,3vw,44px);align-items:center;
+ width:min(100%,1500px);margin-inline:auto}
+.band__n{font-family:'Bb',sans-serif;font-size:clamp(34px,5vw,86px);color:var(--gold);line-height:.8;opacity:.55}
+.band__t{font-family:'Bb',sans-serif;font-size:clamp(34px,6vw,104px);line-height:.86;letter-spacing:.01em}
+.band__x{color:var(--w-d);font-size:14.5px;max-width:44ch;margin-top:6px}
+.band__r{text-align:right;display:grid;gap:8px;justify-items:end}
+.band__p{font-family:'Bb',sans-serif;font-size:clamp(20px,2.2vw,34px);color:var(--gold-l);white-space:nowrap}
+.band__go{font-family:'Bb',sans-serif;font-size:15px;letter-spacing:.14em;background:var(--gold);color:var(--bk);
+ padding:10px 20px;white-space:nowrap;transition:background .2s var(--ez)}
+.band:hover .band__go{background:var(--gold-l)}
+
+.foot{display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:center;padding:14px 20px;
+ background:var(--bk);border-top:1px solid rgba(214,162,46,.3);font-size:12.5px;color:var(--w-d)}
+.foot b{color:var(--gold);font-weight:700}
+
+@media (max-width:860px){
+  .band{min-height:auto;padding-block:34px}
+  .band__g{grid-template-columns:1fr;gap:12px}
+  .band__r{justify-items:start;text-align:left}
+  .top span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:1ms!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <b>MasDos8</b>
+  <span>Nuselská 133/134 &middot; Praha 4 &middot; 4,8 z 225 &middot; Zlatá firma 2025</span>
+  <a href="tel:+420773267463">+420 773 267 463</a>
+</header>
+
+<main class="bands">
+  <a class="band" href="../shop-1/">
+    <img src="img/cut6.webp" alt="Kadeřnictví" fetchpriority="high">
+    <span class="band__g">
+      <span class="band__n">01</span>
+      <span>
+        <span class="band__t" style="display:block">Kadeřnictví</span>
+        <span class="band__x">Klasický střih, kontury, obočí, uši a kolínská. Drink k tomu. José Luis, každý den od devíti.</span>
+      </span>
+      <span class="band__r"><span class="band__p">600 Kč</span><span class="band__go">Vstoupit</span></span>
+    </span>
+  </a>
+  <a class="band" href="#">
+    <img src="img/tat4.webp" alt="Tetování">
+    <span class="band__g">
+      <span class="band__n">02</span>
+      <span>
+        <span class="band__t" style="display:block">Tetování</span>
+        <span class="band__x">Od malého kousku po celá záda, ruce a nohy. Nejdřív konzultace, pak jehla.</span>
+      </span>
+      <span class="band__r"><span class="band__p">600 až 18 000 Kč</span><span class="band__go">Vstoupit</span></span>
+    </span>
+  </a>
+  <a class="band" href="#">
+    <img src="img/pmu4.webp" alt="Permanentní makeup">
+    <span class="band__g">
+      <span class="band__n">03</span>
+      <span>
+        <span class="band__t" style="display:block">Perm. makeup</span>
+        <span class="band__x">Obočí, rty a oční linky, včetně oprav po jiném studiu.</span>
+      </span>
+      <span class="band__r"><span class="band__p">1 500 až 5 000 Kč</span><span class="band__go">Vstoupit</span></span>
+    </span>
+  </a>
+</main>
+
+<div class="foot">
+  <span><b>4,8</b> z 225 hodnocení na Googlu</span>
+  <span><b>Zlatá firma 2025</b>, laureát</span>
+  <span>Otevřeno každý den od <b>9:00</b></span>
+</div>
+
+</body>
+</html>

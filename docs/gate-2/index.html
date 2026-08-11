@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MasDos8 Praha 4. Vyberte službu</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preload" href="fonts/archivo-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="img/logo.png">
+<style>
+@font-face{font-family:'Ar';src:url('fonts/archivo-700.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Ar';src:url('fonts/archivo-800.woff2') format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'Er';src:url('fonts/erode-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Er';src:url('fonts/erode-500.woff2') format('woff2');font-weight:500;font-display:swap}
+:root{--bk:#0C0B0A;--w:#F6F3ED;--w-d:#B5AFA5;--copper:#C97B3C;--copper-l:#E39A5C;
+ --ez:cubic-bezier(.25,.8,.3,1)}
+*{margin:0;box-sizing:border-box}
+body{background:var(--bk);color:var(--w);font-family:'Er',Georgia,serif;-webkit-font-smoothing:antialiased;
+ min-height:100dvh;display:grid;grid-template-rows:1fr auto;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--copper-l);outline-offset:4px}
+
+/* one photograph of the room, the lockup dead centre, like the reference */
+.stage{position:relative;display:grid;place-items:center;padding:clamp(40px,8vh,90px) 20px;isolation:isolate;
+ min-height:min(78dvh,760px)}
+.stage img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+ filter:grayscale(.35) brightness(.42) contrast(1.12)}
+.stage::after{content:'';position:absolute;inset:0;z-index:-1;
+ background:radial-gradient(ellipse at center,rgba(12,11,10,.24) 0%,rgba(12,11,10,.86) 78%)}
+.lock{display:grid;justify-items:center;gap:14px;text-align:center}
+.lock img{height:clamp(96px,11vw,142px);border-radius:50%;background:#fff;padding:5px;
+ box-shadow:0 0 0 1px rgba(201,123,60,.5),0 18px 60px rgba(0,0,0,.6)}
+.lock h1{font-family:'Ar',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+ font-size:clamp(30px,5vw,72px);line-height:.98}
+.lock h1 em{font-style:normal;color:var(--copper-l)}
+.lock p{font-size:clamp(14px,1.3vw,18px);color:var(--w-d);max-width:44ch}
+.lock .addr{font-family:'Ar',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.22em;
+ text-transform:uppercase;color:var(--copper-l)}
+.proof{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;margin-top:4px;font-size:13px;color:var(--w-d)}
+.proof b{font-family:'Ar',sans-serif;font-weight:800;color:var(--w)}
+
+/* the three choices as one hard row of doors */
+.pick{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(246,243,237,.16)}
+.pick a{position:relative;display:grid;align-content:center;justify-items:center;gap:6px;text-align:center;
+ padding:clamp(20px,3.4vw,44px) 16px;border-right:1px solid rgba(246,243,237,.16);
+ overflow:hidden;isolation:isolate;transition:color .3s var(--ez)}
+.pick a:last-child{border-right:0}
+.pick a img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+ opacity:0;transform:scale(1.08);transition:opacity .55s var(--ez),transform .9s var(--ez);filter:brightness(.5)}
+.pick a::after{content:'';position:absolute;inset:0;z-index:-1;background:transparent;transition:background .4s var(--ez)}
+.pick a:hover img,.pick a:focus-visible img{opacity:1;transform:scale(1)}
+.pick a:hover::after{background:rgba(12,11,10,.42)}
+.pick__n{font-family:'Ar',sans-serif;font-weight:700;font-size:11px;letter-spacing:.3em;color:var(--copper-l)}
+.pick__t{font-family:'Ar',sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(20px,2.4vw,38px);line-height:1}
+.pick__p{font-size:13.5px;color:var(--w-d)}
+.pick__go{font-family:'Ar',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+ color:var(--copper-l);margin-top:8px;opacity:0;transform:translateY(6px);
+ transition:opacity .4s var(--ez),transform .4s var(--ez)}
+.pick a:hover .pick__go,.pick a:focus-visible .pick__go{opacity:1;transform:none}
+
+@media (max-width:820px){
+  .pick{grid-template-columns:1fr}
+  .pick a{border-right:0;border-bottom:1px solid rgba(246,243,237,.16);padding:26px 16px}
+  .pick a img{opacity:.5}
+  .pick__go{opacity:1;transform:none}
+  .stage{min-height:60dvh}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:1ms!important}}
+</style>
+</head>
+<body>
+
+<section class="stage">
+  <img class="bg" src="img/shop1.webp" alt="Studio MasDos8 na Nuselské" fetchpriority="high">
+  <div class="lock">
+    <img src="img/logo.png" alt="MasDos8">
+    <h1>MasDos8<br><em>Barber &amp; Tattoo</em></h1>
+    <p class="addr">Nuselská 133/134 &middot; Praha 4</p>
+    <p>Tři řemesla, jedno křeslo a jeden člověk, který je dělá. Vyberte si, proč jdete.</p>
+    <div class="proof">
+      <span><b>4,8</b> z 225 hodnocení</span>
+      <span><b>Zlatá firma 2025</b></span>
+      <span><b>Od 9:00</b> každý den</span>
+    </div>
+  </div>
+</section>
+
+<nav class="pick">
+  <a href="../shop-1/">
+    <img src="img/cut3.webp" alt="">
+    <span class="pick__n">01</span>
+    <span class="pick__t">Kadeřnictví</span>
+    <span class="pick__p">Klasický střih 600 Kč</span>
+    <span class="pick__go">Vstoupit &rarr;</span>
+  </a>
+  <a href="#">
+    <img src="img/tat1.webp" alt="">
+    <span class="pick__n">02</span>
+    <span class="pick__t">Tetování</span>
+    <span class="pick__p">Od 600 do 18 000 Kč</span>
+    <span class="pick__go">Vstoupit &rarr;</span>
+  </a>
+  <a href="#">
+    <img src="img/pmu1.webp" alt="">
+    <span class="pick__n">03</span>
+    <span class="pick__t">Perm. makeup</span>
+    <span class="pick__p">Obočí, rty, linky</span>
+    <span class="pick__go">Vstoupit &rarr;</span>
+  </a>
+</nav>
+
+</body>
+</html>
