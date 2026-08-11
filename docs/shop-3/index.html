@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="cs">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MasDos8 Barbershop, Praha 4. Klasický barbershop</title>
-<meta name="description" content="Barbershop na Nuselské v Praze 4. Klasický střih 600 Kč, s vousy 900 Kč. 4,8 z 225 hodnocení. Zlatá firma 2025.">
+<title>MasDos8 Barbershop, Prague 4. The chair is free</title>
+<meta name="description" content="Barbershop on Nuselska, Prague 4. Classic cut 600 CZK, with the beard 900 CZK. 4.8 from 225 reviews. Golden Company 2025.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preload" href="fonts/bebas-neue-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/synonym-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -107,16 +107,36 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .pf b{display:block;font-family:'Os',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,54px);line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
 .pf span{display:block;font-size:13.5px;color:var(--w-d);margin-top:5px}
 
+/* ---------- THE RESERVATION BAR ----------
+   Pinned to the bottom of every screen. One row, one baseline, every
+   control the same height, the number on the right where a total belongs.
+   It books a slot in the studio's own diary. It does not open WhatsApp. */
 .bkb{position:sticky;bottom:0;z-index:70;background:var(--bk3);color:#F1EDE3;border-top:3px solid var(--gold)}
-.bkb__g{display:grid;grid-template-columns:auto repeat(2,minmax(0,1fr)) auto;gap:12px;align-items:center;padding:10px 0}
-.bkb__t{font-family:'Os',sans-serif;font-weight:700;font-size:17px;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}
-.bkb label{display:grid;gap:2px}
-.bkb label span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--w-d)}
-.bkb select,.bkb input{background:#1A1713;border:1px solid rgba(241,237,227,.28);color:#F1EDE3;font:inherit;font-size:14px;
- padding:9px 12px;min-height:40px;width:100%;appearance:none;-webkit-appearance:none}
+.bkb__g{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,3fr) auto;gap:16px;align-items:end;padding:12px 0 14px}
+.bkb__f{display:grid;grid-template-columns:minmax(150px,1.25fr) minmax(132px,.85fr) minmax(104px,.62fr) auto;
+ gap:14px;align-items:end}
+.bkb__l{display:grid;gap:3px;align-content:end;padding-bottom:2px}
+.bkb__l b{font-family:'Os',sans-serif;font-weight:700;font-size:21px;letter-spacing:.13em;text-transform:uppercase;line-height:1}
+.bkb__l span{font-size:12.5px;color:rgba(241,237,227,.72)}
+.bkf{display:grid;gap:5px}
+.bkf>span{font-family:'Os',sans-serif;font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.bkb select,.bkb input{background:#1A1713;border:1px solid rgba(241,237,227,.3);color:#F1EDE3;font:inherit;font-size:14.5px;
+ padding:0 12px;height:48px;width:100%;appearance:none;-webkit-appearance:none;border-radius:0}
+.bkb select:focus,.bkb input:focus{outline:none;border-color:var(--gold)}
 .bkb select option{background:#1A1713}
-.bkb__out{grid-column:1/-1;font-size:12.5px;color:rgba(241,237,227,.7);padding-bottom:8px}
-
+.bkb select option[disabled]{color:rgba(241,237,227,.35)}
+.bkb__p{display:grid;gap:5px;justify-items:end;text-align:right}
+.bkb__p span{font-family:'Os',sans-serif;font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.bkb__p b{font-family:'Os',sans-serif;font-weight:700;font-size:26px;line-height:48px;height:48px;
+ font-variant-numeric:tabular-nums;white-space:nowrap}
+.bkb .bt{height:48px;min-height:48px;padding-inline:30px}
+/* the second step slides in above the row, so the row never moves */
+.bkb__x{border-bottom:1px solid rgba(241,237,227,.18);background:#171410}
+.bkb__xg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto auto;gap:14px;align-items:end;padding:14px 0}
+.bkb__note{grid-column:1/-1;font-size:12.5px;color:rgba(241,237,227,.62);max-width:86ch}
+.bkb__ok{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;padding:14px 0}
+.bkb__ok b{font-family:'Os',sans-serif;font-weight:700;font-size:22px;letter-spacing:.1em;color:var(--gold)}
+.bkb__ok span{font-size:14px;color:rgba(241,237,227,.8)}
 .ft{background:var(--bk3);color:#F1EDE3;border-top:0;padding-block:clamp(32px,4.2vw,58px)}
 .ft__g{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:clamp(18px,3vw,44px)}
 .ft h4{font-family:'Os',sans-serif;font-weight:500;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:11px}
@@ -124,15 +144,19 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .ft__c a:hover{color:var(--w)}
 .ft__b{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid rgba(241,237,227,.2);
  margin-top:clamp(20px,2.6vw,36px);padding-top:16px;font-size:12px;color:rgba(241,237,227,.55)}
-[lang-en]{display:none}body.en [lang-cz]{display:none}body.en [lang-en]{display:revert}
-.lang{display:flex}.lang button{padding:7px 10px;font-family:'Os',sans-serif;font-size:13px;letter-spacing:.1em;color:var(--w-d)}
-.lang button[aria-pressed="true"]{background:var(--gold);color:var(--bk)}
 @media (max-width:1000px){
  .hero{grid-template-columns:1fr}.about{grid-template-columns:1fr}
  .icons__g{grid-template-columns:1fr 1fr}.icons__c:nth-child(2){border-right:0}
  .icons__c:nth-child(1),.icons__c:nth-child(2){border-bottom:1px solid var(--ln)}
  .ft__g{grid-template-columns:1fr 1fr}
- .bkb__g{grid-template-columns:1fr 1fr;gap:9px}.bkb__t,.bkb .bt{grid-column:1/-1}
+ /* on a phone the bar stays one thin line until it is asked for */
+ .bkb__g{grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0}
+ .bkb__f{display:none;grid-column:1/-1;grid-template-columns:1fr 1fr;gap:10px}
+ .bkb[data-open] .bkb__f{display:grid}
+ .bkb__l b{font-size:17px}
+ .bkb__p{justify-items:start;text-align:left}
+ .bkb__p b{line-height:1.1;height:auto;font-size:23px}
+ .bkb__xg{grid-template-columns:1fr 1fr}.bkb__xg .bt{grid-column:1/-1}
 }
 @media (max-width:780px){
  .nav__l{display:none}.brg{display:grid}
@@ -150,34 +174,33 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <nav class="nav" data-pin>
   <a class="nav__lg" href="../gate-3/"><img src="img/logo.png" alt="MasDos8"><b>MasDos8</b></a>
   <div class="nav__l">
-    <a href="#o-nas"><span lang-cz>O nás</span><span lang-en>About</span></a>
-    <a href="#sluzby"><span lang-cz>Služby</span><span lang-en>Services</span></a>
-    <a href="#cenik"><span lang-cz>Ceník</span><span lang-en>Pricing</span></a>
-    <a href="#recenze"><span lang-cz>Recenze</span><span lang-en>Reviews</span></a>
-    <a href="#kontakt"><span lang-cz>Kontakt</span><span lang-en>Contact</span></a>
+    <a href="#o-nas">About</a>
+    <a href="#sluzby">Services</a>
+    <a href="#cenik">Pricing</a>
+    <a href="#recenze">Reviews</a>
+    <a href="#kontakt">Contact</a>
   </div>
-  <div class="lang"><button id="cz" aria-pressed="true">CZ</button><button id="en" aria-pressed="false">EN</button></div>
-  <a class="bt bt--g" href="#rez" style="min-height:40px;padding:11px 18px"><span lang-cz>Rezervovat</span><span lang-en>Book now</span></a>
+  <a class="bt bt--g" href="#rez" style="min-height:40px;padding:11px 18px">Book now</a>
   <button class="brg" data-menu="#drw" aria-expanded="false" aria-label="Menu"><span></span><span></span></button>
 </nav>
 <div class="drw" id="drw" hidden>
-  <a href="#o-nas">O nás</a><a href="#sluzby">Služby</a><a href="#cenik">Ceník</a><a href="#recenze">Recenze</a><a href="#kontakt">Kontakt</a>
+  <a href="#o-nas">About</a><a href="#sluzby">Services</a><a href="#cenik">Pricing</a><a href="#recenze">Reviews</a><a href="#kontakt">Contact</a>
   <a href="tel:+420773267463">+420 773 267 463</a>
 </div>
 
 <header class="hero"><div style="position:relative;z-index:2;padding-left:var(--pad)">
   <p class="kk" data-rv>Nuselská 133/134 &middot; Praha 4</p>
   <h1 class="os h1" data-rv style="--i:1;margin:14px 0 0">
-    <span lang-cz>Křeslo je volné.<br>Sedněte si.</span><span lang-en>The chair is free.<br>Take a seat.</span>
+    The chair is free.<br>Take a seat.
     
   </h1>
   <p class="tx" data-rv style="--i:2;margin-top:18px">
-    <span lang-cz>Klasické střihy, čisté přechody a jeden barber, který vás zná. José Luis, každý den od devíti ráno.</span>
-    <span lang-en>Classic cuts, clean fades and one barber who knows you. José Luis, every day from nine.</span>
+    
+    Classic cuts, clean fades and one barber who knows you. José Luis, every day from nine.
   </p>
   <div class="hero__act" data-rv style="--i:3">
-    <a class="bt bt--g" href="#rez"><span lang-cz>Rezervovat termín</span><span lang-en>Book appointment</span></a>
-    <a class="bt bt--o" href="#cenik"><span lang-cz>Zobrazit ceník</span><span lang-en>View pricing</span></a>
+    <a class="bt bt--g" href="#rez">Book appointment</a>
+    <a class="bt bt--o" href="#cenik">View pricing</a>
   </div>
 </div>
 <figure class="hero__ph" style="margin:0" data-rv style="--i:2">
@@ -187,68 +210,68 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 </header>
 
 <section class="icons"><div class="w icons__g">
-  <div class="icons__c" data-rv><span class="icons__i">&#9986;</span><b><span lang-cz>Jeden barber</span><span lang-en>One barber</span></b><p><span lang-cz>José Luis stříhá i tetuje. Nikdo vás nepředává dál.</span><span lang-en>José cuts and tattoos. Nobody hands you on.</span></p></div>
-  <div class="icons__c" data-rv style="--i:1"><span class="icons__i">&#9733;</span><b>4,8 / 225</b><p><span lang-cz>Hodnocení na Googlu, ověřeno 11. 8. 2026.</span><span lang-en>Google rating, verified 11 Aug 2026.</span></p></div>
-  <div class="icons__c" data-rv style="--i:2"><span class="icons__i">&#9201;</span><b><span lang-cz>Od 9:00</span><span lang-en>From 09:00</span></b><p><span lang-cz>Otevřeno každý den. Termín potvrdíme telefonem.</span><span lang-en>Open daily. The slot is confirmed by phone.</span></p></div>
-  <div class="icons__c" data-rv style="--i:3"><span class="icons__i">&#9873;</span><b><span lang-cz>Zlatá firma</span><span lang-en>Golden Company</span></b><p><span lang-cz>Laureát ocenění 2025 na základě recenzí.</span><span lang-en>2025 laureate, awarded on verified reviews.</span></p></div>
+  <div class="icons__c" data-rv><span class="icons__i">&#9986;</span><b>One barber</b><p>José cuts and tattoos. Nobody hands you on.</p></div>
+  <div class="icons__c" data-rv style="--i:1"><span class="icons__i">&#9733;</span><b>4,8 / 225</b><p>Google rating, verified 11 Aug 2026.</p></div>
+  <div class="icons__c" data-rv style="--i:2"><span class="icons__i">&#9201;</span><b>From 09:00</b><p>Open daily. The slot is confirmed by phone.</p></div>
+  <div class="icons__c" data-rv style="--i:3"><span class="icons__i">&#9873;</span><b>Golden Company</b><p>2025 laureate, awarded on verified reviews.</p></div>
 </div></section>
 
 <section class="sec" id="o-nas"><div class="w about">
   <img src="img/shop1.webp" alt="Interiér MasDos8" loading="lazy" data-rv>
   <div data-rv style="--i:1">
-    <p class="kk"><span lang-cz>O nás</span><span lang-en>About us</span></p>
-    <h2 class="os h2" style="margin:12px 0 14px"><span lang-cz>Víc než jen střih</span><span lang-en>More than just a haircut</span></h2>
-    <p class="tx"><span lang-cz>Na Nuselské se stříhá, tetuje a dělá permanentní makeup pod jednou střechou. Křeslo je jedno a José u něj stojí celý den. Lidé se sem vracejí kvůli němu, ne kvůli ceníku.</span>
-      <span lang-en>On Nuselská we cut, tattoo and do permanent makeup under one roof. There is one chair and José stands at it all day. People come back for him, not for the price list.</span></p>
-    <p class="tx" style="margin-top:12px"><span lang-cz>Ke klasickému střihu patří kontury, obočí, uši, kolínská a drink. Za 600 Kč.</span>
-      <span lang-en>A classic cut includes contours, brows, ears, cologne and a drink. For 600 CZK.</span></p>
-    <a class="bt bt--g" style="margin-top:22px" href="#rez"><span lang-cz>Rezervovat</span><span lang-en>Book appointment</span></a>
+    <p class="kk">About us</p>
+    <h2 class="os h2" style="margin:12px 0 14px">More than just a haircut</h2>
+    <p class="tx">
+      On Nuselská we cut, tattoo and do permanent makeup under one roof. There is one chair and José stands at it all day. People come back for him, not for the price list.</p>
+    <p class="tx" style="margin-top:12px">
+      A classic cut includes contours, brows, ears, cologne and a drink. For 600 CZK.</p>
+    <a class="bt bt--g" style="margin-top:22px" href="#rez">Book appointment</a>
   </div>
 </div></section>
 
 <section class="sec" id="sluzby" style="padding-top:0"><div class="w">
-  <div class="hd"><p class="kk" data-rv><span lang-cz>Naše služby</span><span lang-en>Our services</span></p>
-    <h2 class="os h2" data-rv style="--i:1"><span lang-cz>Prémiové služby</span><span lang-en>Premium services</span></h2></div>
+  <div class="hd"><p class="kk" data-rv>Our services</p>
+    <h2 class="os h2" data-rv style="--i:1">Premium services</h2></div>
   <div class="svc">
-    <div class="svc__c" data-rv><img src="img/cut3-s.webp" alt="" loading="lazy"><span class="svc__b"><span class="svc__n"><span lang-cz>Klasický střih</span><span lang-en>Classic cut</span></span><span class="svc__p">600 Kč</span><span class="svc__x"><span lang-cz>Kontury, obočí, uši, kolínská + drink</span><span lang-en>Contours, brows, ears, cologne + drink</span></span></span></div>
-    <div class="svc__c" data-rv style="--i:1"><img src="img/cut10-s.webp" alt="" loading="lazy"><span class="svc__b"><span class="svc__n"><span lang-cz>Střih a vousy</span><span lang-en>Cut and beard</span></span><span class="svc__p">900 Kč</span><span class="svc__x"><span lang-cz>Střih, mytí vlasů a úprava vousů</span><span lang-en>Cut, wash and beard trim</span></span></span></div>
-    <div class="svc__c" data-rv style="--i:2"><img src="img/fade-s.webp" alt="" loading="lazy"><span class="svc__b"><span class="svc__n"><span lang-cz>Úprava vousů</span><span lang-en>Beard trim</span></span><span class="svc__p">250 Kč</span><span class="svc__x"><span lang-cz>Klasická úprava + drink zdarma</span><span lang-en>Classic trim + free drink</span></span></span></div>
-    <div class="svc__c" data-rv style="--i:3"><img src="img/cut7-s.webp" alt="" loading="lazy"><span class="svc__b"><span class="svc__n"><span lang-cz>Kompletní služba</span><span lang-en>Full service</span></span><span class="svc__p">1 100 Kč</span><span class="svc__x"><span lang-cz>Všechno dohromady, bez spěchu</span><span lang-en>Everything together, unhurried</span></span></span></div>
+    <div class="svc__c" data-rv><img src="img/cut3-s.webp" alt="" loading="lazy"><span class="svc__b"><span class="svc__n">Classic cut</span><span class="svc__p">600 Kč</span><span class="svc__x">Contours, brows, ears, cologne + drink</span></span></div>
+    <div class="svc__c" data-rv style="--i:1"><img src="img/cut10-s.webp" alt="" loading="lazy"><span class="svc__b"><span class="svc__n">Cut and beard</span><span class="svc__p">900 Kč</span><span class="svc__x">Cut, wash and beard trim</span></span></div>
+    <div class="svc__c" data-rv style="--i:2"><img src="img/fade-s.webp" alt="" loading="lazy"><span class="svc__b"><span class="svc__n">Beard trim</span><span class="svc__p">250 Kč</span><span class="svc__x">Classic trim + free drink</span></span></div>
+    <div class="svc__c" data-rv style="--i:3"><img src="img/cut7-s.webp" alt="" loading="lazy"><span class="svc__b"><span class="svc__n">Full service</span><span class="svc__p">1 100 Kč</span><span class="svc__x">Everything together, unhurried</span></span></div>
   </div>
 </div></section>
 
 <section style="background:var(--bk3)"><div class="w pf">
-  <div data-rv><b class="num" data-count="4.8" data-dec="1">0</b><span lang-cz>Google, z 225 recenzí</span><span lang-en>Google, from 225 reviews</span></div>
-  <div data-rv style="--i:1"><b class="num" data-count="225">0</b><span lang-cz>Hodnocení</span><span lang-en>Reviews</span></div>
-  <div data-rv style="--i:2"><b>2025</b><span lang-cz>Zlatá firma, laureát</span><span lang-en>Golden Company laureate</span></div>
+  <div data-rv><b class="num" data-count="4.8" data-dec="1">0</b>Google, from 225 reviews</div>
+  <div data-rv style="--i:1"><b class="num" data-count="225">0</b>Reviews</div>
+  <div data-rv style="--i:2"><b>2025</b>Golden Company laureate</div>
   <div data-rv style="--i:3"><b class="num" data-count="1752">0</b><span>@masdos8</span></div>
 </div></section>
 
 <section class="sec" id="cenik"><div class="w">
-  <div class="hd"><p class="kk" data-rv><span lang-cz>Ceník</span><span lang-en>Pricing</span></p>
-    <h2 class="os h2" data-rv style="--i:1"><span lang-cz>Kadeřnictví, celý ceník</span><span lang-en>Barbering, the full list</span></h2></div>
+  <div class="hd"><p class="kk" data-rv>Pricing</p>
+    <h2 class="os h2" data-rv style="--i:1">Barbering, the full list</h2></div>
   <div class="pl" data-rv>
     <div>
-      <div class="pl__r"><span><span lang-cz>Klasický dospělý střih</span><span lang-en>Classic adult cut</span><em lang-cz>kontury, obočí, uši, kolínská + drink</em><em lang-en>contours, brows, ears, cologne + drink</em></span><b>600</b></div>
-      <div class="pl__r"><span><span lang-cz>Střih / mytí / masáž</span><span lang-en>Cut / wash / massage</span></span><b>700</b></div>
-      <div class="pl__r"><span><span lang-cz>Střih / mytí / vousy</span><span lang-en>Cut / wash / beard</span></span><b>900</b></div>
-      <div class="pl__r"><span><span lang-cz>Kompletní kadeřnická služba</span><span lang-en>Full service</span></span><b>1 100</b></div>
-      <div class="pl__r"><span><span lang-cz>Dredy</span><span lang-en>Dreadlocks</span></span><b>2 500</b></div>
+      <div class="pl__r"><span>Classic adult cut<em>contours, brows, ears, cologne + drink</em></span><b>600</b></div>
+      <div class="pl__r"><span>Cut / wash / massage</span><b>700</b></div>
+      <div class="pl__r"><span>Cut / wash / beard</span><b>900</b></div>
+      <div class="pl__r"><span>Full service</span><b>1 100</b></div>
+      <div class="pl__r"><span>Dreadlocks</span><b>2 500</b></div>
     </div>
     <div>
-      <div class="pl__r"><span><span lang-cz>Klasická úprava vousů</span><span lang-en>Beard trim</span><em lang-cz>+ drink zdarma</em><em lang-en>+ free drink</em></span><b>250</b></div>
-      <div class="pl__r"><span><span lang-cz>Dobarvení vousů</span><span lang-en>Beard colour</span></span><b>200</b></div>
-      <div class="pl__r"><span><span lang-cz>Ornamenty</span><span lang-en>Hair ornaments</span></span><b>100</b></div>
-      <div class="pl__r"><span><span lang-cz>Dětský střih do 5 let</span><span lang-en>Kids under 5</span><em lang-cz>rodič káva zdarma</em><em lang-en>free coffee for the parent</em></span><b>300</b></div>
-      <div class="pl__r"><span><span lang-cz>Dětský střih 6 až 12 let</span><span lang-en>Kids 6 to 12</span></span><b>400</b></div>
+      <div class="pl__r"><span>Beard trim<em>+ free drink</em></span><b>250</b></div>
+      <div class="pl__r"><span>Beard colour</span><b>200</b></div>
+      <div class="pl__r"><span>Hair ornaments</span><b>100</b></div>
+      <div class="pl__r"><span>Kids under 5<em>free coffee for the parent</em></span><b>300</b></div>
+      <div class="pl__r"><span>Kids 6 to 12</span><b>400</b></div>
     </div>
   </div>
-  <p class="tx" style="margin-top:16px;font-size:14px" data-rv><span lang-cz>Ceny v korunách, převzaté z jejich vlastního rezervačního systému. Tetování a permanentní makeup mají vlastní ceník.</span><span lang-en>Prices in CZK, taken from their own booking system. Tattoo and permanent makeup have their own lists.</span></p>
+  <p class="tx" style="margin-top:16px;font-size:14px" data-rv>Prices in CZK, taken from their own booking system. Tattoo and permanent makeup have their own lists.</p>
 </div></section>
 
 <section class="sec" id="recenze" style="padding-top:0"><div class="w">
-  <div class="hd"><p class="kk" data-rv><span lang-cz>Recenze</span><span lang-en>Reviews</span></p>
-    <h2 class="os h2" data-rv style="--i:1"><span lang-cz>Z Googlu, se jmény</span><span lang-en>From Google, with names</span></h2></div>
+  <div class="hd"><p class="kk" data-rv>Reviews</p>
+    <h2 class="os h2" data-rv style="--i:1">From Google, with names</h2></div>
   <div class="rv">
     <div class="rvc" data-rv><span class="rvc__s">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"Best barbershop I've been, full service excelled my expectations. Jose Luis knows what he is doing, the hair and beard looks amazing."</p><cite>Rafael Frías</cite></div>
     <div class="rvc" data-rv style="--i:1"><span class="rvc__s">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"If you are a man worth your beard, you must visit José for a haircut and shave experience. This is the first time I've come out of a barbershop happy."</p><cite>Swatchhanda Kher</cite></div>
@@ -257,63 +280,111 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 </div></section>
 
 <section class="sec" id="kontakt" style="padding-top:0"><div class="w">
-  <div class="hd"><p class="kk" data-rv><span lang-cz>Kontakt</span><span lang-en>Contact</span></p>
+  <div class="hd"><p class="kk" data-rv>Contact</p>
     <h2 class="os h2" data-rv style="--i:1">Nuselská 133/134, Praha 4</h2></div>
   <div style="display:flex;gap:12px;flex-wrap:wrap" data-rv>
     <a class="bt bt--g" href="tel:+420773267463">+420 773 267 463</a>
-    <a class="bt bt--o" href="https://maps.google.com/?cid=10234528977070182464" target="_blank" rel="noopener"><span lang-cz>Navigovat</span><span lang-en>Directions</span></a>
+    <a class="bt bt--o" href="https://maps.google.com/?cid=10234528977070182464" target="_blank" rel="noopener">Directions</a>
     <a class="bt bt--o" href="https://www.instagram.com/masdos8/" target="_blank" rel="noopener">Instagram</a>
   </div>
 </div></section>
 
-<div class="bkb" id="rez"><div class="w bkb__g">
-  <span class="bkb__t"><span lang-cz>Rezervace</span><span lang-en>Book</span></span>
-  <label><span lang-cz>Služba</span><span lang-en>Service</span>
-    <select id="b-svc">
-      <option data-p="600">Klasický dospělý střih · 600 Kč</option>
-      <option data-p="700">Střih / mytí / masáž · 700 Kč</option>
-      <option data-p="900">Střih / mytí / vousy · 900 Kč</option>
-      <option data-p="1100">Kompletní služba · 1 100 Kč</option>
-      <option data-p="250">Úprava vousů · 250 Kč</option>
-      <option data-p="200">Dobarvení vousů · 200 Kč</option>
-      <option data-p="300">Dětský střih do 5 let · 300 Kč</option>
-      <option data-p="400">Dětský střih 6 až 12 let · 400 Kč</option>
-      <option data-p="2500">Dredy · 2 500 Kč</option>
-    </select>
-  </label>
-  <label><span lang-cz>Datum</span><span lang-en>Date</span><input type="date" id="b-date"></label>
-  <a class="bt bt--g" id="b-go" href="#" target="_blank" rel="noopener">WhatsApp</a>
-  <p class="bkb__out" id="b-out"></p>
-</div></div>
+<div class="bkb" id="rez">
+  <div class="bkb__x" id="b-x" hidden><div class="w bkb__xg">
+    <label class="bkf"><span>Name</span><input type="text" id="b-name" placeholder="Your name" autocomplete="name"></label>
+    <label class="bkf"><span>Phone</span><input type="tel" id="b-phone" placeholder="+420" autocomplete="tel"></label>
+    <button class="bt bt--o" id="b-back" style="height:48px;min-height:48px">Back</button>
+    <button class="bt bt--g" id="b-confirm" style="height:48px;min-height:48px">Confirm</button>
+    <p class="bkb__note">Nothing is sent in the proposal. On the live site this writes the slot into the studio's diary and texts you the confirmation, which is what the reviews about closed doors and lost appointments are asking for.</p>
+  </div></div>
+  <div class="w bkb__g" id="b-row">
+    <span class="bkb__l"><b>Reserve</b><span id="b-sum">Pick a service and a time</span></span>
+    <div class="bkb__f">
+    <label class="bkf"><span>Service</span>
+      <select id="b-svc">
+        <option data-p="600">Classic adult cut</option>
+        <option data-p="700">Cut, wash and massage</option>
+        <option data-p="900">Cut, wash and beard</option>
+        <option data-p="1100">Full service</option>
+        <option data-p="250">Beard trim</option>
+        <option data-p="200">Beard colour</option>
+        <option data-p="100">Hair ornaments</option>
+        <option data-p="300">Kids under 5</option>
+        <option data-p="400">Kids 6 to 12</option>
+        <option data-p="2500">Dreadlocks</option>
+      </select>
+    </label>
+    <label class="bkf"><span>Day</span><input type="date" id="b-date"></label>
+    <label class="bkf"><span>Time</span><select id="b-time"></select></label>
+    <span class="bkb__p"><span>Total</span><b id="b-total">600 Kč</b></span>
+    </div>
+    <button class="bt bt--g" id="b-go">Reserve</button>
+  </div>
+</div>
 
 <footer class="ft"><div class="w">
   <div class="ft__g">
     <div class="ft__c"><span style="display:flex;align-items:center;gap:10px"><img src="img/logo.png" alt="MasDos8" style="height:54px;border-radius:50%;background:#fff;padding:2px"><b class="os" style="font-size:19px;letter-spacing:.14em">MasDos8</b></span>
-      <p style="margin-top:8px;max-width:30ch"><span lang-cz>Barber &amp; Tattoo, Nuselská 133/134, Praha 4. Každý den od 9:00.</span><span lang-en>Barber &amp; Tattoo, Nuselská 133/134, Prague 4. Daily from 09:00.</span></p></div>
-    <div class="ft__c"><h4><span lang-cz>Služby</span><span lang-en>Services</span></h4><a href="#cenik"><span lang-cz>Kadeřnictví</span><span lang-en>Barbering</span></a><a href="../gate-3/"><span lang-cz>Tetování</span><span lang-en>Tattoo</span></a><a href="../gate-3/"><span lang-cz>Permanentní makeup</span><span lang-en>Permanent makeup</span></a></div>
-    <div class="ft__c"><h4><span lang-cz>Kde</span><span lang-en>Where</span></h4><a href="https://maps.google.com/?cid=10234528977070182464" target="_blank" rel="noopener">Nuselská 133/134</a><span>140 00 Praha 4</span><span>3F32+VW</span></div>
-    <div class="ft__c"><h4>Kontakt</h4><a href="tel:+420773267463">+420 773 267 463</a><a href="https://www.instagram.com/masdos8/" target="_blank" rel="noopener">@masdos8</a><a href="https://www.facebook.com/masdos8" target="_blank" rel="noopener">Facebook</a></div>
+      <p style="margin-top:8px;max-width:30ch">Barber &amp; Tattoo, Nuselská 133/134, Prague 4. Daily from 09:00.</p></div>
+    <div class="ft__c"><h4>Services</h4><a href="#cenik">Barbering</a><a href="../gate-3/">Tattoo</a><a href="../gate-3/">Permanent makeup</a></div>
+    <div class="ft__c"><h4>Where</h4><a href="https://maps.google.com/?cid=10234528977070182464" target="_blank" rel="noopener">Nuselská 133/134</a><span>140 00 Praha 4</span><span>3F32+VW</span></div>
+    <div class="ft__c"><h4>Contact</h4><a href="tel:+420773267463">+420 773 267 463</a><a href="https://www.instagram.com/masdos8/" target="_blank" rel="noopener">@masdos8</a><a href="https://www.facebook.com/masdos8" target="_blank" rel="noopener">Facebook</a></div>
   </div>
-  <div class="ft__b"><span>&copy; 2026 MasDos8 Barber &amp; Tattoo.</span><span><span lang-cz>Návrh Off-Plate. Fotografie a logo jsou jejich vlastní.</span><span lang-en>Design proposal by Off-Plate. Photography and logo are their own.</span></span></div>
+  <div class="ft__b"><span>&copy; 2026 MasDos8 Barber &amp; Tattoo.</span><span>Design proposal by Off-Plate. Photography and logo are their own.</span></div>
 </div></footer>
 
 <script src="motion.js" defer></script>
 <script>
 (()=>{
-  const cz=document.getElementById('cz'),en=document.getElementById('en');
-  const set=l=>{document.body.classList.toggle('en',l==='en');document.documentElement.lang=l==='en'?'en':'cs';
-    cz.setAttribute('aria-pressed',String(l==='cz'));en.setAttribute('aria-pressed',String(l==='en'));upd();};
-  cz.addEventListener('click',()=>set('cz'));en.addEventListener('click',()=>set('en'));
-  const svc=document.getElementById('b-svc'),date=document.getElementById('b-date'),
-        go=document.getElementById('b-go'),out=document.getElementById('b-out');
-  date.min=new Date().toISOString().slice(0,10);
-  date.value=new Date(Date.now()+864e5).toISOString().slice(0,10);
-  function upd(){const s=svc.value,d=date.value,p=svc.selectedOptions[0]?.dataset.p||'';
-    const e=document.body.classList.contains('en');
-    out.textContent=e?`${s.split(' · ')[0]} on ${d}. ${(+p).toLocaleString('cs-CZ')} CZK. The studio confirms the slot.`
-                     :`${s.split(' · ')[0]} dne ${d}. ${(+p).toLocaleString('cs-CZ')} Kč. Termín potvrdí studio.`;
-    go.href='https://wa.me/420773267463?text='+encodeURIComponent(`Dobrý den, chtěl/a bych se objednat.\nSlužba: ${s}\nDatum: ${d}`);}
-  svc.addEventListener('change',upd);date.addEventListener('change',upd);upd();
+  const $=s=>document.querySelector(s);
+  const svc=$('#b-svc'), date=$('#b-date'), time=$('#b-time'), total=$('#b-total'),
+        sum=$('#b-sum'), go=$('#b-go'), panel=$('#b-x'), row=$('#b-row'),
+        name=$('#b-name'), phone=$('#b-phone'), back=$('#b-back'), confirm=$('#b-confirm');
+  const iso=d=>d.toISOString().slice(0,10);
+  date.min=iso(new Date());
+  date.value=iso(new Date(Date.now()+864e5));
+
+  /* the diary is deterministic, so a given day always shows the same gaps */
+  const hash=s=>{let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))>>>0;return h;};
+  const slots=()=>{const a=[];for(let h=9;h<20;h++)a.push(String(h).padStart(2,'0')+':00',String(h).padStart(2,'0')+':30');return a;};
+  function fillTimes(){
+    const d=date.value, keep=time.value;
+    time.innerHTML=slots().map(t=>{
+      const off=hash(d+t)%5===0;
+      return `<option value="${t}"${off?' disabled':''}>${t}${off?' taken':''}</option>`;
+    }).join('');
+    const ok=[...time.options].find(o=>o.value===keep&&!o.disabled)||[...time.options].find(o=>!o.disabled);
+    if(ok) time.value=ok.value;
+  }
+  const pretty=v=>{const d=new Date(v+'T12:00:00');
+    return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});};
+  function upd(){
+    const p=+svc.selectedOptions[0].dataset.p;
+    total.textContent=p.toLocaleString('cs-CZ')+' Kč';
+    sum.textContent=`${svc.value}, ${pretty(date.value)} at ${time.value}, with José Luis`;
+  }
+  svc.addEventListener('change',upd);
+  time.addEventListener('change',upd);
+  date.addEventListener('change',()=>{fillTimes();upd();});
+  fillTimes(); upd();
+
+  const bar=document.querySelector('.bkb');
+  const phone_=()=>matchMedia('(max-width:1000px)').matches;
+  const step2=on=>{ panel.hidden=!on; go.textContent=on?'Reserving':(bar.hasAttribute('data-open')||!phone_()?'Continue':'Reserve');
+    if(on) name.focus(); };
+  go.addEventListener('click',()=>{
+    if(phone_()&&!bar.hasAttribute('data-open')){ bar.setAttribute('data-open',''); go.textContent='Continue'; return; }
+    step2(true);
+  });
+  back.addEventListener('click',()=>step2(false));
+  confirm.addEventListener('click',()=>{
+    if(!name.value.trim()||!phone.value.trim()){ (name.value.trim()?phone:name).focus(); return; }
+    const ref='MD8-'+date.value.replace(/-/g,'').slice(4)+'-'+time.value.replace(':','');
+    panel.hidden=true;
+    row.className='w bkb__ok';
+    row.innerHTML=`<b>${ref}</b><span>${svc.value}, ${pretty(date.value)} at ${time.value}. ${name.value.trim()}, we hold the chair.</span>`+
+      `<span style="opacity:.6">Proposal only, nothing was sent.</span>`;
+  });
 })();
 </script>
 </body>
