@@ -99,3 +99,28 @@ Both were regression-tested against a fixture that still trips them for the real
 The frosted-glass errors were real: every `backdrop-filter: blur()` was removed and the
 surfaces made more opaque instead. The build is `0 errors, 16 warnings`, the warnings being
 photo overlay gradients, the tilted marquee and the outlined wordmark, all deliberate.
+
+## Mobile pass, all Level 3 pages
+
+Audited in WebKit at 393x852 and 320x568, every page, scrolled to the bottom first.
+`tools/` note: the audit script lives in the session scratchpad, not the repo.
+
+Fixed:
+- The index could not fit its rows at 320. It wraps below 620px now.
+- Shop 3's price list forced a 320px track inside a padded shell, so it overflowed by 18px
+  at 320. `minmax(min(320px,100%),1fr)`.
+- Footer and contact links were 19 to 23px tall. Every one is a 44px hit box on a phone.
+- Copy at 11.5 and 12px in footers, captions and stat labels is 13px or more on a phone.
+- Gate 3's phone number in the gold bar was a 22px target. 44px, and the bar grows to fit.
+- Shop 7's portrait was pinned left and sat above the headline on a phone: an inline
+  `style="margin:0"` was beating the centring rule. The words come first now, then the
+  portrait, and the footer carries enough bottom padding that the badge covers nothing.
+- Shop 3's award seal still read "Zlatá firma", and the address still said Praha.
+
+Two audit false positives were fixed in the tool rather than accepted: elements clipped by an
+ancestor with `overflow:hidden` (shop 8's crossfading stage photographs sit at scale 1.04) are
+no longer reported as overflow.
+
+Final state: 16 page and size combinations, zero findings. slop-lint 0 errors. Every
+interactive claim retested on a phone: drawer, booking sheet full width, slot grid, lightbox
+with 48px controls, review slider, service switcher.

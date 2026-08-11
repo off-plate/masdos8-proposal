@@ -51,7 +51,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  padding:8px 8px 8px 14px;border-radius:999px;background:rgba(11,10,10,.88);
  border:1px solid var(--ln);transition:background .3s var(--ez)}
 .nav.pin{background:rgba(11,10,10,.97)}
-.nav__lg{display:flex;align-items:center;gap:9px}
+.nav__lg{display:flex;align-items:center;gap:9px;min-height:44px}
 .nav__lg img{height:38px;border-radius:50%;background:#fff;padding:2px}
 .nav__lg b{font-family:'Cl',sans-serif;font-weight:700;font-size:16px}
 .nav__l{display:flex;gap:20px;margin-inline:auto;font-size:16px}
@@ -64,7 +64,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* ---------------- HERO ---------------- */
 .hero{position:relative;min-height:100svh;padding:clamp(96px,13vh,150px) 0 clamp(30px,5vh,70px);
  display:grid;align-content:center;overflow:hidden;isolation:isolate}
-.hero__fig{position:absolute;right:2vw;bottom:0;width:min(44vw,600px);z-index:1;rotate:-2deg}
+.hero__fig{position:absolute;right:2vw;bottom:0;width:min(44vw,600px);z-index:1;rotate:-2deg;margin:0}
 .hero__fig img{width:100%;aspect-ratio:4/5.1;object-fit:cover;object-position:center 16%;
  -webkit-mask-image:radial-gradient(78% 88% at 52% 44%,#000 50%,rgba(0,0,0,.55) 74%,transparent 96%);
  mask-image:radial-gradient(78% 88% at 52% 44%,#000 50%,rgba(0,0,0,.55) 74%,transparent 96%)}
@@ -252,14 +252,26 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  .find{grid-template-columns:1fr}
 }
 @media (max-width:900px){
- .hero__fig{position:relative;right:auto;bottom:auto;width:min(78vw,420px);margin:22px auto 0;rotate:0deg}
+ /* on a phone the words come first and the portrait follows them */
+ .hero__fig{position:relative;right:auto;bottom:auto;width:min(78vw,420px);margin:26px auto 0;rotate:0deg;order:2}
+ .hero .w{order:1}
  .hero__in{max-width:none}.hero__word{font-size:44vw;bottom:34%}
+ .ft{padding-bottom:104px}
+ .spin{width:74px;height:74px}
  .ft__g{grid-template-columns:1fr}
  .gal{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto}
  .gal button{grid-column:span 1!important;grid-row:auto!important;aspect-ratio:1}
  .gal .wd,.gal .hf{grid-column:span 2!important;aspect-ratio:16/10}
  .rv{grid-template-columns:1fr}.rv__b{justify-content:flex-start}
  .sheet{grid-template-columns:0 1fr}
+}
+@media (max-width:900px){
+ /* phone sizing: nothing under 13px, nothing under a 44px hit box */
+ .hero__meta span,.ft__b,.gal__n,.svc__f{font-size:13px}
+ .ft__c{gap:0}
+ .ft__c a{display:flex;align-items:center;min-height:44px}
+ .find__r a{display:inline-flex;align-items:center;min-height:44px}
+ .rv__s cite,.tag span{font-size:13.5px}
 }
 @media (max-width:780px){.nav__l{display:none}.brg{display:grid}
  .drw{display:grid;position:fixed;inset:70px 14px auto;z-index:89;background:var(--bk2);border:1px solid var(--ln2);
@@ -280,7 +292,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <header class="hero">
   <span class="hero__word" data-sp="0.12">MASDOS8</span>
-  <figure class="hero__fig" style="margin:0" data-par="14"><img src="img/jose.webp" alt="José Luis" fetchpriority="high"></figure>
+  <figure class="hero__fig" data-par="14"><img src="img/jose.webp" alt="José Luis" fetchpriority="high"></figure>
 
   <span class="tag tag--1" data-par="34"><span>Classic cut</span><b>600</b></span>
   <span class="tag tag--2" data-par="26"><span>Cut &amp; beard</span><b>900</b></span>

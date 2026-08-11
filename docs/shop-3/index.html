@@ -91,7 +91,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .svc__p{font-family:'Os',sans-serif;font-weight:700;font-size:24px;color:var(--gold)}
 .svc__x{font-size:13.5px;color:var(--w-d)}
 
-.pl{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0 clamp(26px,4vw,80px)}
+.pl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:0 clamp(26px,4vw,80px)}
 .pl__r{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--ln)}
 .pl__r span{font-size:15.5px}.pl__r em{font-style:normal;display:block;font-size:12.5px;color:var(--w-d)}
 .pl__r b{font-family:'Os',sans-serif;font-weight:700;font-size:20px;color:var(--gold);white-space:nowrap}
@@ -165,6 +165,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  .drw a{padding:13px;font-family:'Os',sans-serif;font-size:18px;letter-spacing:.1em;text-transform:uppercase}
  .icons__g{grid-template-columns:1fr}.icons__c{border-right:0;border-bottom:1px solid var(--ln)}
  .ft__g{grid-template-columns:1fr}
+ /* thumbs, not cursors: every link in the footer gets a real hit box */
+ .ft__c a{display:flex;align-items:center;min-height:44px}
+ .ft__c{gap:0}
+ .ft__b{font-size:13px}
 }
 @media (prefers-reduced-motion:reduce){*{transition-duration:1ms!important}}
 </style>
@@ -189,7 +193,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 </div>
 
 <header class="hero"><div style="position:relative;z-index:2;padding-left:var(--pad)">
-  <p class="kk" data-rv>Nuselská 133/134 &middot; Praha 4</p>
+  <p class="kk" data-rv>Nuselská 133/134 &middot; Prague 4</p>
   <h1 class="os h1" data-rv style="--i:1;margin:14px 0 0">
     The chair is free.<br>Take a seat.
     
@@ -205,7 +209,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 </div>
 <figure class="hero__ph" style="margin:0" data-rv style="--i:2">
   <img src="img/shop1.webp" alt="Interiér MasDos8" fetchpriority="high">
-  <span class="seal"><b>2025</b><span>Zlatá firma</span></span>
+  <span class="seal"><b>2025</b><span>Golden Company</span></span>
 </figure>
 </header>
 
@@ -281,7 +285,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <section class="sec" id="kontakt" style="padding-top:0"><div class="w">
   <div class="hd"><p class="kk" data-rv>Contact</p>
-    <h2 class="os h2" data-rv style="--i:1">Nuselská 133/134, Praha 4</h2></div>
+    <h2 class="os h2" data-rv style="--i:1">Nuselská 133/134, Prague 4</h2></div>
   <div style="display:flex;gap:12px;flex-wrap:wrap" data-rv>
     <a class="bt bt--g" href="tel:+420773267463">+420 773 267 463</a>
     <a class="bt bt--o" href="https://maps.google.com/?cid=10234528977070182464" target="_blank" rel="noopener">Directions</a>
@@ -327,7 +331,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <div class="ft__c"><span style="display:flex;align-items:center;gap:10px"><img src="img/logo.png" alt="MasDos8" style="height:54px;border-radius:50%;background:#fff;padding:2px"><b class="os" style="font-size:19px;letter-spacing:.14em">MasDos8</b></span>
       <p style="margin-top:8px;max-width:30ch">Barber &amp; Tattoo, Nuselská 133/134, Prague 4. Daily from 09:00.</p></div>
     <div class="ft__c"><h4>Services</h4><a href="#cenik">Barbering</a><a href="../gate-3/">Tattoo</a><a href="../gate-3/">Permanent makeup</a></div>
-    <div class="ft__c"><h4>Where</h4><a href="https://maps.google.com/?cid=10234528977070182464" target="_blank" rel="noopener">Nuselská 133/134</a><span>140 00 Praha 4</span><span>3F32+VW</span></div>
+    <div class="ft__c"><h4>Where</h4><a href="https://maps.google.com/?cid=10234528977070182464" target="_blank" rel="noopener">Nuselská 133/134</a><span>140 00 Prague 4</span><span>3F32+VW</span></div>
     <div class="ft__c"><h4>Contact</h4><a href="tel:+420773267463">+420 773 267 463</a><a href="https://www.instagram.com/masdos8/" target="_blank" rel="noopener">@masdos8</a><a href="https://www.facebook.com/masdos8" target="_blank" rel="noopener">Facebook</a></div>
   </div>
   <div class="ft__b"><span>&copy; 2026 MasDos8 Barber &amp; Tattoo.</span><span>Design proposal by Off-Plate. Photography and logo are their own.</span></div>

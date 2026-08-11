@@ -25,7 +25,8 @@ img{display:block;max-width:100%}
  gap:16px;padding:9px clamp(14px,3vw,40px);background:var(--gold);color:var(--bk);height:var(--head)}
 .top b{font-family:'Bb',sans-serif;font-size:20px;letter-spacing:.14em}
 .top span{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-.top a{font-family:'Bb',sans-serif;font-size:17px;letter-spacing:.1em;border-bottom:2px solid var(--bk)}
+.top a{font-family:'Bb',sans-serif;font-size:17px;letter-spacing:.1em;display:flex;align-items:center;
+ min-height:44px;border-bottom:2px solid var(--bk)}
 
 /* ============================================================
    THE SEAM.
@@ -79,6 +80,7 @@ img{display:block;max-width:100%}
   .band__g{grid-template-columns:1fr;gap:12px}
   .band__r{justify-items:start;text-align:left}
   .top span{display:none}
+  .top{height:auto;min-height:52px}
 }
 @media (prefers-reduced-motion:reduce){*{transition-duration:1ms!important}}
 </style>

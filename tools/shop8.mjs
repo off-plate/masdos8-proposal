@@ -319,6 +319,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  .sw__b{background:rgba(14,13,12,.94)}
  .sw__k{display:none}
  .stage__lg b{display:none}
+ /* phone sizing: nothing under 13px, nothing under a 44px hit box */
+ .end__c{gap:0}
+ .end__c a{display:flex;align-items:center;min-height:44px}
+ .end__b{font-size:13px}
+ .stage__cap,.facts span,.led a em{font-size:13.5px}
 }
 @media (prefers-reduced-motion:reduce){*{transition-duration:1ms!important}}
 </style>
