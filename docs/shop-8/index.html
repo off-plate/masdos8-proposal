@@ -3,304 +3,282 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MasDos8 Barbershop, Prague 4. Everything on the diagonal</title>
+<title>MasDos8 Barbershop, Prague 4. Sit down</title>
 <meta name="description" content="Barbershop on Nuselská, Prague 4. Classic cut 600 CZK. 4.8 from 225 Google reviews. Golden Company 2025.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preload" href="fonts/panchang-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/ranade-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="img/logo.png">
 <style>
-@font-face{font-family:'Cl';src:url('fonts/panchang-600.woff2') format('woff2');font-weight:600;font-display:swap}
-@font-face{font-family:'Cl';src:url('fonts/panchang-700.woff2') format('woff2');font-weight:700;font-display:swap}
-@font-face{font-family:'Su';src:url('fonts/ranade-400.woff2') format('woff2');font-weight:400;font-display:swap}
-@font-face{font-family:'Su';src:url('fonts/ranade-500.woff2') format('woff2');font-weight:500;font-display:swap}
-:root{--bk:#0C0E12;--bk2:#141821;--g:#E8503A;--g2:#FF7A63;--w:#EFF2F6;--w-d:#8C95A3;
- --ln:rgba(239,242,246,.14);--ln2:rgba(232,80,58,.55);--pad:clamp(16px,3vw,58px);--shell:1720px;
- --ez:cubic-bezier(.22,.75,.28,1)}
+/* ============================================================
+   SHOP 8. A DIFFERENT ARCHITECTURE, NOT A RECOLOUR OF 07.
+   The page is a fixed left stage and a scrolling right column.
+   The photograph never scrolls: it cross-fades as you move
+   through the sections, and the booking action is pinned to it.
+   There is no hero-then-sections-then-footer stack.
+   ============================================================ */
+@font-face{font-family:'Pa';src:url('fonts/panchang-600.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Pa';src:url('fonts/panchang-700.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Ra';src:url('fonts/ranade-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Ra';src:url('fonts/ranade-500.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Ra';src:url('fonts/ranade-700.woff2') format('woff2');font-weight:700;font-display:swap}
+:root{--bk:#0E0D0C;--bk2:#171514;--paper:#EDE7DC;--paper2:#E2DACC;
+ --ink:#14120F;--ink-d:#6A6459;--red:#B4322A;--red2:#D2453B;
+ --ln:rgba(20,18,15,.16);--ez:cubic-bezier(.22,.75,.28,1)}
 *{margin:0;box-sizing:border-box}[hidden]{display:none!important}
 html{scroll-behavior:smooth}
-body{background:var(--bk);color:var(--w);font-family:'Su',system-ui,sans-serif;font-size:16px;line-height:1.62;
+body{background:var(--paper);color:var(--ink);font-family:'Ra',Georgia,serif;font-size:16.5px;line-height:1.62;
  -webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-:focus-visible{outline:2px solid var(--g2);outline-offset:4px}
-::selection{background:var(--g);color:#fff}
-.w{width:min(100% - 2*var(--pad),var(--shell));margin-inline:auto}
-.cl{font-family:'Cl',system-ui,sans-serif;font-weight:700;line-height:.92;letter-spacing:-.03em}
-.tx{color:var(--w-d);max-width:52ch}
-.kk{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--g)}
-[data-rv]{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ez),transform .7s var(--ez);transition-delay:calc(var(--i,0)*80ms)}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+::selection{background:var(--red);color:var(--paper)}
+.pa{font-family:'Pa',system-ui,sans-serif;font-weight:700;text-transform:uppercase;line-height:.94;letter-spacing:-.01em}
+.tx{color:var(--ink-d);max-width:50ch}
+.kk{font-family:'Pa',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--red)}
+[data-rv]{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ez),transform .7s var(--ez);transition-delay:calc(var(--i,0)*80ms)}
 [data-rv].in{opacity:1;transform:none}
-.bt{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:15px 28px;
- border-radius:0;font-family:'Cl',sans-serif;font-weight:600;font-size:15px;clip-path:polygon(9px 0,100% 0,calc(100% - 9px) 100%,0 100%);
- transition:transform .22s var(--ez),background .22s var(--ez),color .22s var(--ez),border-color .22s var(--ez)}
-.bt--g{background:var(--g);color:#0C0E12}.bt--g:hover{background:var(--g2);transform:translateY(-3px) rotate(-1.2deg)}
-.bt--o{border:1px solid var(--ln2);color:var(--w)}.bt--o:hover{border-color:var(--g2);color:var(--g2);transform:translateY(-3px) rotate(1.2deg)}
 
-/* nav floats, it is not a bar welded to the top */
-.nav{position:fixed;top:14px;left:14px;right:14px;z-index:90;display:flex;align-items:center;gap:16px;
- padding:8px 8px 8px 14px;border-radius:999px;background:rgba(11,10,10,.72);backdrop-filter:blur(14px);
- border:1px solid var(--ln);transition:background .3s var(--ez)}
-.nav.pin{background:rgba(11,10,10,.94)}
-.nav__lg{display:flex;align-items:center;gap:9px}
-.nav__lg img{height:38px;border-radius:50%;background:#fff;padding:2px}
-.nav__lg b{font-family:'Cl',sans-serif;font-weight:700;font-size:16px}
-.nav__l{display:flex;gap:20px;margin-inline:auto;font-size:14.5px}
-.nav__l a{color:var(--w-d)}.nav__l a:hover{color:var(--g2)}
-.brg{display:none;width:40px;height:40px;place-content:center;gap:5px;margin-left:auto}
-.brg span{display:block;width:20px;height:2px;background:var(--g);border-radius:2px}
-.drw{display:none}
+/* ---------- THE SPLIT ---------- */
+.split{display:grid;grid-template-columns:minmax(0,44fr) minmax(0,56fr);min-height:100dvh}
 
-/* ================= HERO: nothing sits in a box ================= */
-.hero{position:relative;min-height:100svh;padding:clamp(96px,13vh,150px) 0 clamp(30px,5vh,70px);
- display:grid;align-content:center;overflow:hidden;isolation:isolate}
-/* the portrait is feathered, tilted, and drifts with the pointer */
-.hero__fig{position:absolute;right:2vw;bottom:0;width:min(46vw,620px);z-index:1;rotate:-2deg}
-.hero__fig img{width:100%;aspect-ratio:4/5.1;object-fit:cover;object-position:center 16%;
- -webkit-mask-image:radial-gradient(78% 88% at 52% 44%,#000 50%,rgba(0,0,0,.55) 74%,transparent 96%);
- mask-image:radial-gradient(78% 88% at 52% 44%,#000 50%,rgba(0,0,0,.55) 74%,transparent 96%)}
-/* the giant word runs behind everything and off the left edge */
-.hero__word{position:absolute;left:-3vw;top:44%;transform:skewY(-3deg);z-index:0;font-family:'Cl',sans-serif;font-weight:700;
- font-size:min(27vw,330px);line-height:.78;color:transparent;-webkit-text-stroke:1.4px rgba(232,80,58,.4);
- white-space:nowrap;pointer-events:none;user-select:none}
-.hero__in{position:relative;z-index:3;max-width:min(52ch,46vw)}
-.hero__h{font-size:clamp(38px,6.4vw,104px)}
-.hero__h i{font-style:normal;color:var(--g)}
-/* the price tags: scattered, rotated, off any grid, each drifting a different amount */
-.tag{position:absolute;z-index:4;display:inline-flex;align-items:baseline;gap:9px;
- background:rgba(20,24,33,.92);border:1px solid var(--ln2);border-radius:0;padding:10px 18px;
- clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
- backdrop-filter:blur(8px);box-shadow:0 14px 34px rgba(0,0,0,.5);white-space:nowrap;
- transition:transform .25s var(--ez),border-color .25s var(--ez)}
-.tag b{font-family:'Cl',sans-serif;font-weight:700;font-size:16px;color:var(--g2)}
-.tag span{font-size:13.5px;color:var(--w-d)}
-.tag:hover{border-color:var(--g2);transform:scale(1.06) rotate(0deg)!important}
-.tag--1{right:34%;top:13%;rotate:-6deg}
-.tag--2{right:3%;top:27%;rotate:4deg}
-.tag--3{right:37%;bottom:22%;rotate:3deg}
-.tag--4{right:9%;bottom:9%;rotate:-4deg}
-.tag--5{right:28%;top:52%;rotate:-2deg}
-@media (max-width:1200px){.tag{display:none}}
-.hero__act{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-.hero__meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:28px}
-.hero__meta b{display:block;font-family:'Cl',sans-serif;font-weight:700;font-size:27px;line-height:1;color:var(--g2);font-variant-numeric:tabular-nums}
-.hero__meta span{display:block;font-size:12px;color:var(--w-d)}
+/* LEFT: fixed, never scrolls, the photograph cross-fades */
+.stage{position:sticky;top:0;height:100dvh;background:var(--bk);overflow:hidden;isolation:isolate}
+.stage__ph{position:absolute;inset:0}
+.stage__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;
+ opacity:0;transition:opacity 1s var(--ez),transform 6s linear;transform:scale(1.04)}
+.stage__ph img.on{opacity:1;transform:scale(1)}
+.stage::after{content:'';position:absolute;inset:0;z-index:1;
+ background:linear-gradient(180deg,rgba(14,13,12,.68) 0%,rgba(14,13,12,.26) 40%,rgba(14,13,12,.9) 100%)}
+.stage__in{position:relative;z-index:2;height:100%;display:grid;align-content:space-between;
+ padding:clamp(20px,2.4vw,42px)}
+.stage__lg{display:flex;align-items:center;gap:10px;color:var(--paper)}
+.stage__lg img{height:46px;border-radius:50%;background:#fff;padding:2px}
+.stage__lg b{font-family:'Pa',sans-serif;font-weight:700;font-size:17px;letter-spacing:.1em}
+.stage__mid{display:grid;gap:10px;align-content:center;color:var(--paper)}
+.stage__num{font-family:'Pa',sans-serif;font-weight:700;font-size:clamp(46px,6.4vw,104px);line-height:.9;color:var(--paper)}
+.stage__cap{font-size:13.5px;color:rgba(237,231,220,.66);max-width:30ch}
+.stage__foot{display:grid;gap:12px;color:var(--paper)}
+.stage__act{display:flex;gap:10px;flex-wrap:wrap}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:14px 24px;
+ font-family:'Pa',sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+ border:1px solid transparent;transition:background .2s var(--ez),color .2s var(--ez),border-color .2s var(--ez),transform .2s var(--ez)}
+.bt--r{background:var(--red);color:var(--paper)}.bt--r:hover{background:var(--red2);transform:translateY(-2px)}
+.bt--l{border-color:rgba(237,231,220,.4);color:var(--paper)}.bt--l:hover{background:var(--paper);color:var(--ink)}
+.bt--d{border-color:var(--ln);color:var(--ink)}.bt--d:hover{background:var(--ink);color:var(--paper)}
+/* a progress hairline showing where you are in the page */
+.prog{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(237,231,220,.18);z-index:3}
+.prog i{display:block;height:100%;width:0;background:var(--red)}
 
-/* the marquee, tilted so it cuts the page */
-.mqw{overflow:hidden;position:relative;z-index:5}
-.mq{background:var(--g);color:#0C0E12;overflow:hidden;padding:11px 0;rotate:-1.4deg;
- width:106%;margin-left:-3%;position:relative;z-index:5}
-.mq__t{display:flex;gap:34px;width:max-content;animation:mq 28s linear infinite}
-.mq__t span{font-family:'Cl',sans-serif;font-weight:700;font-size:19px;white-space:nowrap}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.mq__t{animation:none}}
+/* RIGHT: the scrolling column. Rows, not cards. */
+.flow{background:var(--paper);min-width:0}
+.step{padding:clamp(46px,7vh,96px) clamp(22px,4vw,80px);border-bottom:1px solid var(--ln);position:relative;min-width:0}
+.step:last-of-type{border-bottom:0}
+.step__n{position:absolute;right:clamp(18px,3vw,54px);top:clamp(22px,3vh,40px);
+ font-family:'Pa',sans-serif;font-weight:700;font-size:13px;color:var(--red);letter-spacing:.14em}
+.step h2{font-family:'Pa',sans-serif;font-weight:700;text-transform:uppercase;line-height:.96;
+ font-size:clamp(28px,3.6vw,58px);letter-spacing:-.01em;margin:12px 0 14px;max-width:16ch}
+.step h2 i{font-style:normal;color:var(--red)}
 
-.sec{position:relative;padding-block:clamp(56px,8vw,130px)}
-/* the house move: bands are sliced, never squared off */
-.slice{position:relative;background:var(--bk2);padding-block:clamp(64px,9vw,150px);margin-block:clamp(20px,3vw,50px);
- clip-path:polygon(0 4.5vw,100% 0,100% calc(100% - 4.5vw),0 100%)}
-.slice--r{clip-path:polygon(0 0,100% 4.5vw,100% 100%,0 calc(100% - 4.5vw))}
-/* the barber-pole stripe, live and moving, as the page's own texture */
-.pole{position:absolute;inset:0;pointer-events:none;opacity:.13;
- background:repeating-linear-gradient(115deg,var(--g) 0 16px,transparent 16px 48px);
- animation:pole 3.4s linear infinite}
-@keyframes pole{to{background-position:52px 0}}
-@media (prefers-reduced-motion:reduce){.pole{animation:none}}
-/* section heads sit off-axis, not centred and not flush */
-.hd{display:grid;gap:12px;margin-bottom:clamp(24px,3.4vw,52px);max-width:44ch}
-.hd--in{margin-left:clamp(0px,14vw,240px)}
+/* the price ledger: a real list, ruled, with the number doing the work */
+.led{display:grid;margin-top:8px}
+.led a{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;padding:14px 0;
+ border-top:1px solid var(--ln);transition:padding-left .28s var(--ez),color .28s var(--ez)}
+.led a:last-child{border-bottom:1px solid var(--ln)}
+.led a:hover{padding-left:12px;color:var(--red)}
+.led a span{font-size:16px}
+.led a em{font-style:normal;display:block;font-size:12.5px;color:var(--ink-d)}
+.led a b{font-family:'Pa',sans-serif;font-weight:700;font-size:22px;font-variant-numeric:tabular-nums;white-space:nowrap}
 
-/* the work: plates at different sizes and angles, overlapping, never a grid */
-.plates{position:relative;min-height:clamp(520px,58vw,860px)}
-.plates a{position:absolute;display:block;overflow:hidden;border-radius:0;outline:1px solid rgba(239,242,246,.18);
- box-shadow:0 24px 60px rgba(0,0,0,.72);transition:transform .5s var(--ez),z-index 0s}
-.plates img{width:100%;height:100%;object-fit:cover}
-.plates a:hover{transform:scale(1.05);rotate:0deg!important;z-index:9}
-.plates a:nth-child(1){left:0;top:4%;width:31%;aspect-ratio:3/4;rotate:-5deg}
-.plates a:nth-child(2){left:27%;top:32%;width:26%;aspect-ratio:1;rotate:3.5deg;z-index:3}
-.plates a:nth-child(3){right:22%;top:0;width:29%;aspect-ratio:4/5;rotate:2.5deg}
-.plates a:nth-child(4){right:0;top:38%;width:24%;aspect-ratio:3/4;rotate:-3.5deg;z-index:2}
-.plates a:nth-child(5){left:8%;bottom:0;width:27%;aspect-ratio:4/3;rotate:2.5deg;z-index:4}
-.plates a:nth-child(6){right:26%;bottom:2%;width:25%;aspect-ratio:4/3;rotate:-2.5deg;z-index:5}
+/* the strip: drag sideways, inside the column, so the page never grids */
+.strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;
+ margin-right:calc(-1*clamp(22px,4vw,80px));scrollbar-width:none;cursor:grab}
+.strip::-webkit-scrollbar{display:none}
+.strip.grab{cursor:grabbing}
+.strip figure{margin:0;flex:0 0 clamp(180px,22vw,260px);scroll-snap-align:start;position:relative;overflow:hidden}
+.strip img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform .5s var(--ez)}
+.strip figure:hover img{transform:scale(1.05)}
+
+/* quotes: hanging indents, no boxes */
+.qs{display:grid;gap:26px;margin-top:6px}
+.qs blockquote{margin:0;padding-left:26px;border-left:2px solid var(--red)}
+.qs p{font-size:17px;line-height:1.5}
+.qs cite{font-style:normal;display:block;margin-top:7px;font-family:'Pa',sans-serif;font-weight:600;
+ font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-d)}
+
+.facts{display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,52px);margin-top:6px}
+.facts b{display:block;font-family:'Pa',sans-serif;font-weight:700;font-size:clamp(28px,3.2vw,46px);line-height:1;
+ color:var(--red);font-variant-numeric:tabular-nums}
+.facts span{display:block;font-size:12.5px;color:var(--ink-d)}
+
+.end{background:var(--bk);color:var(--paper);padding:clamp(34px,5vw,64px) clamp(22px,4vw,80px)}
+.end a{color:var(--paper)}
+.end h4{font-family:'Pa',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--red2);margin-bottom:10px}
+.end__g{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.end__c{display:grid;gap:7px;font-size:14.5px;color:rgba(237,231,220,.7)}
+.end__b{border-top:1px solid rgba(237,231,220,.18);margin-top:26px;padding-top:16px;font-size:11.5px;color:rgba(237,231,220,.5)}
+
+/* mobile: the stage stops being fixed and becomes one plate at the top */
 @media (max-width:900px){
- .plates{min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
- .plates a{position:static;width:auto;rotate:0deg!important;aspect-ratio:3/4!important}
+ .split{grid-template-columns:1fr}
+ .stage{position:relative;height:auto;min-height:74svh}
+ .stage__in{min-height:74svh}
+ .strip{margin-right:0}
+ .end__g{grid-template-columns:1fr}
 }
-/* a vertical word running down the side of the work */
-.vword{position:absolute;right:-1.5vw;top:16%;writing-mode:vertical-rl;font-family:'Cl',sans-serif;font-weight:700;
- font-size:clamp(38px,5.6vw,86px);color:transparent;-webkit-text-stroke:1.2px rgba(239,242,246,.22);
- letter-spacing:.02em;pointer-events:none;user-select:none;z-index:0}
-@media (max-width:900px){.vword{display:none}}
-
-/* price list as a loose ledger, rows shifted */
-.led{display:grid;gap:2px;max-width:960px;margin-left:auto}
-.led__r{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;padding:15px 24px;
- border:1px solid var(--ln);border-radius:0;background:rgba(20,24,33,.66);
- clip-path:polygon(14px 0,100% 0,calc(100% - 14px) 100%,0 100%);
- transition:transform .28s var(--ez),border-color .28s var(--ez),background .28s var(--ez)}
-.led__r:nth-child(odd){margin-right:clamp(0px,7vw,120px)}
-.led__r:nth-child(even){margin-left:clamp(0px,7vw,120px)}
-.led__r:hover{border-color:var(--g2);background:rgba(232,80,58,.14);transform:translateX(10px)}
-.led__r span{font-size:15.5px}
-.led__r em{font-style:normal;display:block;font-size:12.5px;color:var(--w-d)}
-.led__r b{font-family:'Cl',sans-serif;font-weight:700;font-size:21px;color:var(--g2);white-space:nowrap}
-
-/* the spinning book badge, fixed, the one persistent motion */
-.spin{position:fixed;right:18px;bottom:18px;z-index:85;width:104px;height:104px;display:grid;place-items:center;
- border-radius:50%;background:var(--g);color:#0C0E12;box-shadow:0 14px 40px rgba(232,80,58,.36);
- transition:transform .3s var(--ez)}
-.spin:hover{transform:scale(1.07)}
-.spin svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 14s linear infinite}
-.spin text{font-family:'Cl',sans-serif;font-weight:700;font-size:11.4px;letter-spacing:.16em;fill:#0C0E12}
-.spin b{font-family:'Cl',sans-serif;font-weight:700;font-size:23px;line-height:1}
-@keyframes spin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.spin svg{animation:none}}
-@media (max-width:780px){.spin{width:78px;height:78px}.spin b{font-size:18px}}
-
-.rvs{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:clamp(16px,2.4vw,34px)}
-.rvs blockquote{margin:0;display:grid;gap:11px}
-.rvs blockquote:nth-child(2){transform:translateY(clamp(14px,3vw,44px))}
-.rvs blockquote:nth-child(3){transform:translateY(clamp(-18px,-2vw,0px))}
-.rvs p{font-family:'Cl',sans-serif;font-weight:600;font-size:17.5px;line-height:1.4}
-.rvs cite{font-style:normal;font-size:13px;color:var(--w-d)}
-.rvs .st{color:var(--g);letter-spacing:.16em;font-size:13px}
-
-.ft{border-top:1px solid var(--ln);padding-block:clamp(32px,4.4vw,60px);margin-top:clamp(30px,4vw,60px)}
-.ft__g{display:grid;grid-template-columns:1.7fr 1fr 1.2fr;gap:clamp(18px,3vw,44px)}
-.ft h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin-bottom:11px}
-.ft__c{display:grid;gap:8px;align-content:start;font-size:14.5px;color:var(--w-d)}
-.ft__c a:hover{color:var(--w)}
-.ft__b{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid var(--ln);
- margin-top:clamp(20px,2.6vw,36px);padding-top:16px;font-size:12px;color:var(--w-d)}
-@media (max-width:900px){
- .hero__fig{position:relative;right:auto;bottom:auto;width:min(78vw,420px);margin:22px auto 0;rotate:0deg}
- .hero__in{max-width:none}.hero__word{font-size:44vw;top:auto;bottom:34%}
- .hd--in{margin-left:0}.ft__g{grid-template-columns:1fr}
- .led__r{margin:0!important}
- .rvs blockquote{transform:none!important}
-}
-@media (max-width:780px){.nav__l{display:none}.brg{display:grid}
- .drw{display:grid;position:fixed;inset:70px 14px auto;z-index:89;background:var(--bk2);border:1px solid var(--ln2);
-  border-radius:20px;padding:10px;gap:2px}
- .drw[hidden]{display:none}
- .drw a{padding:14px;border-radius:14px;font-family:'Cl',sans-serif;font-weight:600;font-size:17px}}
+@media (prefers-reduced-motion:reduce){*{transition-duration:1ms!important}}
 </style>
 </head>
 <body>
 
-<nav class="nav" data-pin>
-  <a class="nav__lg" href="../gate-3/"><img src="img/logo.png" alt="MasDos8"><b>MasDos8</b></a>
-  <div class="nav__l"><a href="#work">Work</a><a href="#prices">Prices</a><a href="#said">Reviews</a><a href="#find">Find us</a></div>
-  <a class="bt bt--g" href="#book" style="min-height:40px;padding:11px 20px">Book</a>
-  <button class="brg" data-menu="#drw" aria-expanded="false" aria-label="Menu"><span></span><span></span></button>
-</nav>
-<div class="drw" id="drw" hidden><a href="#work">Work</a><a href="#prices">Prices</a><a href="#said">Reviews</a><a href="#find">Find us</a><a href="tel:+420773267463">+420 773 267 463</a></div>
+<div class="split">
 
-<header class="hero">
-  <span class="hero__word" data-sp="0.14">MASDOS8</span>
-  <figure class="hero__fig" style="margin:0" data-par="14"><img src="img/jose.webp" alt="José Luis" fetchpriority="high"></figure>
-
-  <span class="tag tag--1" data-par="34"><span>Classic cut</span><b>600</b></span>
-  <span class="tag tag--2" data-par="26"><span>Cut &amp; beard</span><b>900</b></span>
-  <span class="tag tag--3" data-par="42"><span>Beard trim</span><b>250</b></span>
-  <span class="tag tag--4" data-par="20"><span>Full service</span><b>1 100</b></span>
-  <span class="tag tag--5" data-par="30"><span>Kids</span><b>300</b></span>
-
-  <div class="w hero__in">
-    <p class="kk" data-rv>Nuselská 133/134 &middot; Prague 4 &middot; open from 09:00</p>
-    <h1 class="cl hero__h" data-rv style="--i:1;margin:14px 0 16px">Straight lines<br>are for<br><i>the clippers.</i></h1>
-    <p class="tx" data-rv style="--i:2">Everything on this page is cut on an angle except the fade. José Luis, one chair, Nuselská 133/134.</p>
-    <div class="hero__act" data-rv style="--i:3">
-      <a class="bt bt--g" href="#book">Book a chair</a>
-      <a class="bt bt--o" href="#work">See the work</a>
+  <!-- LEFT: fixed stage -->
+  <aside class="stage">
+    <div class="stage__ph">
+      <img class="on" data-stage="0" src="img/jose.webp" alt="José Luis" fetchpriority="high">
+      <img data-stage="1" src="img/cut9.webp" alt="A cut in progress">
+      <img data-stage="2" src="img/cut6.webp" alt="Finishing the fade">
+      <img data-stage="3" src="img/shop1.webp" alt="The room on Nuselská">
+      <img data-stage="4" src="img/cut2.webp" alt="Detail">
     </div>
-    <div class="hero__meta" data-rv style="--i:4">
-      <div><b class="num" data-count="4.8" data-dec="1">0</b><span>Google, 225 reviews</span></div>
-      <div><b>2025</b><span>Golden Company laureate</span></div>
-      <div><b class="num" data-count="1752">0</b><span>@masdos8</span></div>
+    <div class="stage__in">
+      <a class="stage__lg" href="../gate-2/"><img src="img/logo.png" alt="MasDos8"><b>MasDos8</b></a>
+      <div class="stage__mid">
+        <p class="kk" style="color:var(--red2)">Nuselská 133/134 &middot; Prague 4</p>
+        <div class="stage__num" id="stage-t">Sit down</div>
+        <p class="stage__cap" id="stage-c">One chair, one man, and a price list you can read before you commit to anything.</p>
+      </div>
+      <div class="stage__foot">
+        <div class="facts" style="gap:24px">
+          <div><b style="color:var(--paper)" class="num" data-count="4.8" data-dec="1">0</b><span style="color:rgba(237,231,220,.6)">Google, 225 reviews</span></div>
+          <div><b style="color:var(--paper)">2025</b><span style="color:rgba(237,231,220,.6)">Golden Company</span></div>
+        </div>
+        <div class="stage__act">
+          <a class="bt bt--r" href="https://wa.me/420773267463?text=Hello%20MasDos8%2C%20I%20would%20like%20to%20book." target="_blank" rel="noopener">Book a chair</a>
+          <a class="bt bt--l" href="tel:+420773267463">+420 773 267 463</a>
+        </div>
+      </div>
     </div>
-  </div>
-</header>
+    <div class="prog"><i id="prog"></i></div>
+  </aside>
 
-<div class="mqw"><div class="mq" aria-hidden="true"><div class="mq__t">
-  <span>Classic cut 600</span><span>&#9670;</span><span>Cut &amp; beard 900</span><span>&#9670;</span><span>Beard trim 250</span><span>&#9670;</span><span>Full service 1 100</span><span>&#9670;</span>
-  <span>Classic cut 600</span><span>&#9670;</span><span>Cut &amp; beard 900</span><span>&#9670;</span><span>Beard trim 250</span><span>&#9670;</span><span>Full service 1 100</span><span>&#9670;</span>
-  <span>Classic cut 600</span><span>&#9670;</span><span>Cut &amp; beard 900</span><span>&#9670;</span><span>Beard trim 250</span><span>&#9670;</span><span>Full service 1 100</span><span>&#9670;</span>
-</div></div></div>
+  <!-- RIGHT: the scrolling column -->
+  <main class="flow">
 
-<section class="sec" id="work"><div class="w">
-  <div class="hd hd--in">
-    <p class="kk" data-rv>The work</p>
-    <h2 class="cl" data-rv style="--i:1;font-size:clamp(28px,4vw,62px)">Everything here left this room</h2>
-    <p class="tx" data-rv style="--i:2">Their own photographs, not stock. Drag your eye across, nothing lines up on purpose.</p>
-  </div>
-  <div class="plates">
-    <span class="vword">CUTS</span>
-    <a href="#book" data-rv data-sp="0.05"><img src="img/cut2-s.webp" alt="" loading="lazy"></a>
-    <a href="#book" data-rv style="--i:1" data-sp="0.1"><img src="img/cut6-s.webp" alt="" loading="lazy"></a>
-    <a href="#book" data-rv style="--i:2" data-sp="0.07"><img src="img/cut9-s.webp" alt="" loading="lazy"></a>
-    <a href="#book" data-rv style="--i:3" data-sp="0.12"><img src="img/cut10-s.webp" alt="" loading="lazy"></a>
-    <a href="#book" data-rv style="--i:4" data-sp="0.06"><img src="img/cut8-s.webp" alt="" loading="lazy"></a>
-    <a href="#book" data-rv style="--i:5" data-sp="0.09"><img src="img/fade-s.webp" alt="" loading="lazy"></a>
-  </div>
-</div></section>
+    <section class="step" data-stage="0">
+      <span class="step__n">01</span>
+      <p class="kk">The barber</p>
+      <h2>You are booking <i>a person</i>, not a slot</h2>
+      <p class="tx">José Luis cuts, shapes and finishes. He also tattoos, which is unusual and is the reason people describe him as an artist rather than a barber. Nobody hands you on halfway through.</p>
+      <div class="facts" style="margin-top:22px">
+        <div><b class="num" data-count="225">0</b><span>People left a review</span></div>
+        <div><b class="num" data-count="1752">0</b><span>Follow on Instagram</span></div>
+        <div><b>13 h</b><span>Open, every day</span></div>
+      </div>
+    </section>
 
-<section class="sec slice" id="prices"><span class="pole"></span><div class="w">
-  <div class="hd">
-    <p class="kk" data-rv>Prices</p>
-    <h2 class="cl" data-rv style="--i:1;font-size:clamp(28px,4vw,62px)">Written down, on the slant</h2>
-  </div>
-  <div class="led">
-    <a class="led__r" href="#book" data-rv><span>Classic adult cut<em>Contours, brows, ears, cologne and a drink</em></span><b>600 Kč</b></a>
-    <a class="led__r" href="#book" data-rv style="--i:1"><span>Cut, wash and massage</span><b>700 Kč</b></a>
-    <a class="led__r" href="#book" data-rv style="--i:2"><span>Cut, wash and beard</span><b>900 Kč</b></a>
-    <a class="led__r" href="#book" data-rv style="--i:3"><span>Full service<em>Everything together, unhurried</em></span><b>1 100 Kč</b></a>
-    <a class="led__r" href="#book" data-rv style="--i:4"><span>Beard trim<em>Plus a drink on the house</em></span><b>250 Kč</b></a>
-    <a class="led__r" href="#book" data-rv style="--i:5"><span>Beard colour</span><b>200 Kč</b></a>
-    <a class="led__r" href="#book" data-rv style="--i:6"><span>Hair ornaments</span><b>100 Kč</b></a>
-    <a class="led__r" href="#book" data-rv style="--i:7"><span>Kids under 5<em>Free coffee for the parent</em></span><b>300 Kč</b></a>
-    <a class="led__r" href="#book" data-rv style="--i:8"><span>Kids 6 to 12</span><b>400 Kč</b></a>
-    <a class="led__r" href="#book" data-rv style="--i:9"><span>Dreadlocks</span><b>2 500 Kč</b></a>
-  </div>
-</div></section>
+    <section class="step" data-stage="1">
+      <span class="step__n">02</span>
+      <p class="kk">The list</p>
+      <h2>Every price, <i>before</i> you sit</h2>
+      <div class="led">
+        <a href="#book"><span>Classic adult cut<em>Contours, brows, ears, cologne and a drink</em></span><b>600</b></a>
+        <a href="#book"><span>Cut, wash and massage</span><b>700</b></a>
+        <a href="#book"><span>Cut, wash and beard</span><b>900</b></a>
+        <a href="#book"><span>Full service<em>Everything together, unhurried</em></span><b>1 100</b></a>
+        <a href="#book"><span>Beard trim<em>Plus a drink on the house</em></span><b>250</b></a>
+        <a href="#book"><span>Beard colour</span><b>200</b></a>
+        <a href="#book"><span>Hair ornaments</span><b>100</b></a>
+        <a href="#book"><span>Kids under 5<em>Free coffee for the parent</em></span><b>300</b></a>
+        <a href="#book"><span>Kids 6 to 12</span><b>400</b></a>
+        <a href="#book"><span>Dreadlocks</span><b>2 500</b></a>
+      </div>
+    </section>
 
-<section class="sec slice slice--r" id="said"><span class="pole"></span><div class="w">
-  <div class="hd hd--in"><p class="kk" data-rv>4.8 from 225 on Google</p>
-    <h2 class="cl" data-rv style="--i:1;font-size:clamp(28px,4vw,62px)">In their words</h2></div>
-  <div class="rvs">
-    <blockquote data-rv><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"Best barbershop I've been. Jose Luis knows what he is doing, the hair and beard looks amazing. Jose is a true artist."</p><cite>Rafael Frías &middot; Google</cite></blockquote>
-    <blockquote data-rv style="--i:1"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"If you are a man worth your beard, you must visit José. This is the first time I've come out of a barbershop happy."</p><cite>Swatchhanda Kher &middot; Google</cite></blockquote>
-    <blockquote data-rv style="--i:2"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"I felt very well treated and happy to connect with the Latino community, felt like home. Recommended 100%."</p><cite>Edicson Nieto &middot; Google</cite></blockquote>
-  </div>
-</div></section>
+    <section class="step" data-stage="2">
+      <span class="step__n">03</span>
+      <p class="kk">The work</p>
+      <h2>Out of <i>this room</i></h2>
+      <p class="tx" style="margin-bottom:20px">Their own photographs. Drag sideways.</p>
+      <div class="strip" data-drag>
+        <figure><img src="img/cut2-s.webp" alt="" loading="lazy"></figure>
+        <figure><img src="img/cut6-s.webp" alt="" loading="lazy"></figure>
+        <figure><img src="img/cut8-s.webp" alt="" loading="lazy"></figure>
+        <figure><img src="img/cut9-s.webp" alt="" loading="lazy"></figure>
+        <figure><img src="img/cut10-s.webp" alt="" loading="lazy"></figure>
+        <figure><img src="img/fade-s.webp" alt="" loading="lazy"></figure>
+      </div>
+    </section>
 
-<section class="sec" id="find" style="padding-top:0"><div class="w">
-  <div class="hd"><p class="kk" data-rv>Find us</p>
-    <h2 class="cl" data-rv style="--i:1;font-size:clamp(28px,4vw,62px)">Nuselská 133/134, Prague 4</h2>
-    <p class="tx" data-rv style="--i:2">Open every day from nine in the morning. Call ahead on a first visit and José meets you at the door.</p></div>
-  <div style="display:flex;gap:12px;flex-wrap:wrap" data-rv>
-    <a class="bt bt--g" href="tel:+420773267463">+420 773 267 463</a>
-    <a class="bt bt--o" href="https://maps.google.com/?cid=10234528977070182464" target="_blank" rel="noopener">Directions</a>
-    <a class="bt bt--o" href="https://www.instagram.com/masdos8/" target="_blank" rel="noopener">Instagram</a>
-  </div>
-</div></section>
+    <section class="step" data-stage="3">
+      <span class="step__n">04</span>
+      <p class="kk">4.8 from 225 on Google</p>
+      <h2>What they <i>actually</i> wrote</h2>
+      <div class="qs">
+        <blockquote><p>"Best barbershop I've been. Jose Luis knows what he is doing, the hair and beard looks amazing. Jose is a true artist."</p><cite>Rafael Frías</cite></blockquote>
+        <blockquote><p>"If you are a man worth your beard, you must visit José. This is the first time I've come out of a barbershop happy."</p><cite>Swatchhanda Kher</cite></blockquote>
+        <blockquote><p>"I felt very well treated and happy to connect with the Latino community, felt like home. Recommended 100%."</p><cite>Edicson Nieto</cite></blockquote>
+      </div>
+    </section>
 
-<a class="spin" id="book" href="https://wa.me/420773267463?text=Hello%20MasDos8%2C%20I%20would%20like%20to%20book%20a%20chair." target="_blank" rel="noopener" aria-label="Book on WhatsApp">
-  <svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="c" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"/></defs>
-    <text><textPath href="#c">BOOK A CHAIR &middot; MASDOS8 &middot; PRAHA 4 &middot; </textPath></text></svg>
-  <b>&rarr;</b>
-</a>
+    <section class="step" data-stage="4" id="book">
+      <span class="step__n">05</span>
+      <p class="kk">Getting there</p>
+      <h2>Nuselská 133/134, <i>Prague 4</i></h2>
+      <p class="tx">Open every day from nine in the morning. Call ahead on a first visit and José meets you at the door. Tattoo and permanent makeup are booked the same way.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
+        <a class="bt bt--r" href="https://wa.me/420773267463?text=Hello%20MasDos8%2C%20I%20would%20like%20to%20book." target="_blank" rel="noopener">Book on WhatsApp</a>
+        <a class="bt bt--d" href="https://maps.google.com/?cid=10234528977070182464" target="_blank" rel="noopener">Directions</a>
+        <a class="bt bt--d" href="https://www.instagram.com/masdos8/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </section>
 
-<footer class="ft"><div class="w">
-  <div class="ft__g">
-    <div class="ft__c"><span style="display:flex;align-items:center;gap:10px"><img src="img/logo.png" alt="MasDos8" style="height:50px;border-radius:50%;background:#fff;padding:2px"><b class="cl" style="font-size:19px">MasDos8</b></span>
-      <p style="margin-top:8px;max-width:30ch">Barber &amp; Tattoo. Nuselská 133/134, Prague 4. Open daily from 09:00.</p></div>
-    <div class="ft__c"><h4>More</h4><a href="../gate-3/">Tattoo</a><a href="../gate-3/">Permanent makeup</a><a href="#prices">Barbering</a></div>
-    <div class="ft__c"><h4>Contact</h4><a href="tel:+420773267463">+420 773 267 463</a><a href="https://maps.google.com/?cid=10234528977070182464" target="_blank" rel="noopener">Nuselská 133/134, Prague 4</a><a href="https://www.instagram.com/masdos8/" target="_blank" rel="noopener">@masdos8</a></div>
-  </div>
-  <div class="ft__b"><span>&copy; 2026 MasDos8 Barber &amp; Tattoo.</span><span>Design proposal by Off-Plate. Photography and logo are their own.</span></div>
-</div></footer>
+    <footer class="end">
+      <div class="end__g">
+        <div class="end__c"><h4>MasDos8</h4>
+          <span>Barber &amp; Tattoo</span><span>Nuselská 133/134, 140 00 Prague 4</span><span>Open daily from 09:00</span></div>
+        <div class="end__c"><h4>Contact</h4>
+          <a href="tel:+420773267463">+420 773 267 463</a>
+          <a href="https://www.instagram.com/masdos8/" target="_blank" rel="noopener">@masdos8</a>
+          <a href="../gate-2/">Tattoo and permanent makeup</a></div>
+      </div>
+      <div class="end__b">&copy; 2026 MasDos8 Barber &amp; Tattoo. Design proposal by Off-Plate. Photography and logo are their own.</div>
+    </footer>
+
+  </main>
+</div>
 
 <script src="motion.js" defer></script>
+<script>
+(()=>{
+  // the fixed stage reacts to which step is in view: photo, headline and caption all change
+  const COPY=[
+    ['Sit down','One chair, one man, and a price list you can read before you commit to anything.'],
+    ['The list','Ten services, ten numbers, all of them published by the shop itself.'],
+    ['The work','Real cuts from this room, photographed by them, not bought from a library.'],
+    ['The room','Nuselská 133/134. Four point eight from two hundred and twenty five people.'],
+    ['Come in','Open nine until ten, every day of the week.']
+  ];
+  const imgs=[...document.querySelectorAll('.stage__ph img')];
+  const steps=[...document.querySelectorAll('.step')];
+  const t=document.getElementById('stage-t'),c=document.getElementById('stage-c'),prog=document.getElementById('prog');
+  let cur=-1;
+  const show=i=>{
+    if(i===cur)return; cur=i;
+    imgs.forEach(m=>m.classList.toggle('on',+m.dataset.stage===i));
+    if(COPY[i]){t.textContent=COPY[i][0];c.textContent=COPY[i][1];}
+  };
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting) show(+e.target.dataset.stage); });
+  },{rootMargin:'-45% 0px -45% 0px'});
+  steps.forEach(s=>io.observe(s));
+  show(0);
+  addEventListener('scroll',()=>{
+    const h=document.documentElement.scrollHeight-innerHeight;
+    prog.style.width=(h>0?Math.min(scrollY/h,1)*100:0)+'%';
+  },{passive:true});
+})();
+</script>
 </body>
 </html>
