@@ -124,3 +124,9 @@ no longer reported as overflow.
 Final state: 16 page and size combinations, zero findings. slop-lint 0 errors. Every
 interactive claim retested on a phone: drawer, booking sheet full width, slot grid, lightbox
 with 48px controls, review slider, service switcher.
+
+## Gate 3 cut, 2026-08-12
+
+Michael dropped it after seeing the interlocking seam working. **Gate 2 is the only gateway.**
+Shop 3's badge and footer links were repointed to it. The torn-seam technique stays in git
+history at the commit above if it is ever wanted for something else.
