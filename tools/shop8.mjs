@@ -27,10 +27,10 @@ const PAGES = {
     resv: { title: 'Reserve a chair', done: 'The chair is held', pay: 'Payable in the chair', with: 'José Luis',
       svc: [['Classic adult cut', 600], ['Cut, wash and massage', 700], ['Cut, wash and beard', 900], ['Full service', 1100],
         ['Beard trim', 250], ['Beard colour', 200], ['Hair ornaments', 100], ['Kids under 5', 300], ['Kids 6 to 12', 400], ['Dreadlocks', 2500]] },
-    title: 'MasDos8 Barbershop, Prague 4. Sit down',
+    title: 'MasDos8 Barbershop, Prague 4. Welcome in',
     desc: 'Barbershop on Nuselska, Prague 4. Classic cut 600 CZK. 4.8 from 225 Google reviews. Golden Company 2025.',
     stage: [
-      ['Sit down', 'A cut, a shave, and a drink while you wait. We will take our time over it.'],
+      ['Welcome in', 'A cut, a shave, and a drink while you wait. We will take our time over it.'],
       ['Our prices', 'Ten services, with the price written beside each one.'],
       ['Our work', 'Cuts from this room, photographed the day they were finished.'],
       ['Our room', 'Nuselská 133/134, and four point eight from two hundred and twenty five people.'],
@@ -102,7 +102,7 @@ const PAGES = {
     title: 'MasDos8 Tattoo, Prague 4. Consultation first, needle after',
     desc: 'Tattoo studio on Nuselska, Prague 4. Small piece from 600 CZK, large areas 18 000 CZK. 4.8 from 225 Google reviews.',
     stage: [
-      ['Hold still', 'The same hands that cut hair all week. A consultation first, then a date, then the needle.'],
+      ['Consultation first', 'The same hands that cut hair all week. A chat first, then a date, then the needle.'],
       ['Our prices', 'Five sizes, and the price agreed before we start.'],
       ['Our work', 'Pieces from this room, photographed the day they were finished.'],
       ['Our room', 'Nuselská 133/134, behind the barber chairs, through the same door.'],
@@ -140,7 +140,7 @@ const PAGES = {
     title: 'MasDos8 Permanent makeup, Prague 4. Brows, lips, eyeliner',
     desc: 'Permanent makeup on Nuselska, Prague 4. Brows 3 500 CZK, full lips 5 000 CZK, repairs 3 000 CZK.',
     stage: [
-      ['Look up', 'Brows, lips and eyeliner, done by José himself, in a room that has been looking after faces for years.'],
+      ['Drawn on first', 'Brows, lips and eyeliner, done by José himself, in a room that has been looking after faces for years.'],
       ['Our prices', 'Seven treatments, including the repair.'],
       ['Our work', 'Healed results, photographed weeks afterwards.'],
       ['Our room', 'Nuselská 133/134, at the quiet end of the studio.'],
