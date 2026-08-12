@@ -39,9 +39,11 @@
           <div><b style="color:var(--paper)">2025</b><span style="color:rgba(237,231,220,.6)">Golden Company</span></div>
         </div>
         <div class="stage__act">
-          <a class="bt bt--r" href="#book" data-book>Reserve</a>
-          <a class="bt bt--l" href="tel:+420773267463">+420 773 267 463</a>
-          <a class="bt bt--l" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
+          <a class="bt bt--r stage__book" href="#book" data-book>Reserve a time</a>
+          <div class="stage__act2">
+            <a class="bt bt--l" href="tel:+420773267463">+420 773 267 463</a>
+            <a class="bt bt--l" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
+          </div>
         </div>
       </div>
     </div>
@@ -52,9 +54,7 @@
 
     <nav class="pnav">
       <div class="pnav__l">
-        <a href="../">Barbershop</a>
-        <a href="#s1">Our story</a>
-        <a href="#s4">The name</a>
+        <a href="../" aria-current="page">About</a>
         <a href="../team/">Team</a>
         <a href="../faq/">FAQ</a>
         <a href="#book">Find us</a>
@@ -133,7 +133,7 @@
     <section class="step" data-stage="4" id="s5">
       <span class="step__n">05</span>
       <h2>Golden Company <i>2025</i></h2>
-      <p class="tx">Zlatá firma goes to businesses on the strength of verified customer reviews gathered across the web. MasDos8 holds 4.8 from 225 reviews on Google. The plaque hangs on the wall here. It appears nowhere on the current website, and it should.</p>
+      <p class="tx">Zlatá firma is awarded on real customer reviews from around the internet. MasDos8 holds 4.8 from 225 reviews on Google. The award plaque hangs on the wall here, in the room on Nuselská.</p>
       
       
       
@@ -164,15 +164,19 @@
       <div class="end__g">
         <div class="end__c"><h4>MasDos8</h4>
           <span>Barber &amp; Tattoo</span><span>Nuselská 133/134, 140 00 Prague 4</span><span>Open daily from 09:00</span></div>
-        <div class="end__c"><h4>The other rooms</h4>
-          <a href="../tattoo/">Tattoo, from 600 Kč</a>
-          <a href="../pmu/">Permanent makeup, from 1 500 Kč</a>
-          <a href="tel:+420773267463">+420 773 267 463</a></div>
+        <div class="end__c"><h4>Contact</h4>
+          <a href="tel:+420773267463">+420 773 267 463</a>
+          <a href="https://maps.google.com/?cid=10234528977070182464" target="_blank" rel="noopener">Nuselská 133/134, Prague 4</a>
+          <a href="https://www.instagram.com/masdos8/" target="_blank" rel="noopener">@masdos8</a></div>
       </div>
       <div class="end__b">&copy; 2026 MasDos8 Barber &amp; Tattoo. Design proposal by Off-Plate. Photography, logo, prices and reviews are theirs.</div>
     </footer>
 
   </main>
+</div>
+
+<div class="mbar">
+  <a class="bt bt--r" href="#book" data-book>Reserve a time</a>
 </div>
 
 <script src="../motion.js" defer></script>
@@ -221,6 +225,7 @@ window.RESV_TITLE="Reserve a chair";
 window.RESV_DONE="The chair is held";
 window.RESV_PAY="Payable in the chair";
 window.RESV_WITH="José Luis";
+window.RESV_STAFF=["Anyone free","José Luis","Zhanna"];
 </script>
 <script src="../book.js" defer></script>
 </body>

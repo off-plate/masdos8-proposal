@@ -29,7 +29,7 @@
       </div>
       <div class="stage__mid">
         <div class="stage__num" id="stage-t">Drawn on first</div>
-        <p class="stage__cap" id="stage-c">Brows, lips and eyeliner, done by José himself, in a room that has been looking after faces for years.</p>
+        <p class="stage__cap" id="stage-c">Brows, lips and eyeliner, done by José himself, in the same room he's used for years.</p>
       </div>
       <div class="stage__foot">
         <p class="stage__ad">Nuselská 133/134, Prague 4 &middot; open every day from 09:00</p>
@@ -38,9 +38,11 @@
           <div><b style="color:var(--paper)">2025</b><span style="color:rgba(237,231,220,.6)">Golden Company</span></div>
         </div>
         <div class="stage__act">
-          <a class="bt bt--r" href="#book" data-book>Reserve</a>
-          <a class="bt bt--l" href="tel:+420773267463">+420 773 267 463</a>
-          <a class="bt bt--l" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
+          <a class="bt bt--r stage__book" href="#book" data-book>Reserve a time</a>
+          <div class="stage__act2">
+            <a class="bt bt--l" href="tel:+420773267463">+420 773 267 463</a>
+            <a class="bt bt--l" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
+          </div>
         </div>
       </div>
     </div>
@@ -52,8 +54,6 @@
     <nav class="pnav">
       <div class="pnav__l">
         <a href="../about/">About</a>
-        <a href="#s2">Prices</a>
-        <a href="#s3">Our work</a>
         <a href="../team/">Team</a>
         <a href="../faq/">FAQ</a>
         <a href="#book">Find us</a>
@@ -95,7 +95,7 @@
       <h2>Including the <i>repair</i></h2>
       
       
-      <div class="led"><a href="#book" data-led data-n="Brows" data-p="3500"><span>Brows<em>Microblading, shape drawn and agreed before any pigment</em></span><b>3 500</b></a><a href="#book" data-led data-n="Full lips" data-p="5000"><span>Full lips<em>Contour and fill together</em></span><b>5 000</b></a><a href="#book" data-led data-n="Lip fill" data-p="3500"><span>Lip fill</span><b>3 500</b></a><a href="#book" data-led data-n="Lip contour" data-p="2000"><span>Lip contour</span><b>2 000</b></a><a href="#book" data-led data-n="Upper and lower eyeliner" data-p="2000"><span>Upper and lower eyeliner</span><b>2 000</b></a><a href="#book" data-led data-n="Upper eyeliner" data-p="1500"><span>Upper eyeliner</span><b>1 500</b></a><a href="#book" data-led data-n="Repair of earlier work" data-p="3000"><span>Repair of earlier work<em>Correcting permanent makeup done in another studio</em></span><b>3 000</b></a></div>
+      <div class="led"><a href="#book" data-led data-n="Brows" data-p="3500"><span>Brows<em>Microblading, shape drawn and agreed before any pigment</em></span><b>3 500 Kč</b></a><a href="#book" data-led data-n="Full lips" data-p="5000"><span>Full lips<em>Contour and fill together</em></span><b>5 000 Kč</b></a><a href="#book" data-led data-n="Lip fill" data-p="3500"><span>Lip fill<em>Colour only, no new contour</em></span><b>3 500 Kč</b></a><a href="#book" data-led data-n="Lip contour" data-p="2000"><span>Lip contour<em>The outline, filled in or left natural</em></span><b>2 000 Kč</b></a><a href="#book" data-led data-n="Upper and lower eyeliner" data-p="2000"><span>Upper and lower eyeliner<em>Both lids, one sitting</em></span><b>2 000 Kč</b></a><a href="#book" data-led data-n="Upper eyeliner" data-p="1500"><span>Upper eyeliner<em>The top lid only</em></span><b>1 500 Kč</b></a><a href="#book" data-led data-n="Repair of earlier work" data-p="3000"><span>Repair of earlier work<em>Correcting permanent makeup done in another studio</em></span><b>3 000 Kč</b></a></div>
       
       
       
@@ -150,10 +150,10 @@
       <div class="end__g">
         <div class="end__c"><h4>MasDos8</h4>
           <span>Barber &amp; Tattoo</span><span>Nuselská 133/134, 140 00 Prague 4</span><span>Open daily from 09:00</span></div>
-        <div class="end__c"><h4>The other rooms</h4>
-          <a href="../">Barbershop, from 100 Kč</a>
-          <a href="../tattoo/">Tattoo, from 600 Kč</a>
-          <a href="tel:+420773267463">+420 773 267 463</a></div>
+        <div class="end__c"><h4>Contact</h4>
+          <a href="tel:+420773267463">+420 773 267 463</a>
+          <a href="https://maps.google.com/?cid=10234528977070182464" target="_blank" rel="noopener">Nuselská 133/134, Prague 4</a>
+          <a href="https://www.instagram.com/masdos8/" target="_blank" rel="noopener">@masdos8</a></div>
       </div>
       <div class="end__b">&copy; 2026 MasDos8 Barber &amp; Tattoo. Design proposal by Off-Plate. Photography, logo, prices and reviews are theirs.</div>
     </footer>
@@ -161,11 +161,15 @@
   </main>
 </div>
 
+<div class="mbar">
+  <a class="bt bt--r" href="#book" data-book>Reserve a time</a>
+</div>
+
 <script src="../motion.js" defer></script>
 <script>
 (()=>{
   /* the fixed stage reacts to which step is in view */
-  const COPY=[["Drawn on first","Brows, lips and eyeliner, done by José himself, in a room that has been looking after faces for years."],["Our prices","Seven treatments, including the repair."],["Our work","Healed results, photographed weeks afterwards."],["Our room","Nuselská 133/134, at the quiet end of the studio."],["Come in","We draw the shape on and agree it with you before anything is permanent."]];
+  const COPY=[["Drawn on first","Brows, lips and eyeliner, done by José himself, in the same room he's used for years."],["Our prices","Seven treatments, including the repair."],["Our work","Healed results, photographed weeks afterwards."],["Our room","Nuselská 133/134, at the quiet end of the studio."],["Come in","We draw the shape on and agree it with you before anything is permanent."]];
   const imgs=[...document.querySelectorAll('.stage__ph img')];
   const steps=[...document.querySelectorAll('.step')];
   const t=document.getElementById('stage-t'),c=document.getElementById('stage-c'),prog=document.getElementById('prog');
@@ -207,6 +211,7 @@ window.RESV_TITLE="Book a sitting";
 window.RESV_DONE="The sitting is booked";
 window.RESV_PAY="Agreed before we begin";
 window.RESV_WITH="José Luis";
+window.RESV_STAFF=null;
 </script>
 <script src="../book.js" defer></script>
 </body>

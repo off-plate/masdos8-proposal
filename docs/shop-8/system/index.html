@@ -240,16 +240,21 @@
 <!-- ================= NAV ================= -->
 <section class="sys-sec" id="nav">
   <h2>Navigation</h2>
-  <p>One sticky bar at the top of the scrolling column: page links on the left, the switcher on the right. It behaves the same at every width, so the phone gets the same fixed bar too. WhatsApp lives with the phone number and the reserve action on the stage instead, where somebody looks once they have decided.</p>
+  <p>One sticky bar at the top of the scrolling column: page links on the left, the switcher on the right. The links are the same four on every one of the six pages, About, Team, FAQ, Find us, not assembled per page, which is the fix for the bug this system used to have. It behaves the same at every width, so the phone gets the same fixed bar too. WhatsApp lives with the phone number and the reserve action on the stage instead, where somebody looks once they have decided, and on the phone a second Reserve bar stays pinned to the bottom of the screen once the stage scrolls out of view.</p>
 
   <div class="sys-demo" style="display:block;padding:0">
     <nav class="pnav" style="position:relative">
       <div class="pnav__l">
-        <a href="../about/">About</a><a href="../#s2" aria-current="page">Prices</a><a href="../#s3">Our work</a><a href="../#book">Find us</a>
+        <a href="../about/">About</a><a href="../team/">Team</a><a href="../faq/">FAQ</a><a href="../#book" aria-current="page">Find us</a>
       </div>
       <div class="sw"><button class="sw__b"><span class="sw__k">Service</span><span class="sw__t">Barbershop</span>
         <svg class="sw__c" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button></div>
     </nav>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">The mobile reserve bar, pinned once the stage scrolls away</span>
+  <div class="sys-demo" style="display:block;padding:0;max-width:390px">
+    <div class="mbar" style="display:block;position:relative"><a class="bt bt--r" style="width:100%">Reserve a time</a></div>
   </div>
 
   <div class="sys-scroll"><table class="sys-t" style="margin-top:22px">
@@ -330,10 +335,10 @@
   <span class="sys-lbl" style="margin-top:22px">Rest, hover it, with and without a description, four figures, and the longest name on the site</span>
   <div class="sys-demo" style="display:block">
     <div class="led" style="max-width:640px">
-      <a href="#ledger"><span>Classic adult cut<em>Contours, brows, ears, cologne and a drink</em></span><b>600</b></a>
-      <a href="#ledger"><span>Beard trim</span><b>250</b></a>
-      <a href="#ledger"><span>Large areas<em>Back, both arms, legs, body work</em></span><b>18 000</b></a>
-      <a href="#ledger"><span>Repair of earlier work<em>Correcting permanent makeup done in another studio</em></span><b>3 000</b></a>
+      <a href="#ledger"><span>Classic adult cut<em>Contours, brows, ears, cologne and a drink</em></span><b>600 Kč</b></a>
+      <a href="#ledger"><span>Beard trim</span><b>250 Kč</b></a>
+      <a href="#ledger"><span>Large areas<em>Back, both arms, legs, body work</em></span><b>18 000 Kč</b></a>
+      <a href="#ledger"><span>Repair of earlier work<em>Correcting permanent makeup done in another studio</em></span><b>3 000 Kč</b></a>
     </div>
   </div>
 
@@ -405,7 +410,7 @@
     <tr><td><code>.pair</code></td><td>Show two photographs that only mean something together</td><td>none</td><td>About</td></tr>
     <tr><td><code>.qs</code> quote</td><td>Show one real review in the customer's own words</td><td>none</td><td>Barber, tattoo, PMU, FAQ</td></tr>
     <tr><td><code>.big</code></td><td>Give one idea the whole width, once per page at most</td><td>none</td><td>About</td></tr>
-    <tr><td><code>.end</code></td><td>Close the page with the address, the hours and the other rooms</td><td>none</td><td>All six pages</td></tr>
+    <tr><td><code>.end</code></td><td>Close the page with the address, the hours and how to reach the shop</td><td>none</td><td>All six pages</td></tr>
   </table></div>
 </section>
 

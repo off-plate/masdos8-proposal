@@ -94,18 +94,17 @@
     });
   });
 
-  /* 7. mobile drawer: [data-menu="#id"] */
+  /* 7. mobile drawer: [data-menu="#id"]. A real class-based open state, not
+     a hidden-attribute snap, so the drawer and the burger can both animate. */
   $$('[data-menu]').forEach(btn => {
     const d = document.querySelector(btn.dataset.menu); if (!d) return;
-    btn.addEventListener('click', e => {
-      e.stopPropagation(); const o = d.hidden; d.hidden = !o; btn.setAttribute('aria-expanded', String(o));
-    });
+    const set = on => { d.classList.toggle('open', on); btn.setAttribute('aria-expanded', String(on)); };
+    btn.addEventListener('click', e => { e.stopPropagation(); set(!d.classList.contains('open')); });
     document.addEventListener('click', e => {
-      if (!d.hidden && !e.target.closest(btn.dataset.menu) && !e.target.closest('[data-menu]')) {
-        d.hidden = true; btn.setAttribute('aria-expanded', 'false');
-      }
+      if (d.classList.contains('open') && !e.target.closest(btn.dataset.menu) && !e.target.closest('[data-menu]')) set(false);
     });
-    d.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { d.hidden = true; btn.setAttribute('aria-expanded', 'false'); }));
+    addEventListener('keydown', e => { if (e.key === 'Escape' && d.classList.contains('open')) { set(false); btn.focus(); } });
+    d.querySelectorAll('a').forEach(a => a.addEventListener('click', () => set(false)));
   });
 
   /* 8. header pins after a scroll */

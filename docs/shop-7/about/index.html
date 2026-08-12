@@ -14,13 +14,34 @@
 <body>
 
 <nav class="nav" data-pin>
-  <a class="nav__lg" href="../"><img src="../img/logo.png" alt="MasDos8"><b>MasDos8</b></a>
-  <div class="nav__l"><a href="./" aria-current="page">About</a><a href="../#work">Gallery</a><a href="../#prices">Services</a><a href="../#find">Find us</a></div>
-  <a class="nav__wa" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
+  <a class="nav__lg" href="../../gate-2/"><img src="../img/logo.png" alt="MasDos8"><b>MasDos8</b></a>
+  <div class="nav__l"><a href="../about/" aria-current="page">About</a><a href="../team/">Team</a><a href="../faq/">FAQ</a></div>
+  <div class="sw" data-sw>
+    <button class="sw__b" aria-expanded="false" aria-haspopup="true" id="swb">
+      <span class="sw__t">Barbershop</span>
+      <svg class="sw__c" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+    <div class="sw__p" hidden role="menu" aria-labelledby="swb">
+      <a class="sw__i on" href="../" aria-current="page" role="menuitem"><b>Barbershop</b><span>Cuts, beards, kids &middot; from 100 Kč</span></a>
+      <a class="sw__i" href="../tattoo/" role="menuitem"><b>Tattoo</b><span>Small pieces to full backs &middot; from 600 Kč</span></a>
+      <a class="sw__i" href="../pmu/" role="menuitem"><b>Permanent makeup</b><span>Brows, lips, eyeliner &middot; from 1 500 Kč</span></a>
+    </div>
+  </div>
   <button class="bt bt--g" data-book style="min-height:44px;padding:11px 22px">Reserve</button>
   <button class="brg" data-menu="#drw" aria-expanded="false" aria-label="Menu"><span></span><span></span></button>
 </nav>
-<div class="drw" id="drw" hidden><a href="./">About</a><a href="../#work">Gallery</a><a href="../#prices">Services</a><a href="../#find">Find us</a><a href="../team/">Team</a><a href="../faq/">FAQ</a><a href="tel:+420773267463">+420 773 267 463</a><a href="https://wa.me/420773267463" target="_blank" rel="noopener">WhatsApp</a></div>
+<div class="drw" id="drw">
+  <a href="../about/" aria-current="page">About</a>
+  <a href="../team/">Team</a>
+  <a href="../faq/">FAQ</a>
+  <div class="drw__sw"><b>Also here</b>
+    <a href="../" aria-current="page">Barbershop</a>
+    <a href="../tattoo/">Tattoo</a>
+    <a href="../pmu/">Permanent makeup</a>
+  </div>
+  <a href="tel:+420773267463">+420 773 267 463</a>
+  <a href="https://wa.me/420773267463" target="_blank" rel="noopener">WhatsApp</a>
+</div>
 
 <header class="hero" style="min-height:min(80svh,780px)">
   <span class="hero__word" data-sp="0.12">SANTO DOMINGO</span>
@@ -95,8 +116,8 @@
 <section class="sec" style="padding-top:clamp(40px,5vw,80px)"><div class="w aw">
   <div data-rv>
     <h2 class="cl h2">Golden Company 2025</h2>
-    <p class="tx" style="margin-top:18px">Zlatá firma goes to businesses on the strength of verified customer reviews gathered across the web. MasDos8 holds 4.8 from 225 reviews on Google.</p>
-    <p class="tx" style="margin-top:12px">The plaque hangs on the wall here. It appears nowhere on the current website, and it should.</p>
+    <p class="tx" style="margin-top:18px">Zlatá firma is awarded on real customer reviews from around the internet. MasDos8 holds 4.8 from 225 reviews on Google.</p>
+    <p class="tx" style="margin-top:12px">The award plaque hangs on the wall here, in the room on Nuselská.</p>
     <button class="bt bt--g" data-book style="margin-top:24px">Reserve a chair</button>
   </div>
   <div class="aw__g" data-rv style="--i:1">
@@ -141,6 +162,7 @@
 </div></footer>
 
 <script src="../motion.js" defer></script>
+<script>window.RESV_STAFF=["Anyone free","José Luis","Zhanna"];</script>
 <script src="../app.js" defer></script>
 </body>
 </html>

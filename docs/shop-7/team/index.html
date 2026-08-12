@@ -15,12 +15,33 @@
 
 <nav class="nav" data-pin>
   <a class="nav__lg" href="../../gate-2/"><img src="../img/logo.png" alt="MasDos8"><b>MasDos8</b></a>
-  <div class="nav__l"><a href="../about/">About</a><a href="./" aria-current="page">Team</a><a href="../faq/">FAQ</a><a href="../#find">Find us</a></div>
-  <a class="nav__wa" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
+  <div class="nav__l"><a href="../about/">About</a><a href="../team/" aria-current="page">Team</a><a href="../faq/">FAQ</a></div>
+  <div class="sw" data-sw>
+    <button class="sw__b" aria-expanded="false" aria-haspopup="true" id="swb">
+      <span class="sw__t">Barbershop</span>
+      <svg class="sw__c" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+    <div class="sw__p" hidden role="menu" aria-labelledby="swb">
+      <a class="sw__i on" href="../" aria-current="page" role="menuitem"><b>Barbershop</b><span>Cuts, beards, kids &middot; from 100 Kč</span></a>
+      <a class="sw__i" href="../tattoo/" role="menuitem"><b>Tattoo</b><span>Small pieces to full backs &middot; from 600 Kč</span></a>
+      <a class="sw__i" href="../pmu/" role="menuitem"><b>Permanent makeup</b><span>Brows, lips, eyeliner &middot; from 1 500 Kč</span></a>
+    </div>
+  </div>
   <button class="bt bt--g" data-book style="min-height:44px;padding:11px 22px">Reserve</button>
   <button class="brg" data-menu="#drw" aria-expanded="false" aria-label="Menu"><span></span><span></span></button>
 </nav>
-<div class="drw" id="drw" hidden><a href="../about/">About</a><a href="./">Team</a><a href="../faq/">FAQ</a><a href="../#find">Find us</a><a href="tel:+420773267463">+420 773 267 463</a><a href="https://wa.me/420773267463" target="_blank" rel="noopener">WhatsApp</a></div>
+<div class="drw" id="drw">
+  <a href="../about/">About</a>
+  <a href="../team/" aria-current="page">Team</a>
+  <a href="../faq/">FAQ</a>
+  <div class="drw__sw"><b>Also here</b>
+    <a href="../" aria-current="page">Barbershop</a>
+    <a href="../tattoo/">Tattoo</a>
+    <a href="../pmu/">Permanent makeup</a>
+  </div>
+  <a href="tel:+420773267463">+420 773 267 463</a>
+  <a href="https://wa.me/420773267463" target="_blank" rel="noopener">WhatsApp</a>
+</div>
 
 <header class="hero" style="min-height:min(64svh,620px)">
   <span class="hero__word" data-sp="0.12">TEAM</span>
@@ -45,8 +66,8 @@
     <article class="sp__r" data-rv style="--i:1">
       <span class="sp__w">Barber</span>
       <div>
-        <h3>Denny</h3>
-        <p>Trained by José, and named by regulars in their own reviews. Cuts and beards, same room, same prices.</p>
+        <h3>Zhanna</h3>
+        <p>The second pair of hands in the chair, and you can ask for her by name when you book. Cuts and beards, same room, same prices.</p>
       </div>
       <figure><img src="../img/cut7-s.webp" alt="A cut in progress" loading="lazy"></figure>
     </article>
@@ -63,7 +84,7 @@
 
 <section class="sec" style="padding-top:0"><div class="w">
   <div class="hd"><h2 class="cl h2" data-rv>Book with either of them</h2>
-    <p class="tx" data-rv style="--i:1">The reservation asks for a service and a time. If you'd rather book with José or with Denny by name, tell us on WhatsApp and we'll do our best to hold that slot.</p></div>
+    <p class="tx" data-rv style="--i:1">Booking online just needs a service and a time. Want José or Zhanna specifically? Ask for them by name.</p></div>
   <div data-rv style="display:flex;gap:10px;flex-wrap:wrap;--i:2">
     <button class="bt bt--g" data-book>Reserve a chair</button>
     <a class="bt bt--o" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
@@ -83,10 +104,11 @@
     <div class="ft__c"><h4>More</h4><a href="../about/">About</a><a href="./">Team</a><a href="../faq/">FAQ</a><a href="../">Barbershop</a><a href="../tattoo/">Tattoo</a><a href="../pmu/">Permanent makeup</a></div>
     <div class="ft__c"><h4>Contact</h4><a href="tel:+420773267463">+420 773 267 463</a><a href="https://maps.google.com/?cid=10234528977070182464" target="_blank" rel="noopener">Nuselská 133/134, Prague 4</a><a href="https://www.instagram.com/masdos8/" target="_blank" rel="noopener">@masdos8</a></div>
   </div>
-  <div class="ft__b"><span>&copy; 2026 MasDos8 Barber &amp; Tattoo.</span><span>Design proposal by Off-Plate. Denny is named in the shop's own Google reviews; no other detail about him is invented here.</span></div>
+  <div class="ft__b"><span>&copy; 2026 MasDos8 Barber &amp; Tattoo.</span><span>Design proposal by Off-Plate. Zhanna is a real second barber, listed in the shop's own booking system.</span></div>
 </div></footer>
 
 <script src="../motion.js" defer></script>
+<script>window.RESV_STAFF=["Anyone free","José Luis","Zhanna"];</script>
 <script src="../app.js" defer></script>
 </body>
 </html>

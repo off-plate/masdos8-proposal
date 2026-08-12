@@ -38,9 +38,11 @@
           <div><b style="color:var(--paper)">2025</b><span style="color:rgba(237,231,220,.6)">Golden Company</span></div>
         </div>
         <div class="stage__act">
-          <a class="bt bt--r" href="#book" data-book>Reserve</a>
-          <a class="bt bt--l" href="tel:+420773267463">+420 773 267 463</a>
-          <a class="bt bt--l" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
+          <a class="bt bt--r stage__book" href="#book" data-book>Reserve a time</a>
+          <div class="stage__act2">
+            <a class="bt bt--l" href="tel:+420773267463">+420 773 267 463</a>
+            <a class="bt bt--l" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
+          </div>
         </div>
       </div>
     </div>
@@ -52,8 +54,6 @@
     <nav class="pnav">
       <div class="pnav__l">
         <a href="../about/">About</a>
-        <a href="#s2">Prices</a>
-        <a href="#s3">Our work</a>
         <a href="../team/">Team</a>
         <a href="../faq/">FAQ</a>
         <a href="#book">Find us</a>
@@ -95,7 +95,7 @@
       <h2>Priced by <i>size</i>, agreed up front</h2>
       
       
-      <div class="led"><a href="#book" data-led data-n="Small piece" data-p="600"><span>Small piece<em>Lettering, a symbol, something you can cover with a hand</em></span><b>600</b></a><a href="#book" data-led data-n="Medium piece" data-p="3000"><span>Medium piece<em>A forearm, a shoulder, a calf</em></span><b>3 000</b></a><a href="#book" data-led data-n="Large piece" data-p="6000"><span>Large piece<em>A chest panel or a full forearm sleeve</em></span><b>6 000</b></a><a href="#book" data-led data-n="Half sleeve" data-p="6000"><span>Half sleeve<em>Shoulder to elbow, usually across two sittings</em></span><b>6 000</b></a><a href="#book" data-led data-n="Large areas" data-p="18000"><span>Large areas<em>Back, both arms, legs, body work</em></span><b>18 000</b></a></div>
+      <div class="led"><a href="#book" data-led data-n="Small piece" data-p="600"><span>Small piece<em>Lettering, a symbol, something you can cover with a hand</em></span><b>600 Kč</b></a><a href="#book" data-led data-n="Medium piece" data-p="3000"><span>Medium piece<em>A forearm, a shoulder, a calf</em></span><b>3 000 Kč</b></a><a href="#book" data-led data-n="Large piece" data-p="6000"><span>Large piece<em>A chest panel or a full forearm sleeve</em></span><b>6 000 Kč</b></a><a href="#book" data-led data-n="Half sleeve" data-p="6000"><span>Half sleeve<em>Shoulder to elbow, usually across two sittings</em></span><b>6 000 Kč</b></a><a href="#book" data-led data-n="Large areas" data-p="18000"><span>Large areas<em>Back, both arms, legs, body work</em></span><b>18 000 Kč</b></a></div>
       
       
       
@@ -150,15 +150,19 @@
       <div class="end__g">
         <div class="end__c"><h4>MasDos8</h4>
           <span>Barber &amp; Tattoo</span><span>Nuselská 133/134, 140 00 Prague 4</span><span>Open daily from 09:00</span></div>
-        <div class="end__c"><h4>The other rooms</h4>
-          <a href="../">Barbershop, from 100 Kč</a>
-          <a href="../pmu/">Permanent makeup, from 1 500 Kč</a>
-          <a href="tel:+420773267463">+420 773 267 463</a></div>
+        <div class="end__c"><h4>Contact</h4>
+          <a href="tel:+420773267463">+420 773 267 463</a>
+          <a href="https://maps.google.com/?cid=10234528977070182464" target="_blank" rel="noopener">Nuselská 133/134, Prague 4</a>
+          <a href="https://www.instagram.com/masdos8/" target="_blank" rel="noopener">@masdos8</a></div>
       </div>
       <div class="end__b">&copy; 2026 MasDos8 Barber &amp; Tattoo. Design proposal by Off-Plate. Photography, logo, prices and reviews are theirs.</div>
     </footer>
 
   </main>
+</div>
+
+<div class="mbar">
+  <a class="bt bt--r" href="#book" data-book>Reserve a time</a>
 </div>
 
 <script src="../motion.js" defer></script>
@@ -207,6 +211,7 @@ window.RESV_TITLE="Book a consultation";
 window.RESV_DONE="The consultation is booked";
 window.RESV_PAY="Agreed at the consultation";
 window.RESV_WITH="José Luis";
+window.RESV_STAFF=null;
 </script>
 <script src="../book.js" defer></script>
 </body>

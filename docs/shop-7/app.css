@@ -34,19 +34,55 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .bt--g{background:var(--g);color:#1B1305}.bt--g:hover{background:var(--g2);transform:translateY(-3px) rotate(-1.2deg)}
 .bt--o{border:1px solid var(--ln2);color:var(--w)}.bt--o:hover{border-color:var(--g2);color:var(--g2);transform:translateY(-3px) rotate(1.2deg)}
 
-/* nav floats, it is not a bar welded to the top */
-.nav{position:fixed;top:14px;left:14px;right:14px;z-index:90;display:flex;align-items:center;gap:16px;
+/* nav floats, it is not a bar welded to the top. Same items, same order,
+   on every one of the six pages: About, Team, FAQ, then which room you're
+   in, then Reserve. Nothing here is assembled per page. */
+.nav{position:fixed;top:14px;left:14px;right:14px;z-index:90;display:flex;align-items:center;gap:14px;
  padding:8px 8px 8px 14px;border-radius:999px;background:rgba(11,10,10,.88);
  border:1px solid var(--ln);transition:background .3s var(--ez)}
 .nav.pin{background:rgba(11,10,10,.97)}
 .nav__lg{display:flex;align-items:center;gap:9px;min-height:44px}
 .nav__lg img{height:38px;border-radius:50%;background:#fff;padding:2px}
 .nav__lg b{font-family:'Cl',sans-serif;font-weight:700;font-size:16px}
-.nav__l{display:flex;gap:20px;margin-inline:auto;font-size:16px}
+.nav__l{display:flex;gap:20px;margin-left:6px;font-size:16px}
 .nav__l a{color:var(--w-d);display:flex;align-items:center;min-height:44px}
-.nav__l a:hover{color:var(--g2)}
-.brg{display:none;width:44px;height:44px;place-content:center;gap:5px;margin-left:auto}
-.brg span{display:block;width:20px;height:2px;background:var(--g);border-radius:2px}
+.nav__l a:hover,.nav__l a[aria-current]{color:var(--g2)}
+.nav .bt{margin-left:auto}
+
+/* ============================================================
+   THE SWITCHER. Same component as the ledger row it echoes: gold
+   accents, Clash Display names. It is how a visitor on any of the
+   six pages gets to any of the three rooms without going back to
+   the gateway, and it always names the room it's currently in.
+   ============================================================ */
+.sw{position:relative}
+.sw__b{display:flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:999px;
+ border:1px solid var(--ln2);color:var(--w);font-family:'Cl',sans-serif;font-weight:600;font-size:14px;
+ white-space:nowrap;transition:border-color .2s var(--ez),background .2s var(--ez)}
+.sw__b:hover,.sw[data-open] .sw__b{border-color:var(--g2);background:rgba(217,164,65,.08)}
+.sw__c{width:9px;height:5px;color:var(--g);transition:transform .25s var(--ez)}
+.sw[data-open] .sw__c{transform:rotate(180deg)}
+.sw__p{position:absolute;top:calc(100% + 10px);right:0;min-width:min(300px,calc(100vw - 28px));
+ background:var(--bk2);border:1px solid var(--ln2);border-radius:16px;box-shadow:0 26px 60px rgba(0,0,0,.5);
+ padding:6px;display:grid;gap:2px;animation:swop .2s var(--ez)}
+@keyframes swop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.sw__i{display:grid;gap:2px;padding:11px 14px;border-radius:11px;color:var(--w);
+ transition:background .18s var(--ez)}
+.sw__i:hover,.sw__i:focus-visible{background:rgba(217,164,65,.1)}
+.sw__i b{font-family:'Cl',sans-serif;font-weight:600;font-size:15px}
+.sw__i.on b::after{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;
+ background:var(--g);margin-left:8px;vertical-align:middle}
+.sw__i span{font-size:12.5px;color:var(--w-d)}
+@media (prefers-reduced-motion:reduce){.sw__p{animation:none}}
+
+/* the burger becomes an X while the drawer is open */
+.brg{display:none;width:44px;height:44px;place-content:center;gap:5px;margin-left:auto;position:relative}
+.brg span{display:block;width:20px;height:2px;background:var(--g);border-radius:2px;
+ transition:transform .25s var(--ez),opacity .2s var(--ez)}
+.brg[aria-expanded="true"] span:first-child{transform:translateY(3.5px) rotate(45deg)}
+.brg[aria-expanded="true"] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+
+/* the drawer itself: a real open/close transition, not a hidden-attribute snap */
 .drw{display:none}
 
 /* ---------------- HERO ---------------- */
@@ -186,6 +222,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  background:var(--g);box-shadow:0 0 0 6px rgba(217,164,65,.28),0 0 0 14px rgba(217,164,65,.12);pointer-events:none}
 .map__lb{position:absolute;left:12px;top:12px;background:rgba(11,10,10,.94);border:1px solid var(--ln2);
  padding:9px 14px;font-size:12.5px}
+/* the map stays locked until you click it, so scrolling the page never gets
+   grabbed by the embedded map's own scroll-to-zoom */
+.map__lock{position:absolute;inset:0;z-index:2;display:grid;place-items:center;text-align:center;
+ background:rgba(11,10,10,.34);color:var(--w);font-family:'Cl',sans-serif;font-weight:600;font-size:14px;
+ letter-spacing:.02em;opacity:0;transition:opacity .2s var(--ez)}
+.map:hover .map__lock,.map:focus-within .map__lock{opacity:1}
+.map.on .map__lock{display:none}
 
 /* the reservation badge, fixed, the one persistent motion */
 .spin{position:fixed;right:18px;bottom:18px;z-index:85;width:116px;height:116px;display:grid;place-items:center;
@@ -199,21 +242,64 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (prefers-reduced-motion:reduce){.spin svg{animation:none}}
 @media (max-width:780px){.spin{width:84px;height:84px}.spin b{font-size:19px}.spin text{font-size:12.6px}}
 
-/* ---------------- BOOKING SHEET ---------------- */
-.sheet{position:fixed;inset:0;z-index:130;display:grid;grid-template-columns:1fr min(560px,100%);
- background:rgba(7,6,6,.7)}
-.sheet__bg{cursor:pointer}
-.sheet__p{background:var(--bk2);border-left:1px solid var(--ln2);overflow-y:auto;padding:clamp(18px,2.4vw,34px);
- display:grid;gap:16px;align-content:start;animation:slide .34s var(--ez)}
-@keyframes slide{from{transform:translateX(40px);opacity:.4}to{transform:none;opacity:1}}
-@media (prefers-reduced-motion:reduce){.sheet__p{animation:none}}
-.sheet__h{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
-.sheet__h h2{font-family:'Cl',sans-serif;font-weight:700;font-size:clamp(24px,2.4vw,34px);line-height:1}
+/* ============================================================
+   THE RESERVATION WIZARD.
+   Deliberately not shop 8's panel: one question at a time, full
+   screen, a step you walk through rather than a form you scan.
+   Service, then when and with whom, then who you are. ============================================================ */
+.wiz{position:fixed;inset:0;z-index:130;background:rgba(7,6,6,.86);display:grid;place-items:center;
+ padding:clamp(12px,3vw,32px)}
+.wiz__card{width:100%;max-width:600px;max-height:88svh;overflow-y:auto;background:var(--bk2);
+ border:1px solid var(--ln2);position:relative;padding:clamp(20px,3vw,40px);animation:wizin .3s var(--ez)}
+@keyframes wizin{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.wiz__card{animation:none}}
+.wiz__x{position:absolute;top:14px;right:14px}
+.wiz__prog{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.wiz__prog i{display:block;height:3px;flex:1;background:var(--ln);border-radius:2px;overflow:hidden}
+.wiz__prog i b{display:block;height:100%;width:0;background:var(--g);transition:width .3s var(--ez)}
+.wiz__prog i.on b,.wiz__prog i.done b{width:100%}
+.wiz__k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--g);margin:18px 0 4px}
+.wiz__h{font-family:'Cl',sans-serif;font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.05;margin-bottom:18px;max-width:26ch}
+.wiz__step{display:none;animation:wizstep .28s var(--ez)}
+.wiz__step.on{display:block}
+@keyframes wizstep{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.wiz__step{animation:none}}
+
+/* step 1: service cards, not a dropdown */
+.wiz__svc{display:grid;gap:9px}
+.wiz__c{display:grid;grid-template-columns:1fr auto;gap:4px 14px;align-items:baseline;text-align:left;
+ padding:16px 18px;border:1px solid var(--ln);background:var(--bk3);transition:border-color .18s var(--ez),background .18s var(--ez)}
+.wiz__c:hover{border-color:var(--ln2)}
+.wiz__c[aria-pressed="true"]{border-color:var(--g);background:rgba(217,164,65,.1)}
+.wiz__c b{font-family:'Cl',sans-serif;font-weight:600;font-size:16px}
+.wiz__c span{grid-column:1;font-size:13px;color:var(--w-d)}
+.wiz__c em{font-style:normal;font-family:'Cl',sans-serif;font-weight:700;color:var(--g2);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* step 2: who, then a day strip, then time slots */
+.wiz__who{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.wiz__wb{min-height:44px;padding:0 16px;border:1px solid var(--ln);font-family:'Cl',sans-serif;font-weight:600;font-size:14.5px;
+ transition:border-color .18s var(--ez),background .18s var(--ez),color .18s var(--ez)}
+.wiz__wb:hover{border-color:var(--ln2)}
+.wiz__wb[aria-pressed="true"]{background:var(--g);border-color:var(--g);color:#1B1305}
+.wiz__days{display:flex;gap:7px;overflow-x:auto;padding-bottom:4px;margin-bottom:20px;scrollbar-width:none}
+.wiz__days::-webkit-scrollbar{display:none}
+.wiz__d{flex:0 0 62px;display:grid;gap:2px;padding:10px 4px;border:1px solid var(--ln);text-align:center;
+ transition:border-color .18s var(--ez),background .18s var(--ez)}
+.wiz__d span{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--w-d)}
+.wiz__d b{font-family:'Cl',sans-serif;font-weight:700;font-size:19px;font-variant-numeric:tabular-nums}
+.wiz__d[aria-pressed="true"]{background:var(--g);border-color:var(--g)}
+.wiz__d[aria-pressed="true"] span,.wiz__d[aria-pressed="true"] b{color:#1B1305}
+
+/* step 3 */
 .fl{display:grid;gap:7px}
 .fl span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--g)}
 .fl select,.fl input{background:var(--bk3);border:1px solid var(--ln);color:var(--w);font:inherit;font-size:15px;
  padding:13px 14px;min-height:50px;width:100%;border-radius:2px;appearance:none;-webkit-appearance:none}
 .fl select:focus,.fl input:focus{outline:none;border-color:var(--g)}
+.wiz__fl2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+
+.wiz__nav{display:flex;gap:10px;margin-top:24px;padding-top:20px;border-top:1px solid var(--ln)}
+.wiz__nav .bt{flex:1;justify-content:center}
 .slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:7px}
 .slot{min-height:46px;border:1px solid var(--ln);border-radius:2px;font-family:'Cl',sans-serif;font-weight:600;
  font-size:15px;font-variant-numeric:tabular-nums;transition:background .18s var(--ez),border-color .18s var(--ez),color .18s var(--ez)}
@@ -267,12 +353,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  .find__r a{display:inline-flex;align-items:center;min-height:44px}
  .rv__s cite,.tag span{font-size:13.5px}
 }
-@media (max-width:780px){.nav__l{display:none}.nav__wa{display:none}.brg{display:grid}
- /* WhatsApp still reaches the visitor through the drawer at this width */
+@media (max-width:780px){
+ .nav__l{display:none} .brg{display:grid}
+ .nav .bt{margin-left:0;padding:0 16px;font-size:13px}
+ .nav__lg b{display:none}
+ .sw__t{max-width:19vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ /* the drawer: fixed below the pill, real opacity/transform transition,
+    closed state still rendered (not display:none) so it can animate */
  .drw{display:grid;position:fixed;inset:70px 14px auto;z-index:89;background:var(--bk2);border:1px solid var(--ln2);
-  border-radius:20px;padding:10px;gap:2px}
- .drw[hidden]{display:none}
- .drw a{padding:14px;border-radius:14px;font-family:'Cl',sans-serif;font-weight:600;font-size:17px}}
+  border-radius:20px;padding:10px;gap:2px;transform-origin:top right;
+  opacity:0;transform:translateY(-10px) scale(.97);pointer-events:none;
+  transition:opacity .22s var(--ez),transform .22s var(--ez)}
+ .drw.open{opacity:1;transform:none;pointer-events:auto}
+ .drw a{padding:14px;border-radius:14px;font-family:'Cl',sans-serif;font-weight:600;font-size:17px;display:flex;align-items:center;min-height:44px}
+ .drw a[aria-current]{color:var(--g2)}
+ .drw__sw{border-top:1px solid var(--ln);margin-top:6px;padding-top:8px}
+ .drw__sw b{display:block;padding:8px 14px 2px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--g)}
+ @media (prefers-reduced-motion:reduce){.drw{transition:none}}
+}
 
 /* ---------- ABOUT PAGE ----------
    Same rail, same components. Two additions: the story spine, and the

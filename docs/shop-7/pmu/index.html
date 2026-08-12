@@ -15,12 +15,33 @@
 
 <nav class="nav" data-pin>
   <a class="nav__lg" href="../../gate-2/"><img src="../img/logo.png" alt="MasDos8"><b>MasDos8</b></a>
-  <div class="nav__l"><a href="../about/">About</a><a href="#work">Gallery</a><a href="#prices">Prices</a><a href="#said">Reviews</a><a href="#find">Find us</a></div>
-  <a class="nav__wa" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
+  <div class="nav__l"><a href="../about/">About</a><a href="../team/">Team</a><a href="../faq/">FAQ</a></div>
+  <div class="sw" data-sw>
+    <button class="sw__b" aria-expanded="false" aria-haspopup="true" id="swb">
+      <span class="sw__t">Permanent makeup</span>
+      <svg class="sw__c" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+    <div class="sw__p" hidden role="menu" aria-labelledby="swb">
+      <a class="sw__i" href="../" role="menuitem"><b>Barbershop</b><span>Cuts, beards, kids &middot; from 100 Kč</span></a>
+      <a class="sw__i" href="../tattoo/" role="menuitem"><b>Tattoo</b><span>Small pieces to full backs &middot; from 600 Kč</span></a>
+      <a class="sw__i on" href="./" aria-current="page" role="menuitem"><b>Permanent makeup</b><span>Brows, lips, eyeliner &middot; from 1 500 Kč</span></a>
+    </div>
+  </div>
   <button class="bt bt--g" data-book style="min-height:44px;padding:11px 22px">Reserve</button>
   <button class="brg" data-menu="#drw" aria-expanded="false" aria-label="Menu"><span></span><span></span></button>
 </nav>
-<div class="drw" id="drw" hidden><a href="../about/">About</a><a href="#work">Gallery</a><a href="#prices">Prices</a><a href="#said">Reviews</a><a href="#find">Find us</a><a href="../team/">Team</a><a href="../faq/">FAQ</a><a href="tel:+420773267463">+420 773 267 463</a><a href="https://wa.me/420773267463" target="_blank" rel="noopener">WhatsApp</a></div>
+<div class="drw" id="drw">
+  <a href="../about/">About</a>
+  <a href="../team/">Team</a>
+  <a href="../faq/">FAQ</a>
+  <div class="drw__sw"><b>Also here</b>
+    <a href="../">Barbershop</a>
+    <a href="../tattoo/">Tattoo</a>
+    <a href="./" aria-current="page">Permanent makeup</a>
+  </div>
+  <a href="tel:+420773267463">+420 773 267 463</a>
+  <a href="https://wa.me/420773267463" target="_blank" rel="noopener">WhatsApp</a>
+</div>
 
 <header class="hero">
   <span class="hero__word" data-sp="0.12">PERMANENT</span>
@@ -33,8 +54,8 @@
   <span class="tag tag--5" data-par="30"><span>Drawn on first</span><b>always</b></span>
 
   <div class="w"><div class="hero__in">
-    <h1 class="cl h1" data-rv style="--i:1;margin:0 0 16px">Drawn on and agreed with you,<br><i style="font-style:normal;color:var(--g)">before anything is permanent.</i></h1>
-    <p class="tx" data-rv style="--i:2">Brows, lips and eyeliner, done by José himself, in a room that has been looking after faces for years.</p>
+    <h1 class="cl h1" data-rv style="--i:1;margin:0 0 16px">Drawn on and agreed with you,<br><i style="font-style:normal;color:var(--g)">before we begin.</i></h1>
+    <p class="tx" data-rv style="--i:2">Brows, lips and eyeliner, done by José himself, in the same room he's used for years.</p>
     <div class="hero__act" data-rv style="--i:3">
       <button class="bt bt--g" data-book>Book a sitting</button>
       <a class="bt bt--o" href="#work">See the work</a>
@@ -74,7 +95,7 @@
 <section class="sec" id="prices" style="padding-top:0"><div class="w">
   <div class="hd">
     <h2 class="cl h2" data-rv style="--i:1">Including the repair</h2>
-    <p class="tx" data-rv style="--i:2">Choose a treatment and we will hold the sitting for you. These are the prices we charge, all of them.</p>
+    <p class="tx" data-rv style="--i:2">Choose a treatment and we will hold the sitting for you. This is what it costs.</p>
   </div>
   <div class="svc" data-rv>
     <div class="svc__l" id="svcl">
@@ -151,6 +172,7 @@
         src="https://www.openstreetmap.org/export/embed.html?bbox=14.4469454%2C50.0518831%2C14.4579454%2C50.0574831&amp;layer=mapnik"></iframe>
       <span class="map__pin" aria-hidden="true"></span>
       <span class="map__lb">MasDos8 &middot; Nuselská 133/134</span>
+      <button class="map__lock" type="button">Click to interact with the map</button>
     </div>
   </div>
 </div></section>

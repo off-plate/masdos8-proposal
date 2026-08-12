@@ -50,7 +50,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .stage__cap{font-size:14px;color:rgba(237,231,220,.88);max-width:32ch;text-shadow:0 1px 12px rgba(14,13,12,.7)}
 .stage__foot{display:grid;gap:12px;color:var(--paper)}
 .stage__ad{font-size:13.5px;color:rgba(237,231,220,.72)}
-.stage__act{display:flex;gap:10px;flex-wrap:wrap}
+.stage__act{display:grid;gap:10px}
+.stage__book{width:100%;min-height:58px;font-size:14px;letter-spacing:.14em;box-shadow:0 14px 34px rgba(199,154,46,.28)}
+.stage__act2{display:flex;gap:10px;flex-wrap:wrap}
+.stage__act2 .bt{flex:1;min-width:0;white-space:nowrap}
 .bt{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:14px 24px;
  font-family:'Ra',sans-serif;font-weight:700;font-size:13px;letter-spacing:.11em;text-transform:uppercase;
  border:1px solid transparent;transition:background .2s var(--ez),color .2s var(--ez),border-color .2s var(--ez),transform .2s var(--ez)}
@@ -202,8 +205,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (prefers-reduced-motion:reduce){.bsheet__p{animation:none}}
 @media (max-width:780px){.bsheet{grid-template-columns:0 1fr}}
 
+/* the mobile-only reserve bar: on desktop the sticky stage already keeps
+   Reserve on screen at all times, so this stays hidden there. */
+.mbar{display:none}
 @media (max-width:900px){
- .split{grid-template-columns:1fr}
+ .mbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:60;
+  padding:12px clamp(14px,4vw,28px) calc(12px + env(safe-area-inset-bottom));
+  background:rgba(237,231,220,.98);border-top:1px solid var(--ln);
+  box-shadow:0 -10px 30px rgba(0,0,0,.12)}
+ .mbar .bt{width:100%;min-height:52px}
+ .end{padding-bottom:calc(clamp(34px,5vw,64px) + 76px)}
+}
+
+@media (max-width:900px){
+ /* the desktop split forces the whole grid to at least one screen tall so the
+    stage never looks short; once the stage stops being fixed that forcing is
+    unwanted, and on a short page (Team, FAQ) it stretched the row past its
+    content and left empty space below the footer. Let the page be its own height. */
+ .split{grid-template-columns:1fr;min-height:auto}
  .stage{position:relative;height:auto;min-height:74svh}
  .stage__in{min-height:74svh}
  .strip{margin-right:0}

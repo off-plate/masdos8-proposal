@@ -210,23 +210,40 @@
 <!-- ================= NAV ================= -->
 <section class="sys-sec" id="nav">
   <h2>Navigation</h2>
-  <p>One floating bar, on every page, holding the logo, the links, WhatsApp and the reserve button. It is not welded to the top of the screen: it sits 14px inside all three edges and darkens once you scroll past the hero. Below 780px the links collapse into the drawer and the burger takes their place.</p>
+  <p>One floating bar, identical on all six pages: About, Team, FAQ, then the switcher, then Reserve. Nothing here is assembled per page, which is the fix for the bug this system used to have, three different subpages carrying three different navs. It is not welded to the top of the screen: it sits 14px inside all three edges and darkens once you scroll past the hero. Below 780px the links collapse into the drawer and the burger takes their place, and the burger itself turns into an X while it is open.</p>
 
   <span class="sys-lbl" style="margin-top:22px">The bar, as it appears on every page</span>
   <div class="sys-demo" style="display:block;padding:20px">
     <div class="nav" style="position:relative;top:auto;left:auto;right:auto">
       <a class="nav__lg" href="../"><img src="../img/logo.png" alt="MasDos8"><b>MasDos8</b></a>
-      <div class="nav__l"><a href="../about/">About</a><a href="../#work">Gallery</a><a href="../#prices">Services</a><a href="../#find">Find us</a></div>
-      <a class="nav__wa" href="../">WhatsApp</a>
+      <div class="nav__l"><a href="../about/">About</a><a href="../team/">Team</a><a href="../faq/">FAQ</a></div>
+      <div class="sw" data-sw>
+        <button class="sw__b" aria-expanded="false" aria-haspopup="true"><span class="sw__t">Barbershop</span>
+          <svg class="sw__c" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      </div>
       <button class="bt bt--g" style="min-height:44px;padding:11px 22px">Reserve</button>
     </div>
   </div>
 
-  <span class="sys-lbl" style="margin-top:22px">The drawer, under 780px</span>
+  <span class="sys-lbl" style="margin-top:22px">The switcher, open. Same component, same job, as shop 8's</span>
+  <div class="sys-demo" style="min-height:220px;align-items:flex-start">
+    <div class="sw" data-open>
+      <button class="sw__b" aria-expanded="true"><span class="sw__t">Barbershop</span>
+        <svg class="sw__c" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      <div class="sw__p" style="animation:none">
+        <a class="sw__i on" href="../"><b>Barbershop</b><span>Cuts, beards, kids &middot; from 100 Kč</span></a>
+        <a class="sw__i" href="../tattoo/"><b>Tattoo</b><span>Small pieces to full backs &middot; from 600 Kč</span></a>
+        <a class="sw__i" href="../pmu/"><b>Permanent makeup</b><span>Brows, lips, eyeliner &middot; from 1 500 Kč</span></a>
+      </div>
+    </div>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">The drawer, under 780px, closed then open. WhatsApp lives here and in every gold band, not in the bar itself</span>
   <div class="sys-demo" style="display:block;padding:20px">
-    <div class="drw" style="position:relative;inset:auto;display:grid;max-width:340px">
-      <a href="../about/">About</a><a href="../#work">Gallery</a><a href="../#prices">Services</a>
-      <a href="../#find">Find us</a><a href="../">+420 773 267 463</a><a href="../">WhatsApp</a>
+    <div class="drw" style="position:relative;inset:auto;display:grid;max-width:340px;opacity:1;transform:none;pointer-events:auto">
+      <a href="../about/">About</a><a href="../team/">Team</a><a href="../faq/">FAQ</a>
+      <div class="drw__sw"><b>Also here</b><a href="../" aria-current="page">Barbershop</a><a href="../tattoo/">Tattoo</a><a href="../pmu/">Permanent makeup</a></div>
+      <a href="../">+420 773 267 463</a><a href="../">WhatsApp</a>
     </div>
   </div>
 
@@ -236,8 +253,10 @@
     <tr><td>Hit height</td><td>44px minimum on every item including the logo</td></tr>
     <tr><td>Gap between items</td><td>20px, so they never read as one run of text</td></tr>
     <tr><td>Rest and hover</td><td><code>--w-d</code> going to <code>--g2</code></td></tr>
-    <tr><td>Current page</td><td><code>aria-current="page"</code>, which the drawer and the bar both carry</td></tr>
+    <tr><td>Current page</td><td><code>aria-current="page"</code>, which the drawer, the bar and the switcher all carry</td></tr>
     <tr><td>Scrolled</td><td><code>.pin</code>, the only change is the bar ground going from 88% to 97% opaque</td></tr>
+    <tr><td>Drawer open/close</td><td>A real opacity and transform transition on a <code>.open</code> class, so it eases in instead of snapping</td></tr>
+    <tr><td>Burger</td><td>Morphs into an X, via <code>aria-expanded</code>, so the open state has real visual feedback</td></tr>
   </table></div>
 </section>
 
@@ -333,7 +352,27 @@
 <!-- ================= FORMS ================= -->
 <section class="sys-sec" id="forms">
   <h2>Fields and slots</h2>
-  <p>Only the booking sheet takes input, so there is exactly one field treatment and one time slot. A slot has four states and all four are below, including the one that matters most: a time somebody else already took. The sheet itself is one script, <code>app.js</code>, opened from a Reserve button, the badge, or a price row on any of the site's six pages. Each page sets its own service list and confirmation wording through three page-level variables read once at the top of <code>app.js</code>, so the barbershop, the tattoo studio and permanent makeup each quote their own prices without three copies of the flow.</p>
+  <p>The reservation is a wizard: one question at a time, full screen, three steps. Shop 8's panel shows every field at once; this walks you through it instead. Step one is service cards, step two is who and when (a barber, a day strip, a time slot), step three is your name and a summary. Only step three takes text input, so there is exactly one field treatment and one time slot, and a slot has four states, all four are below, including the one that matters most, a time somebody else already took. The wizard is one script, <code>app.js</code>, opened from a Reserve button, the badge, or a price row on any of the site's six pages. Each page sets its own service list, staff list and confirmation wording through page-level variables read once at the top of <code>app.js</code>, so the barbershop, the tattoo studio and permanent makeup each quote their own prices without three copies of the flow, and the barbershop alone offers a choice of José Luis or Zhanna.</p>
+
+  <span class="sys-lbl" style="margin-top:22px">Step 1, a service card, rest and selected</span>
+  <div class="sys-demo" style="display:block;max-width:460px">
+    <button class="wiz__c" aria-pressed="false" style="width:100%;margin-bottom:8px"><b>Classic adult cut</b><span></span><em>600 Kč</em></button>
+    <button class="wiz__c" aria-pressed="true" style="width:100%"><b>Full service</b><span></span><em>1 100 Kč</em></button>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">Step 2, who and a day strip</span>
+  <div class="sys-demo" style="display:block;max-width:460px">
+    <div class="wiz__who" style="margin-bottom:14px">
+      <button class="wiz__wb" aria-pressed="true">Anyone free</button>
+      <button class="wiz__wb" aria-pressed="false">José Luis</button>
+      <button class="wiz__wb" aria-pressed="false">Zhanna</button>
+    </div>
+    <div class="wiz__days" style="margin-bottom:0">
+      <button class="wiz__d" aria-pressed="false"><span>Thu</span><b>13</b></button>
+      <button class="wiz__d" aria-pressed="true"><span>Fri</span><b>14</b></button>
+      <button class="wiz__d" aria-pressed="false"><span>Sat</span><b>15</b></button>
+    </div>
+  </div>
 
   <span class="sys-lbl" style="margin-top:22px">Field, rest and focus</span>
   <div class="sys-demo" style="display:block;max-width:460px">

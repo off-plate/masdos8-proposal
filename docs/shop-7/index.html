@@ -15,12 +15,33 @@
 
 <nav class="nav" data-pin>
   <a class="nav__lg" href="../gate-2/"><img src="img/logo.png" alt="MasDos8"><b>MasDos8</b></a>
-  <div class="nav__l"><a href="about/">About</a><a href="#work">Gallery</a><a href="#prices">Services</a><a href="#said">Reviews</a><a href="#find">Find us</a></div>
-  <a class="nav__wa" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
+  <div class="nav__l"><a href="about/">About</a><a href="team/">Team</a><a href="faq/">FAQ</a></div>
+  <div class="sw" data-sw>
+    <button class="sw__b" aria-expanded="false" aria-haspopup="true" id="swb">
+      <span class="sw__t">Barbershop</span>
+      <svg class="sw__c" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+    <div class="sw__p" hidden role="menu" aria-labelledby="swb">
+      <a class="sw__i on" href="./" aria-current="page" role="menuitem"><b>Barbershop</b><span>Cuts, beards, kids &middot; from 100 Kč</span></a>
+      <a class="sw__i" href="tattoo/" role="menuitem"><b>Tattoo</b><span>Small pieces to full backs &middot; from 600 Kč</span></a>
+      <a class="sw__i" href="pmu/" role="menuitem"><b>Permanent makeup</b><span>Brows, lips, eyeliner &middot; from 1 500 Kč</span></a>
+    </div>
+  </div>
   <button class="bt bt--g" data-book style="min-height:44px;padding:11px 22px">Reserve</button>
   <button class="brg" data-menu="#drw" aria-expanded="false" aria-label="Menu"><span></span><span></span></button>
 </nav>
-<div class="drw" id="drw" hidden><a href="about/">About</a><a href="#work">Gallery</a><a href="#prices">Services</a><a href="#said">Reviews</a><a href="#find">Find us</a><a href="team/">Team</a><a href="faq/">FAQ</a><a href="tel:+420773267463">+420 773 267 463</a><a href="https://wa.me/420773267463" target="_blank" rel="noopener">WhatsApp</a></div>
+<div class="drw" id="drw">
+  <a href="about/">About</a>
+  <a href="team/">Team</a>
+  <a href="faq/">FAQ</a>
+  <div class="drw__sw"><b>Also here</b>
+    <a href="./" aria-current="page">Barbershop</a>
+    <a href="tattoo/">Tattoo</a>
+    <a href="pmu/">Permanent makeup</a>
+  </div>
+  <a href="tel:+420773267463">+420 773 267 463</a>
+  <a href="https://wa.me/420773267463" target="_blank" rel="noopener">WhatsApp</a>
+</div>
 
 <header class="hero">
   <span class="hero__word" data-sp="0.12">MASDOS8</span>
@@ -63,23 +84,19 @@
     <h2 class="cl h2" data-rv style="--i:1">Let us show you our work</h2>
   </div>
   <div class="gal" id="gal">
-    <button class="t" data-rv aria-label="Open image 1"><img src="img/g01-s.webp" alt="Razor, comb and brush laid out" loading="lazy"><figcaption>The tools</figcaption></button>
-    <button class="t" data-rv style="--i:1" aria-label="Open image 2"><img src="img/g02-s.webp" alt="A shave in progress" loading="lazy"><figcaption>The shave</figcaption></button>
-    <button class="t" data-rv style="--i:2" aria-label="Open image 3"><img src="img/g03-s.webp" alt="Beard work, reclined" loading="lazy"><figcaption>Beard work</figcaption></button>
-    <button class="wd" data-rv aria-label="Open image 4"><img src="img/g04-s.webp" alt="Neckline finished with a razor" loading="lazy"><figcaption>The finish</figcaption></button>
-    <button data-rv style="--i:1" aria-label="Open image 5"><img src="img/g05-s.webp" alt="A cut in the chair" loading="lazy"><figcaption>In the chair</figcaption></button>
-    <button data-rv aria-label="Open image 6"><img src="img/g06-s.webp" alt="The room, lights on" loading="lazy"><figcaption>The room</figcaption></button>
-    <button class="wd" data-rv style="--i:1" aria-label="Open image 7"><img src="img/g07-s.webp" alt="Chairs and mirrors" loading="lazy"><figcaption>Chairs and mirrors</figcaption></button>
-    <button class="hf" data-rv aria-label="Open image 8"><img src="img/g14-s.webp" alt="Clippers, scissors and comb laid out" loading="lazy"><figcaption>Kit</figcaption></button>
-    <button class="hf" data-rv style="--i:1" aria-label="Open image 9"><img src="img/g09-s.webp" alt="The chair" loading="lazy"><figcaption>The chair</figcaption></button>
+    <button class="t" data-rv aria-label="Open image 1"><img src="img/real-kidcut-s.webp" alt="A kid's fade, cut in the shop" loading="lazy"><figcaption>A kid's fade</figcaption></button>
+    <button data-rv style="--i:1" aria-label="Open image 2"><img src="img/real-barber1-s.webp" alt="José Luis at the chair" loading="lazy"><figcaption>At the chair</figcaption></button>
+    <button class="wd" data-rv aria-label="Open image 3"><img src="img/real-cutting-s.webp" alt="Mid-cut, clippers in hand" loading="lazy"><figcaption>Mid-cut</figcaption></button>
+    <button data-rv style="--i:2" aria-label="Open image 4"><img src="img/real-mirror-s.webp" alt="Checking the finish in the mirror" loading="lazy"><figcaption>The finish, checked</figcaption></button>
+    <button class="hf" data-rv style="--i:1" aria-label="Open image 5"><img src="img/real-barber2-s.webp" alt="José Luis with the clippers" loading="lazy"><figcaption>José Luis</figcaption></button>
   </div>
-  <p class="gal__n" data-rv>Photography here is placeholder stock for the proposal, and gets replaced with José's own work before launch.</p>
+  <p class="gal__n" data-rv>Their own work, photographed in the room on Nuselská, shown in black and white.</p>
 </div></section>
 
 <section class="sec" id="prices" style="padding-top:0"><div class="w">
   <div class="hd">
-    <h2 class="cl h2" data-rv style="--i:1">Everything we do, with the price</h2>
-    <p class="tx" data-rv style="--i:2">Choose a service and we will hold the chair for you. These are the prices we charge, all of them.</p>
+    <h2 class="cl h2" data-rv style="--i:1">Everything we do. And the price.</h2>
+    <p class="tx" data-rv style="--i:2">Choose a service and we will hold the chair for you. This is what it costs.</p>
   </div>
   <div class="svc" data-rv>
     <div class="svc__l" id="svcl">
@@ -175,6 +192,7 @@
         src="https://www.openstreetmap.org/export/embed.html?bbox=14.4469454%2C50.0518831%2C14.4579454%2C50.0574831&amp;layer=mapnik"></iframe>
       <span class="map__pin" aria-hidden="true"></span>
       <span class="map__lb">MasDos8 &middot; Nuselská 133/134</span>
+      <button class="map__lock" type="button">Click to interact with the map</button>
     </div>
   </div>
 </div></section>
@@ -196,6 +214,7 @@
 </div></footer>
 
 <script src="motion.js" defer></script>
+<script>window.RESV_STAFF=["Anyone free","José Luis","Zhanna"];</script>
 <script src="app.js" defer></script>
 </body>
 </html>
