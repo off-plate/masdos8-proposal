@@ -45,7 +45,7 @@
 <header class="sys-head">
   <a class="sys-back" href="../../">MasDos8 proposals</a>
   <h1>Shop 8, the web guideline</h1>
-  <p class="sys-lede">Every token and every component this site owns, in every state, on one page. Four pages already share it: barbershop, tattoo, permanent makeup and the story. They are generated from one template by <code>tools/shop8.mjs</code> and they all link <code>shop-8/app.css</code>, which is the file this page is rendering from, so nothing here can quietly drift away from the site.</p>
+  <p class="sys-lede">Every token and every component this site owns, in every state, on one page. Six pages already share it: barbershop, tattoo, permanent makeup, the story, the team and the FAQ. They are generated from one template by <code>tools/shop8.mjs</code> and they all link <code>shop-8/app.css</code>, which is the file this page is rendering from, so nothing here can quietly drift away from the site.</p>
 </header>
 
 <!-- ================= COLOUR ================= -->
@@ -393,18 +393,19 @@
   <p>Every component this site owns, what it is for in one sentence, and where it appears. Two rows with the same sentence would be one component, so there are none.</p>
   <div class="sys-scroll"><table class="sys-t">
     <tr><th>Component</th><th>Purpose</th><th>Variants</th><th>Appears on</th></tr>
-    <tr><td><code>.bt</code></td><td>Take an action</td><td><code>--r</code> <code>--l</code> <code>--d</code></td><td>All four pages, stage and page end</td></tr>
-    <tr><td><code>.sw</code></td><td>Move between the three rooms of the shop from anywhere</td><td>open, current</td><td>All four pages</td></tr>
-    <tr><td><code>.pnav</code></td><td>Get to any page from any page</td><td>none</td><td>All four pages</td></tr>
-    <tr><td><code>.stage</code></td><td>Hold the place, the proof and the booking still while the page moves</td><td>Static under 900px</td><td>All four pages</td></tr>
+    <tr><td><code>.bt</code></td><td>Take an action</td><td><code>--r</code> <code>--l</code> <code>--d</code></td><td>All six pages, stage and page end</td></tr>
+    <tr><td><code>.sw</code></td><td>Move between the three rooms of the shop from anywhere</td><td>open, current</td><td>All six pages</td></tr>
+    <tr><td><code>.pnav</code></td><td>Get to any page from any page</td><td>none</td><td>All six pages</td></tr>
+    <tr><td><code>.stage</code></td><td>Hold the place, the proof and the booking still while the page moves</td><td>Static under 900px</td><td>All six pages</td></tr>
+    <tr><td>The sheet <code>.bsheet</code></td><td>Take a real reservation: service, day, time, contact, reference</td><td>Per-page service list and copy</td><td>All six pages</td></tr>
     <tr><td><code>.step</code></td><td>Carry one idea and one kind of content</td><td>none</td><td>All four pages, five or six each</td></tr>
-    <tr><td><code>.led</code> row</td><td>Show one service with its price so it can be compared and booked</td><td>with or without description</td><td>Barber, tattoo, permanent makeup</td></tr>
+    <tr><td><code>.led</code> row</td><td>Open the reservation sheet with that service and price already chosen</td><td>with or without description</td><td>Barber, tattoo, permanent makeup</td></tr>
     <tr><td><code>.facts</code> item</td><td>Give one number that proves something</td><td>counting, static</td><td>All four pages, stage and steps</td></tr>
     <tr><td><code>.strip</code></td><td>Show the work as a run of photographs you can drag through</td><td>none</td><td>Barber, tattoo, permanent makeup</td></tr>
     <tr><td><code>.pair</code></td><td>Show two photographs that only mean something together</td><td>none</td><td>About</td></tr>
-    <tr><td><code>.qs</code> quote</td><td>Show one real review in the customer's own words</td><td>none</td><td>All four pages</td></tr>
+    <tr><td><code>.qs</code> quote</td><td>Show one real review in the customer's own words</td><td>none</td><td>Barber, tattoo, PMU, FAQ</td></tr>
     <tr><td><code>.big</code></td><td>Give one idea the whole width, once per page at most</td><td>none</td><td>About</td></tr>
-    <tr><td><code>.end</code></td><td>Close the page with the address, the hours and the other rooms</td><td>none</td><td>All four pages</td></tr>
+    <tr><td><code>.end</code></td><td>Close the page with the address, the hours and the other rooms</td><td>none</td><td>All six pages</td></tr>
   </table></div>
 </section>
 

@@ -157,6 +157,51 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .end__c{display:grid;gap:7px;font-size:14.5px;color:rgba(237,231,220,.7)}
 .end__b{border-top:1px solid rgba(237,231,220,.18);margin-top:26px;padding-top:16px;font-size:11.5px;color:rgba(237,231,220,.5)}
 
+/* a round control, used by the sheet's close button */
+.rnd{width:44px;height:44px;border:1px solid var(--ln);display:grid;place-items:center;
+ font-family:'Pa',Georgia,serif;font-weight:700;font-size:17px;color:var(--ink);
+ transition:background .18s var(--ez),color .18s var(--ez),border-color .18s var(--ez)}
+.rnd:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+
+/* ============================================================
+   THE RESERVATION SHEET.
+   One component, one definition, opened by every Reserve button,
+   every ledger row and the stage badge, on all six pages. Service,
+   day, a slot that can be taken, who you are, then a reference.
+   ============================================================ */
+.bsheet{position:fixed;inset:0;z-index:130;display:grid;grid-template-columns:1fr min(560px,100%);
+ background:rgba(14,13,12,.7)}
+.bsheet__bg{cursor:pointer}
+.bsheet__p{background:var(--paper);border-left:1px solid var(--ln);overflow-y:auto;padding:clamp(18px,2.4vw,34px);
+ display:grid;gap:16px;align-content:start;animation:bslide .3s var(--ez)}
+@keyframes bslide{from{transform:translateX(40px);opacity:.4}to{transform:none;opacity:1}}
+.bsheet__h{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.bsheet__h h2{font-family:'Pa',Georgia,serif;font-weight:900;text-transform:uppercase;font-size:clamp(24px,2.4vw,32px);line-height:1}
+.bfl{display:grid;gap:7px}
+.bfl span{font-family:'Ra',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-d)}
+.bfl select,.bfl input{background:var(--paper2);border:1px solid var(--ln);color:var(--ink);font:inherit;font-size:15px;
+ padding:13px 14px;min-height:50px;width:100%;appearance:none;-webkit-appearance:none;border-radius:0}
+.bfl select:focus,.bfl input:focus{outline:none;border-color:var(--gold-d)}
+.bslots{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:7px}
+.bslot{min-height:46px;border:1px solid var(--ln);font-family:'Pa',Georgia,serif;font-weight:700;
+ font-size:15px;font-variant-numeric:tabular-nums;background:var(--paper);color:var(--ink);
+ transition:background .18s var(--ez),border-color .18s var(--ez),color .18s var(--ez)}
+.bslot:hover:not([disabled]){border-color:var(--gold-d);color:var(--gold-d)}
+.bslot[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.bslot[disabled]{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.bsum{border:1px solid var(--ln);background:var(--paper2);padding:15px;display:grid;gap:8px}
+.bsum__r{display:flex;justify-content:space-between;gap:14px;font-size:14.5px;color:var(--ink-d)}
+.bsum__r b{font-family:'Ra',sans-serif;font-weight:700;color:var(--ink)}
+.bsum__t{border-top:1px solid var(--ln);padding-top:9px;display:flex;justify-content:space-between;align-items:baseline}
+.bsum__t b{font-family:'Pa',Georgia,serif;font-weight:900;font-size:24px;color:var(--gold-d)}
+.bnote{font-size:12.5px;color:var(--ink-d)}
+.bok{display:grid;gap:12px;place-content:center;text-align:center;min-height:50vh}
+.bok__i{width:72px;height:72px;background:var(--gold);color:var(--ink);display:grid;place-items:center;
+ font-size:32px;margin-inline:auto;font-family:'Pa',Georgia,serif;font-weight:900}
+.bok__ref{font-family:'Pa',Georgia,serif;font-weight:900;font-size:21px;letter-spacing:.02em;color:var(--gold-d)}
+@media (prefers-reduced-motion:reduce){.bsheet__p{animation:none}}
+@media (max-width:780px){.bsheet{grid-template-columns:0 1fr}}
+
 @media (max-width:900px){
  .split{grid-template-columns:1fr}
  .stage{position:relative;height:auto;min-height:74svh}

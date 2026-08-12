@@ -23,7 +23,10 @@ const czk = n => n.toLocaleString('cs-CZ').replace(/ /g, ' ');
 const PAGES = {
   barber: {
     out: 'index.html', base: '', up: '../',
-    nav: [['About', 'about/'], ['Prices', '#s2'], ['Our work', '#s3'], ['Find us', '#book']],
+    nav: [['About', 'about/'], ['Prices', '#s2'], ['Our work', '#s3'], ['Team', 'team/'], ['FAQ', 'faq/'], ['Find us', '#book']],
+    resv: { title: 'Reserve a chair', done: 'The chair is held', pay: 'Payable in the chair', with: 'José Luis',
+      svc: [['Classic adult cut', 600], ['Cut, wash and massage', 700], ['Cut, wash and beard', 900], ['Full service', 1100],
+        ['Beard trim', 250], ['Beard colour', 200], ['Hair ornaments', 100], ['Kids under 5', 300], ['Kids 6 to 12', 400], ['Dreadlocks', 2500]] },
     title: 'MasDos8 Barbershop, Prague 4. Sit down',
     desc: 'Barbershop on Nuselska, Prague 4. Classic cut 600 CZK. 4.8 from 225 Google reviews. Golden Company 2025.',
     stage: [
@@ -57,7 +60,7 @@ const PAGES = {
 
   about: {
     out: 'about/index.html', base: '../', up: '../../',
-    nav: [['Barbershop', ''], ['Our story', '#s1'], ['The name', '#s4'], ['Find us', '#book']],
+    nav: [['Barbershop', ''], ['Our story', '#s1'], ['The name', '#s4'], ['Team', 'team/'], ['FAQ', 'faq/'], ['Find us', '#book']],
     title: 'About MasDos8, Prague 4. Four generations of barbers',
     desc: 'Jose Luis is the fourth generation of barbers in his family. Dominican, twenty years behind the chair, Golden Company 2025 in Prague 4.',
     stage: [
@@ -93,7 +96,9 @@ const PAGES = {
 
   tattoo: {
     out: 'tattoo/index.html', base: '../', up: '../../',
-    nav: [['About', 'about/'], ['Prices', '#s2'], ['Our work', '#s3'], ['Find us', '#book']],
+    nav: [['About', 'about/'], ['Prices', '#s2'], ['Our work', '#s3'], ['Team', 'team/'], ['FAQ', 'faq/'], ['Find us', '#book']],
+    resv: { title: 'Book a consultation', done: 'The consultation is booked', pay: 'Agreed at the consultation', with: 'José Luis',
+      svc: [['Small piece', 600], ['Medium piece', 3000], ['Large piece', 6000], ['Half sleeve', 6000], ['Large areas', 18000]] },
     title: 'MasDos8 Tattoo, Prague 4. Consultation first, needle after',
     desc: 'Tattoo studio on Nuselska, Prague 4. Small piece from 600 CZK, large areas 18 000 CZK. 4.8 from 225 Google reviews.',
     stage: [
@@ -128,7 +133,10 @@ const PAGES = {
 
   pmu: {
     out: 'pmu/index.html', base: '../', up: '../../',
-    nav: [['About', 'about/'], ['Prices', '#s2'], ['Our work', '#s3'], ['Find us', '#book']],
+    nav: [['About', 'about/'], ['Prices', '#s2'], ['Our work', '#s3'], ['Team', 'team/'], ['FAQ', 'faq/'], ['Find us', '#book']],
+    resv: { title: 'Book a sitting', done: 'The sitting is booked', pay: 'Agreed before we begin', with: 'José Luis',
+      svc: [['Brows', 3500], ['Full lips', 5000], ['Lip fill', 3500], ['Lip contour', 2000], ['Upper and lower eyeliner', 2000],
+        ['Upper eyeliner', 1500], ['Repair of earlier work', 3000]] },
     title: 'MasDos8 Permanent makeup, Prague 4. Brows, lips, eyeliner',
     desc: 'Permanent makeup on Nuselska, Prague 4. Brows 3 500 CZK, full lips 5 000 CZK, repairs 3 000 CZK.',
     stage: [
@@ -161,6 +169,58 @@ const PAGES = {
       { n: '05', h: 'Nuselská 133/134, <i>Prague 4</i>', id: 'book',
         p: 'We draw the shape on and agree it with you before any pigment goes in. If you already have work from another studio, bring it in, the repair has its own price on the list.' }
     ]
+  },
+
+  team: {
+    out: 'team/index.html', base: '../', up: '../../',
+    nav: [['Barbershop', ''], ['About', 'about/'], ['Who’s in the room', '#s1'], ['FAQ', 'faq/'], ['Find us', '#book']],
+    title: 'The team at MasDos8, Prague 4',
+    desc: 'Jose Luis Castillo and the barbers who train under him at MasDos8, Nuselska, Prague 4.',
+    stage: [
+      ['The team', 'Every chair here is held by someone José trained himself, or José.'],
+      ['Who’s in the room', 'Owner, barber, and a team that keeps growing.'],
+      ['Come in', 'Book with either and you get the same care.']
+    ],
+    photos: ['jose2.webp', 'cut9.webp', 'shop2.webp', 'jose.webp'],
+    alts: ['José Luis', 'A cut in progress', 'The studio', 'José Luis at the chair'],
+    steps: [
+      { n: '01', h: 'José Luis <i>Castillo</i>', id: 's1',
+        p: 'Fourth generation of barbers in his family, Dominican, more than twenty years behind the chair. He cuts, he tattoos, and he does the permanent makeup himself. Most days he is at the chair alongside everyone else.',
+        facts: [['4', 'Generations of barbers', 1], ['20 +', 'Years behind the chair', 0]] },
+      { n: '02', h: '<i>Denny</i>, barber',
+        p: 'Trained by José, and named by regulars in their own reviews. Cuts and beards, same room, same prices.' },
+      { n: '03', h: 'The team <i>keeps growing</i>',
+        p: 'We train new barbers here ourselves, and they will look after you with care and Dominican energy, as José puts it. There is a drink for you while you wait: coffee, rum, or mamajuana if you are feeling brave.' },
+      { n: '04', h: 'Nuselská 133/134, <i>Prague 4</i>', id: 'book',
+        p: 'The reservation asks for a service and a time. If you have a favourite pair of hands, tell us on WhatsApp and we will do our best to hold that chair.' }
+    ]
+  },
+
+  faq: {
+    out: 'faq/index.html', base: '../', up: '../../',
+    nav: [['Barbershop', ''], ['About', 'about/'], ['Team', 'team/'], ['Find us', '#book']],
+    title: 'Frequently asked, MasDos8, Prague 4',
+    desc: 'Booking, languages, kids, tattoo consultations and getting to MasDos8 on Nuselska, Prague 4.',
+    stage: [
+      ['Questions', 'The ones we actually get, answered straight.'],
+      ['Still stuck', 'Ask us on WhatsApp and we will answer it properly.']
+    ],
+    photos: ['shop1.webp', 'shop2.webp', 'cut2.webp', 'cut6.webp', 'cut8.webp', 'cut9.webp'],
+    alts: ['The room on Nuselská', 'The studio', 'A cut in progress', 'Finishing a fade', 'Detail work', 'A cut, finished'],
+    steps: [
+      { n: '01', h: 'Do I need to <i>book</i>?',
+        p: 'Book if you can. Three of the reviews on our page are about the old booking system letting people down, a closed door with no answer, a wait with barbers standing idle, a barber swapped without warning. This reservation is built to fix exactly that: it holds a real slot in the diary.' },
+      { n: '02', h: 'Do you speak <i>English or Spanish</i>?',
+        p: 'Our own customers write their reviews in Czech, Spanish and English, so come in whichever you’re most comfortable with. José is Dominican, and more than one review mentions feeling at home speaking Spanish here.' },
+      { n: '03', h: 'I don’t know exactly <i>what I want</i> yet.',
+        p: 'That’s what the tattoo consultation is for, and it’s free. Bring a reference, a rough idea, or nothing at all, and we agree the size and the price together before the needle starts.' },
+      { n: '04', h: 'Do you cut <i>children’s</i> hair?',
+        p: 'Yes. There’s a separate price for under 5s and for 6 to 12s, and a coffee for the parent while it happens.' },
+      { n: '05', h: 'Are the prices <i>real</i>?',
+        p: 'Every price you see is the one we charge, all of them, with nothing added at the till. If a service isn’t listed, ask and we’ll tell you the price before you sit down.' },
+      { n: '06', h: 'I need to <i>move or cancel</i> my slot.', id: 'book',
+        p: 'Call or WhatsApp us and we’ll move it for you. The reservation reference we give you at the end makes it a thirty second call.' }
+    ]
   }
 };
 
@@ -180,7 +240,7 @@ const switcher = (cur, base) => `
   </div>`;
 
 const ledger = rows => `<div class="led">${rows.map(([n, x, p]) =>
-  `<a href="#book"><span>${n}${x ? `<em>${x}</em>` : ''}</span><b>${czk(p)}</b></a>`).join('')}</div>`;
+  `<a href="#book" data-led data-n="${n}" data-p="${p}"><span>${n}${x ? `<em>${x}</em>` : ''}</span><b>${czk(p)}</b></a>`).join('')}</div>`;
 
 const step = (s, base) => `
     <section class="step" data-stage="${+s.n - 1}" id="${s.id || 's' + (+s.n)}">
@@ -206,8 +266,10 @@ const step = (s, base) => `
 
 const page = (key) => {
   const d = PAGES[key], B = d.base;
-  // the about page belongs to the barbershop, so the switcher reads Barbershop there
-  const sw = key === 'about' ? 'barber' : key;
+  // about, team and faq are not one of the three services, so the switcher
+  // and the reservation default to the barbershop on those pages
+  const sw = ['about', 'team', 'faq'].includes(key) ? 'barber' : key;
+  const resv = d.resv || PAGES.barber.resv;
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -244,7 +306,7 @@ const page = (key) => {
           <div><b style="color:var(--paper)">2025</b><span style="color:rgba(237,231,220,.6)">Golden Company</span></div>
         </div>
         <div class="stage__act">
-          <a class="bt bt--r" href="#book">Reserve</a>
+          <a class="bt bt--r" href="#book" data-book>Reserve</a>
           <a class="bt bt--l" href="tel:+420773267463">+420 773 267 463</a>
           <a class="bt bt--l" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
         </div>
@@ -317,6 +379,14 @@ ${d.steps.map(s => step(s, B)).join('\n')}
   });
 })();
 </script>
+<script>
+window.RESV_SVC=${JSON.stringify(resv.svc)};
+window.RESV_TITLE=${JSON.stringify(resv.title)};
+window.RESV_DONE=${JSON.stringify(resv.done)};
+window.RESV_PAY=${JSON.stringify(resv.pay)};
+window.RESV_WITH=${JSON.stringify(resv.with)};
+</script>
+<script src="${B}book.js" defer></script>
 </body>
 </html>
 `;
@@ -324,7 +394,8 @@ ${d.steps.map(s => step(s, B)).join('\n')}
 
 fs.mkdirSync(ROOT, { recursive: true });
 fs.copyFileSync(path.join('tools', 'shop8.css'), path.join(ROOT, 'app.css'));
-console.log('wrote docs/shop-8/app.css');
+fs.copyFileSync(path.join('tools', 'shop8-book.js'), path.join(ROOT, 'book.js'));
+console.log('wrote docs/shop-8/app.css, docs/shop-8/book.js');
 
 for (const key of Object.keys(PAGES)) {
   const out = path.join(ROOT, PAGES[key].out);

@@ -38,7 +38,7 @@
           <div><b style="color:var(--paper)">2025</b><span style="color:rgba(237,231,220,.6)">Golden Company</span></div>
         </div>
         <div class="stage__act">
-          <a class="bt bt--r" href="#book">Reserve</a>
+          <a class="bt bt--r" href="#book" data-book>Reserve</a>
           <a class="bt bt--l" href="tel:+420773267463">+420 773 267 463</a>
           <a class="bt bt--l" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
         </div>
@@ -54,6 +54,8 @@
         <a href="about/">About</a>
         <a href="#s2">Prices</a>
         <a href="#s3">Our work</a>
+        <a href="team/">Team</a>
+        <a href="faq/">FAQ</a>
         <a href="#book">Find us</a>
       </div>
       
@@ -93,7 +95,7 @@
       <h2>Everything we do, <i>with the price</i></h2>
       
       
-      <div class="led"><a href="#book"><span>Classic adult cut<em>Contours, brows, ears, cologne and a drink</em></span><b>600</b></a><a href="#book"><span>Cut, wash and massage</span><b>700</b></a><a href="#book"><span>Cut, wash and beard</span><b>900</b></a><a href="#book"><span>Full service<em>Everything together, unhurried</em></span><b>1 100</b></a><a href="#book"><span>Beard trim<em>Plus a drink on the house</em></span><b>250</b></a><a href="#book"><span>Beard colour</span><b>200</b></a><a href="#book"><span>Hair ornaments</span><b>100</b></a><a href="#book"><span>Kids under 5<em>Free coffee for the parent</em></span><b>300</b></a><a href="#book"><span>Kids 6 to 12</span><b>400</b></a><a href="#book"><span>Dreadlocks</span><b>2 500</b></a></div>
+      <div class="led"><a href="#book" data-led data-n="Classic adult cut" data-p="600"><span>Classic adult cut<em>Contours, brows, ears, cologne and a drink</em></span><b>600</b></a><a href="#book" data-led data-n="Cut, wash and massage" data-p="700"><span>Cut, wash and massage</span><b>700</b></a><a href="#book" data-led data-n="Cut, wash and beard" data-p="900"><span>Cut, wash and beard</span><b>900</b></a><a href="#book" data-led data-n="Full service" data-p="1100"><span>Full service<em>Everything together, unhurried</em></span><b>1 100</b></a><a href="#book" data-led data-n="Beard trim" data-p="250"><span>Beard trim<em>Plus a drink on the house</em></span><b>250</b></a><a href="#book" data-led data-n="Beard colour" data-p="200"><span>Beard colour</span><b>200</b></a><a href="#book" data-led data-n="Hair ornaments" data-p="100"><span>Hair ornaments</span><b>100</b></a><a href="#book" data-led data-n="Kids under 5" data-p="300"><span>Kids under 5<em>Free coffee for the parent</em></span><b>300</b></a><a href="#book" data-led data-n="Kids 6 to 12" data-p="400"><span>Kids 6 to 12</span><b>400</b></a><a href="#book" data-led data-n="Dreadlocks" data-p="2500"><span>Dreadlocks</span><b>2 500</b></a></div>
       
       
       
@@ -199,5 +201,13 @@
   });
 })();
 </script>
+<script>
+window.RESV_SVC=[["Classic adult cut",600],["Cut, wash and massage",700],["Cut, wash and beard",900],["Full service",1100],["Beard trim",250],["Beard colour",200],["Hair ornaments",100],["Kids under 5",300],["Kids 6 to 12",400],["Dreadlocks",2500]];
+window.RESV_TITLE="Reserve a chair";
+window.RESV_DONE="The chair is held";
+window.RESV_PAY="Payable in the chair";
+window.RESV_WITH="José Luis";
+</script>
+<script src="book.js" defer></script>
 </body>
 </html>

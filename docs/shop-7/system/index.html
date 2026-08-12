@@ -333,7 +333,7 @@
 <!-- ================= FORMS ================= -->
 <section class="sys-sec" id="forms">
   <h2>Fields and slots</h2>
-  <p>Only the booking sheet takes input, so there is exactly one field treatment and one time slot. A slot has four states and all four are below, including the one that matters most: a time somebody else already took.</p>
+  <p>Only the booking sheet takes input, so there is exactly one field treatment and one time slot. A slot has four states and all four are below, including the one that matters most: a time somebody else already took. The sheet itself is one script, <code>app.js</code>, opened from a Reserve button, the badge, or a price row on any of the site's six pages. Each page sets its own service list and confirmation wording through three page-level variables read once at the top of <code>app.js</code>, so the barbershop, the tattoo studio and permanent makeup each quote their own prices without three copies of the flow.</p>
 
   <span class="sys-lbl" style="margin-top:22px">Field, rest and focus</span>
   <div class="sys-demo" style="display:block;max-width:460px">
@@ -392,15 +392,16 @@
   <p>Every component this site owns, what it is for in one sentence, and where it appears. Two rows with the same sentence would be one component, so there are none.</p>
   <div class="sys-scroll"><table class="sys-t">
     <tr><th>Component</th><th>Purpose</th><th>Variants</th><th>Appears on</th></tr>
-    <tr><td><code>.bt</code></td><td>Take an action</td><td><code>--g</code> <code>--o</code> <code>--ink</code> <code>--line</code></td><td>Home, About, nav, drawer, gold band, sheet</td></tr>
+    <tr><td><code>.bt</code></td><td>Take an action</td><td><code>--g</code> <code>--o</code> <code>--ink</code> <code>--line</code></td><td>All six pages, nav, drawer, gold band, sheet</td></tr>
+    <tr><td>The sheet</td><td>Take a real reservation: service, day, time, contact, reference</td><td>Per-page service list and copy</td><td>Home, Tattoo, PMU, About, Team, FAQ</td></tr>
     <tr><td><code>.rnd</code></td><td>Step forward or back through a set of things</td><td>none</td><td>Lightbox, reviews</td></tr>
     <tr><td><code>.nav</code> + <code>.drw</code></td><td>Get to any page from any page</td><td>Drawer under 780px</td><td>Every page</td></tr>
-    <tr><td><code>.hero</code></td><td>Open a page: name it, say what it is, ask for the booking</td><td>Portrait, or word only on About</td><td>Home, About</td></tr>
-    <tr><td><code>.cta</code></td><td>Ask for the booking once in the middle of the page</td><td>none</td><td>Home, About</td></tr>
+    <tr><td><code>.hero</code></td><td>Open a page: name it, say what it is, ask for the booking</td><td>Portrait, or word only on About, Team and FAQ</td><td>All six pages</td></tr>
+    <tr><td><code>.cta</code></td><td>Ask for the booking once in the middle of the page</td><td>none</td><td>Home, Tattoo, PMU, About, FAQ</td></tr>
     <tr><td><code>.sr</code></td><td>Show one service with its price so it can be compared and booked</td><td><code>.on</code></td><td>Home services, sheet</td></tr>
     <tr><td><code>.tag</code></td><td>Put a real price in front of somebody before they scroll</td><td>Five positions</td><td>Home hero, About hero</td></tr>
     <tr><td><code>.gal</code> tile</td><td>Show one photograph and open it larger</td><td><code>.t</code> <code>.wd</code> <code>.hf</code> <code>.qt</code></td><td>Home gallery</td></tr>
-    <tr><td><code>.rv</code></td><td>Show one real review at a time in the customer's own words</td><td>none</td><td>Home, About</td></tr>
+    <tr><td><code>.rv</code></td><td>Show one real review at a time in the customer's own words</td><td>none</td><td>Home, Tattoo, PMU, About</td></tr>
     <tr><td><code>.find__r</code></td><td>Give one fact about getting here</td><td>none</td><td>Home, About footer</td></tr>
     <tr><td><code>.hero__meta</code> fact</td><td>Give one number that proves something</td><td>none</td><td>Home hero, About hero</td></tr>
     <tr><td><code>.sp__r</code></td><td>Tell one chapter of the story with its photograph</td><td>none</td><td>About</td></tr>

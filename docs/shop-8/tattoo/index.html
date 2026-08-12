@@ -38,7 +38,7 @@
           <div><b style="color:var(--paper)">2025</b><span style="color:rgba(237,231,220,.6)">Golden Company</span></div>
         </div>
         <div class="stage__act">
-          <a class="bt bt--r" href="#book">Reserve</a>
+          <a class="bt bt--r" href="#book" data-book>Reserve</a>
           <a class="bt bt--l" href="tel:+420773267463">+420 773 267 463</a>
           <a class="bt bt--l" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
         </div>
@@ -54,6 +54,8 @@
         <a href="../about/">About</a>
         <a href="#s2">Prices</a>
         <a href="#s3">Our work</a>
+        <a href="../team/">Team</a>
+        <a href="../faq/">FAQ</a>
         <a href="#book">Find us</a>
       </div>
       
@@ -93,7 +95,7 @@
       <h2>Priced by <i>size</i>, agreed up front</h2>
       
       
-      <div class="led"><a href="#book"><span>Small piece<em>Lettering, a symbol, something you can cover with a hand</em></span><b>600</b></a><a href="#book"><span>Medium piece<em>A forearm, a shoulder, a calf</em></span><b>3 000</b></a><a href="#book"><span>Large piece<em>A chest panel or a full forearm sleeve</em></span><b>6 000</b></a><a href="#book"><span>Half sleeve<em>Shoulder to elbow, usually across two sittings</em></span><b>6 000</b></a><a href="#book"><span>Large areas<em>Back, both arms, legs, body work</em></span><b>18 000</b></a></div>
+      <div class="led"><a href="#book" data-led data-n="Small piece" data-p="600"><span>Small piece<em>Lettering, a symbol, something you can cover with a hand</em></span><b>600</b></a><a href="#book" data-led data-n="Medium piece" data-p="3000"><span>Medium piece<em>A forearm, a shoulder, a calf</em></span><b>3 000</b></a><a href="#book" data-led data-n="Large piece" data-p="6000"><span>Large piece<em>A chest panel or a full forearm sleeve</em></span><b>6 000</b></a><a href="#book" data-led data-n="Half sleeve" data-p="6000"><span>Half sleeve<em>Shoulder to elbow, usually across two sittings</em></span><b>6 000</b></a><a href="#book" data-led data-n="Large areas" data-p="18000"><span>Large areas<em>Back, both arms, legs, body work</em></span><b>18 000</b></a></div>
       
       
       
@@ -199,5 +201,13 @@
   });
 })();
 </script>
+<script>
+window.RESV_SVC=[["Small piece",600],["Medium piece",3000],["Large piece",6000],["Half sleeve",6000],["Large areas",18000]];
+window.RESV_TITLE="Book a consultation";
+window.RESV_DONE="The consultation is booked";
+window.RESV_PAY="Agreed at the consultation";
+window.RESV_WITH="José Luis";
+</script>
+<script src="../book.js" defer></script>
 </body>
 </html>

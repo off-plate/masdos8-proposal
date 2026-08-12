@@ -63,8 +63,10 @@
      A real flow: service, day, a slot that can be taken, who you are,
      then a summary and a reference. Nothing is sent anywhere in the
      proposal, and the panel says so. */
-  const SVC=[['Classic adult cut',600],['Cut, wash and massage',700],['Cut, wash and beard',900],['Full service',1100],
+  const SVC=window.RESV_SVC||[['Classic adult cut',600],['Cut, wash and massage',700],['Cut, wash and beard',900],['Full service',1100],
     ['Beard trim',250],['Beard colour',200],['Hair ornaments',100],['Kids under 5',300],['Kids 6 to 12',400],['Dreadlocks',2500]];
+  const SVC_TITLE=window.RESV_TITLE||'Reserve a chair', SVC_DONE=window.RESV_DONE||'The chair is held',
+    SVC_PAY=window.RESV_PAY||'Payable in the chair';
   const SLOTS=(()=>{const a=[];for(let h=9;h<20;h++){a.push(h+':00',h+':30');}return a.map(s=>s.padStart(5,'0'));})();
   const hash=s=>{let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))>>>0;return h;};
   const taken=(d,t)=>hash(d+t)%5===0;      /* deterministic, so a day always looks the same */
@@ -85,7 +87,7 @@
   function renderSheet(min){
     const p=sheet.querySelector('.sheet__p');
     p.innerHTML=`
-      <div class="sheet__h"><h2>Reserve a chair</h2><button class="rnd" id="sx" aria-label="Close">&times;</button></div>
+      <div class="sheet__h"><h2>${SVC_TITLE}</h2><button class="rnd" id="sx" aria-label="Close">&times;</button></div>
       <label class="fl"><span>Service</span><select id="f-s">${SVC.map(([n,v])=>`<option value="${v}"${n===sel.n?' selected':''}>${n} &middot; ${v.toLocaleString('cs-CZ')} Kč</option>`).join('')}</select></label>
       <label class="fl"><span>Day</span><input type="date" id="f-d" min="${min}" value="${sel.d}"></label>
       <div class="fl"><span>Time</span><div class="slots" id="f-t"></div></div>
@@ -109,7 +111,7 @@
         <div class="sum__r"><span>Service</span><b>${sel.n}</b></div>
         <div class="sum__r"><span>When</span><b>${sel.d||'pick a day'}${sel.t?', '+sel.t:''}</b></div>
         <div class="sum__r"><span>With</span><b>José Luis</b></div>
-        <div class="sum__t"><span>Payable in the chair</span><b>${sel.p.toLocaleString('cs-CZ')} Kč</b></div>`;
+        <div class="sum__t"><span>${SVC_PAY}</span><b>${sel.p.toLocaleString('cs-CZ')} Kč</b></div>`;
       go.disabled=!(sel.t&&fn.value.trim()&&fp.value.trim());
       go.style.opacity=go.disabled?.5:1;
     };
@@ -119,9 +121,9 @@
     go.addEventListener('click',()=>{
       const ref='MD8-'+sel.d.replace(/-/g,'').slice(4)+'-'+sel.t.replace(':','');
       p.innerHTML=`<div class="ok"><div class="ok__i">&#10003;</div>
-        <h2 class="cl" style="font-size:28px">The chair is held</h2>
+        <h2 class="cl" style="font-size:28px">${SVC_DONE}</h2>
         <p class="ok__ref">${ref}</p>
-        <p class="tx" style="margin-inline:auto">${sel.n}, ${sel.d} at ${sel.t}, with José Luis. ${sel.p.toLocaleString('cs-CZ')} Kč in the chair.</p>
+        <p class="tx" style="margin-inline:auto">${sel.n}, ${sel.d} at ${sel.t}, with José Luis. ${sel.p.toLocaleString('cs-CZ')} Kč, ${SVC_PAY.toLowerCase()}.</p>
         <p class="note" style="max-width:40ch;margin-inline:auto">On the live site this arrives as a confirmed slot and a text message. In the proposal it stops here.</p>
         <button class="bt bt--o" id="ok-x" style="justify-self:center">Close</button></div>`;
       p.querySelector('#ok-x').addEventListener('click',closeSheet);
