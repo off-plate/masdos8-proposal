@@ -186,3 +186,17 @@ every page against composited backgrounds, 0 findings, which caught four real fa
 shop 3: cream labels on gold buttons at 2.67, the award seal, the stat band on near-black, and
 the review stars. The contrast checker itself was treating a 7% overlay as an opaque ground and
 was fixed to composite properly.
+
+## Shop 3 cut, 2026-08-12
+
+Killed the day after its typography was replaced. **Two directions remain: shop 7 and shop 8**,
+both with an About page, plus gate 2 as the entrance.
+
+Gate 2's three doors used to point at shop 3 and at two dead `#` links. They now point into
+shop 8's barbershop, tattoo and permanent makeup pages, so the gateway works end to end for the
+first time. If shop 7 wins instead, the barbershop door is a one-line change.
+
+Bespoke Slab and Switzer went with it. Both are still in git history and both are worth keeping
+in mind: the slab is the most barbershop-looking face of anything tried here, and the rule it
+forced, words in the slab and numbers in the grotesque, is a good rule for any face with
+old-style figures.
