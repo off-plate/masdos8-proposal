@@ -40,7 +40,7 @@ const PAGES = {
     alts: ['José Luis', 'A cut in progress', 'Finishing the fade', 'The room on Nuselská', 'Detail'],
     steps: [
       { n: '01', h: 'Twenty years <i>at the chair</i>',
-        p: 'José Luis cuts, shapes and finishes, and he does the tattoos and the permanent makeup as well. His customers call him an artist, and after twenty years behind the chair he has earned it. The same hands look after you from the first cut to the last.',
+        p: 'José Luis cuts, shapes and finishes, and he does the tattoos and the permanent makeup as well. Twenty years behind the chair, and it shows in how little he rushes. The same hands look after you from the first cut to the last.',
         facts: [['225', 'People left a review', 1], ['1752', 'Follow on Instagram', 1], ['13 h', 'Open, every day', 0]] },
       { n: '02', h: 'Everything we do, <i>with the price</i>',
         led: [['Classic adult cut', 'Contours, brows, ears, cologne and a drink', 600], ['Cut, wash and massage', '', 700],
@@ -80,12 +80,12 @@ const PAGES = {
       { n: '02', h: 'Until he could open <i>his own</i>',
         p: 'After moving to the Czech Republic he worked in salons around Prague, learning how the city cuts and what Czech customers like, and saving for a room of his own. He found it on Nuselská, and it has been his ever since.' },
       { n: '03', h: 'The clippers <i>and the needle</i>',
-        p: 'Alongside barbering, José tattoos, and he does the permanent makeup as well. Three trades under one badge, which is how somebody who came in for a fade ends up leaving with a consultation booked for something else entirely.',
+        p: 'Alongside barbering, José tattoos, and he does the permanent makeup as well, in the same rooms. Plenty of regulars end up booking more than one.',
         imgs: [['cut9-s.webp', 'A cut in progress'], ['tat1-s.webp', 'A tattoo by José Luis']] },
       { n: '04', h: 'What the name <i>means</i>',
         big: ['M&aacute;s dos <i>8</i>', 'Spanish for more than two, because in life we are never alone. The eight on its side is infinity, a cycle with no end and no limits. The name carried the idea before the sign went up.'] },
       { n: '05', h: 'Golden Company <i>2025</i>',
-        p: 'Zlatá firma goes to businesses on the strength of verified customer reviews gathered across the web. MasDos8 holds 4.8 from 225 reviews on Google, which put the shop among the best rated companies in the country. The plaque hangs on the wall here. It appears nowhere on the current website, and it should.',
+        p: 'Zlatá firma goes to businesses on the strength of verified customer reviews gathered across the web. MasDos8 holds 4.8 from 225 reviews on Google. The plaque hangs on the wall here. It appears nowhere on the current website, and it should.',
         imgs: [['award-s.webp', 'The Golden Company 2025 plaque, engraved MasDos8 Barber & Tattoo'], ['joseaward-s.webp', 'José Luis holding the plaque in the shop']] },
       { n: '06', h: 'Nuselská 133/134, <i>Prague 4</i>', id: 'book',
         p: 'Open every day from nine in the morning. Call ahead on your first visit and José will meet you at the door.',
@@ -112,7 +112,7 @@ const PAGES = {
     alts: ['A tattoo by José Luis', 'Line work', 'A finished piece', 'Shading', 'The studio'],
     steps: [
       { n: '01', h: 'The same hands, <i>with a needle</i>',
-        p: 'José Luis cuts hair and tattoos, in the same rooms, on the same day if the diary allows. Plenty of people come in for a fade and leave with a piece booked, which is how the shop came to carry both trades. Every piece starts with a consultation, and the consultation is free.',
+        p: 'José Luis cuts hair and tattoos, in the same rooms, on the same day if the diary allows. Plenty of people come in for a fade and leave with a piece booked instead. Every piece starts with a free consultation.',
         facts: [['600', 'A small piece, from', 0], ['18 000', 'A back, arms or legs', 0], ['0', 'Cost of the consultation', 0]] },
       { n: '02', h: 'Priced by <i>size</i>, agreed up front',
         led: [['Small piece', 'Lettering, a symbol, something you can cover with a hand', 600],
@@ -192,7 +192,7 @@ const PAGES = {
       { n: '03', h: 'The team <i>keeps growing</i>',
         p: 'We train new barbers here ourselves, and they will look after you with care and Dominican energy, as José puts it. There is a drink for you while you wait: coffee, rum, or mamajuana if you are feeling brave.' },
       { n: '04', h: 'Nuselská 133/134, <i>Prague 4</i>', id: 'book',
-        p: 'The reservation asks for a service and a time. If you have a favourite pair of hands, tell us on WhatsApp and we will do our best to hold that chair.' }
+        p: 'The reservation asks for a service and a time. If you\'d rather book with José or with Denny by name, tell us on WhatsApp and we\'ll do our best to hold that slot.' }
     ]
   },
 
@@ -209,7 +209,7 @@ const PAGES = {
     alts: ['The room on Nuselská', 'The studio', 'A cut in progress', 'Finishing a fade', 'Detail work', 'A cut, finished'],
     steps: [
       { n: '01', h: 'Do I need to <i>book</i>?',
-        p: 'Book if you can. Three of the reviews on our page are about the old booking system letting people down, a closed door with no answer, a wait with barbers standing idle, a barber swapped without warning. This reservation is built to fix exactly that: it holds a real slot in the diary.' },
+        p: 'Book if you can. Three of the reviews on our page are about the old booking system letting people down, a closed door with no answer, a wait with barbers standing idle, a barber swapped without warning. This one holds a real slot in the diary, so none of that happens again.' },
       { n: '02', h: 'Do you speak <i>English or Spanish</i>?',
         p: 'Our own customers write their reviews in Czech, Spanish and English, so come in whichever you’re most comfortable with. José is Dominican, and more than one review mentions feeling at home speaking Spanish here.' },
       { n: '03', h: 'I don’t know exactly <i>what I want</i> yet.',
