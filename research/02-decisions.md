@@ -130,3 +130,59 @@ with 48px controls, review slider, service switcher.
 Michael dropped it after seeing the interlocking seam working. **Gate 2 is the only gateway.**
 Shop 3's badge and footer links were repointed to it. The torn-seam technique stays in git
 history at the commit above if it is ever wanted for something else.
+
+---
+
+# Round 3, 2026-08-12. Typography, the story, and the About pages
+
+**Gate 2 is the finalist for the entrance.** Gate 3 is gone.
+
+## Typefaces
+
+Michael: shop 3's body face "looks like AI slop" and shop 8's pairing did not work either.
+Researched what barbershop lettering actually is, which is 19th century vernacular: Clarendon
+slabs, condensed wood type, sign-painter serifs. Both replacements are Fontshare, self-hosted,
+and were checked with Czech diacritics rendered before anything was built on them.
+
+| | Display | Text | Why |
+|---|---|---|---|
+| shop 3 | **Bespoke Slab** 500/700 | **Switzer** 400/500/700 | A Clarendon-style slab is how a barber's window is lettered. Bespoke Slab ships **old-style figures only**, which dance above and below the line, so a rule was set: words in the slab, every number in the grotesque. |
+| shop 8 | **Zodiak** 700/900 | **Cabinet Grotesk** 400/500/700 | A modern antique with real bite, lining figures, and nothing in common with shop 3 or shop 7. |
+
+Bebas Neue, Synonym, Panchang and Ranade are removed from the repo.
+
+## Shop 8 takes shop 3's gold
+
+`--gold #C79A2E` on dark, `--gold-d #7E5C10` for text on the paper ground, `--gold-l #E3BA5A`
+for hover. The red is gone. Every accent was checked against its real composited background.
+
+## Subtitles
+
+Every kicker above a heading and every helper line under a card title is gone from shop 3,
+shop 7 and shop 8. Where a kicker carried a real fact it moved rather than died: shop 7's
+address is now a stat, its review count is the heading itself, and shop 8's address sits in
+the stage foot next to the phone number.
+
+## The About pages, one per template
+
+Their own story, from `masdos8.com/o-nas`, verified and translated:
+
+- José Luis is Dominican and the **fourth generation** of barbers: father, grandfather,
+  great-grandfather. He started as a child.
+- He moved to the Czech Republic, worked in several salons, then opened his own.
+- He tattoos as well as cuts, which is why the shop is two trades under one badge.
+- **The name.** *Más dos* is Spanish for more than two, "because in life we are never alone".
+  The eight is infinity, a cycle with no end and no limits.
+- The team grows by training new barbers in the shop.
+
+Every page ends on the **Golden Company 2025** plaque, shot in the shop, plus José holding it.
+No founding year appears anywhere, because none is published. One was drafted onto shop 7's
+hero as an outlined word and removed before it shipped.
+
+## Gates
+
+slop-lint 0 errors. Mobile audit 20 page and size combinations, 0 findings. Contrast checked on
+every page against composited backgrounds, 0 findings, which caught four real failures on
+shop 3: cream labels on gold buttons at 2.67, the award seal, the stat band on near-black, and
+the review stars. The contrast checker itself was treating a 7% overlay as an opaque ground and
+was fixed to composite properly.
