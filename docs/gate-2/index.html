@@ -44,19 +44,20 @@ img{display:block;max-width:100%}
 /* the three choices as one hard row of doors, holding the bottom half of the screen.
    Each door shows its own photograph at rest, so all three read as rooms you can walk into. */
 .pick{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(246,243,237,.16);min-height:0}
-.pick a{position:relative;display:grid;align-content:end;justify-items:start;gap:5px;text-align:left;
+.pick a{position:relative;display:grid;align-content:center;justify-items:center;gap:6px;text-align:center;
  padding:clamp(20px,3vw,40px);border-right:1px solid rgba(246,243,237,.16);
  overflow:hidden;isolation:isolate;transition:color .3s var(--ez)}
 .pick a:last-child{border-right:0}
 .pick a img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
  opacity:.62;transform:scale(1.02);transition:opacity .55s var(--ez),transform .9s var(--ez);
  filter:grayscale(1) brightness(.42) contrast(1.1)}
+/* the wash is heaviest through the middle now, because that is where the words are */
 .pick a::after{content:'';position:absolute;inset:0;z-index:-1;transition:background .4s var(--ez);
- background:linear-gradient(0deg,rgba(12,11,10,.9) 0%,rgba(12,11,10,.34) 62%,rgba(12,11,10,.5) 100%)}
+ background:radial-gradient(120% 78% at 50% 50%,rgba(12,11,10,.82) 0%,rgba(12,11,10,.6) 62%,rgba(12,11,10,.72) 100%)}
 .pick a:hover img,.pick a:focus-visible img{opacity:1;transform:scale(1.05);filter:grayscale(0) brightness(.5) contrast(1.04)}
-.pick a:hover::after{background:linear-gradient(0deg,rgba(12,11,10,.86) 0%,rgba(12,11,10,.22) 70%,rgba(12,11,10,.4) 100%)}
+.pick a:hover::after{background:radial-gradient(120% 78% at 50% 50%,rgba(12,11,10,.72) 0%,rgba(12,11,10,.42) 64%,rgba(12,11,10,.6) 100%)}
 .pick__n{font-family:'Ar',sans-serif;font-weight:700;font-size:11px;letter-spacing:.3em;color:var(--copper-l);
- margin-bottom:auto}
+ margin-bottom:4px}
 .pick__t{font-family:'Ar',sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(22px,3.1vw,50px);line-height:.98}
 .pick__p{font-size:14.5px;color:var(--w-d)}
 .pick__go{font-family:'Ar',sans-serif;font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;
