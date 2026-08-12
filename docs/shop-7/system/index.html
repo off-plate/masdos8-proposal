@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shop 7 web guideline. MasDos8</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../img/logo.png">
+<link rel="stylesheet" href="../app.css">
+<link rel="stylesheet" href="../../system.css">
+<style>
+/* the chrome reads the site's own tokens. Nothing below restyles a component. */
+:root{--s-bg:var(--bk);--s-ink:var(--w);--s-dim:var(--w-d);--s-line:var(--ln);--s-accent:var(--g);
+ --s-panel:var(--bk2);--s-dark:var(--bk3);--s-ok:#7FBF7F;--s-no:#E0705F}
+.sys-head h1,.sys-sec>h2{font-family:'Cl',system-ui,sans-serif;font-weight:700;line-height:.98;letter-spacing:-.03em}
+.sys-rail a,.sys-rail strong{font-family:'Su',system-ui,sans-serif}
+</style>
+</head>
+<body>
+
+<div class="sys-wrap">
+
+<nav class="sys-rail">
+  <strong>Shop 7</strong>
+  <a href="#colour">Colour</a>
+  <a href="#type">Type</a>
+  <a href="#scales">Scales</a>
+  <a href="#motion">Motion</a>
+  <a href="#buttons">Buttons</a>
+  <a href="#nav">Navigation</a>
+  <a href="#surfaces">Surfaces</a>
+  <a href="#rows">Rows and ledgers</a>
+  <a href="#media">Media</a>
+  <a href="#forms">Forms</a>
+  <a href="#quotes">Quotes</a>
+  <a href="#inventory">Inventory</a>
+  <a href="#oneedit">The one-edit test</a>
+  <a href="../">&larr; The site</a>
+</nav>
+
+<main>
+
+<header class="sys-head">
+  <a class="sys-back" href="../../">MasDos8 proposals</a>
+  <h1>Shop 7, the web guideline</h1>
+  <p class="sys-lede">Every token and every component this site owns, in every state, on one page. A screen only ever uses what is on this page, and anything new is added here first. The components below are the live ones, pulled from <code>shop-7/app.css</code>, so this page cannot drift away from the site.</p>
+</header>
+
+<!-- ================= COLOUR ================= -->
+<section class="sys-sec" id="colour">
+  <h2>Colour</h2>
+  <p>The gold is sampled from the MasDos8 logo, the scissors and the lettering on their own sign, so it belongs to the shop rather than to a template. Everything else is a warm near-black and a warm off-white. There is one accent and it never becomes a gradient.</p>
+
+  <h3 class="sys-sub">Roles</h3>
+  <div class="sys-scroll"><table class="sys-t">
+    <tr><th>Token</th><th>Value</th><th>Means</th><th>Never</th></tr>
+    <tr><td><code>--bk</code></td><td><code>#0B0A0A</code></td><td>The page. Every screen sits on it.</td><td>A surface inside another surface</td></tr>
+    <tr><td><code>--bk2</code></td><td><code>#131110</code></td><td>A panel lifted off the page: the booking sheet, the drawer, a photograph waiting to load.</td><td>Text</td></tr>
+    <tr><td><code>--bk3</code></td><td><code>#1B1817</code></td><td>A field you can type into. It is the deepest step and nothing sits on top of it.</td><td>A panel</td></tr>
+    <tr><td><code>--g</code></td><td><code>#D9A441</code></td><td>The action. A gold fill is the thing to press, and a gold hairline is the thing that responds.</td><td>Body text, large fills, a second accent</td></tr>
+    <tr><td><code>--g2</code></td><td><code>#F3C670</code></td><td>Gold as text, and the hover of gold. Prices are set in it.</td><td>A button fill at rest</td></tr>
+    <tr><td><code>--w</code></td><td><code>#F4F0E8</code></td><td>Everything you read.</td><td>Decoration</td></tr>
+    <tr><td><code>--w-d</code></td><td><code>#9B948A</code></td><td>The supporting line: a caption, a credit, an address.</td><td>A price, a heading, a button label</td></tr>
+    <tr><td><code>--ln</code></td><td><code>rgba(244,240,232,.14)</code></td><td>A hairline that separates.</td><td>A border that carries meaning</td></tr>
+    <tr><td><code>--ln2</code></td><td><code>rgba(217,164,65,.5)</code></td><td>A hairline that means live, chosen or hovered.</td><td>A plain separator</td></tr>
+  </table></div>
+
+  <div class="sys-rule"><b>The rule that falls out of it</b><p>Gold is the one accent. If a new element needs to stand out and gold is taken, it does not stand out. Ink is not a second accent, and there is no third colour to reach for.</p></div>
+
+  <h3 class="sys-sub">Swatches</h3>
+  <div class="sys-sw">
+    <div><div class="chip" style="background:#0B0A0A;color:#F4F0E8">Page</div><div class="meta"><b>--bk #0B0A0A</b>Everything sits here</div></div>
+    <div><div class="chip" style="background:#131110;color:#F4F0E8">Panel</div><div class="meta"><b>--bk2 #131110</b>Sheet, drawer, photo well</div></div>
+    <div><div class="chip" style="background:#1B1817;color:#F4F0E8">Field</div><div class="meta"><b>--bk3 #1B1817</b>Inputs and selects</div></div>
+    <div><div class="chip" style="background:#D9A441;color:#1B1305">Action</div><div class="meta"><b>--g #D9A441</b>Sampled from the logo</div></div>
+    <div><div class="chip" style="background:#F3C670;color:#1B1305">Gold as text</div><div class="meta"><b>--g2 #F3C670</b>Prices, numbers, hover</div></div>
+    <div><div class="chip" style="background:#F4F0E8;color:#0B0A0A">Ink</div><div class="meta"><b>--w #F4F0E8</b>Everything you read</div></div>
+    <div><div class="chip" style="background:#9B948A;color:#0B0A0A">Support</div><div class="meta"><b>--w-d #9B948A</b>Captions and credits</div></div>
+    <div><div class="chip" style="background:#1B1305;color:#F3C670">Gold ink</div><div class="meta"><b>#1B1305</b>Text on a gold fill</div></div>
+  </div>
+
+  <h3 class="sys-sub">Computed contrast</h3>
+  <p>Every pair the site actually puts together, measured rather than judged. WCAG AA wants 4.5 for body text and 3.0 for large text and controls.</p>
+  <div class="sys-scroll"><table class="sys-t">
+    <tr><th>Foreground</th><th>On</th><th>Ratio</th><th>Verdict</th></tr>
+    <tr><td><code>--w</code></td><td><code>--bk</code></td><td class="sys-num">17.40</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>--w</code></td><td><code>--bk2</code></td><td class="sys-num">16.57</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>--w</code></td><td><code>--bk3</code></td><td class="sys-num">15.53</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>--w-d</code></td><td><code>--bk</code></td><td class="sys-num">6.59</td><td class="sys-pass">AA</td></tr>
+    <tr><td><code>--w-d</code></td><td><code>--bk2</code></td><td class="sys-num">6.27</td><td class="sys-pass">AA</td></tr>
+    <tr><td><code>--g</code></td><td><code>--bk</code></td><td class="sys-num">8.79</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>--g2</code></td><td><code>--bk</code></td><td class="sys-num">12.36</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>--g2</code></td><td><code>--bk2</code></td><td class="sys-num">11.77</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>#1B1305</code></td><td><code>--g</code> (button rest)</td><td class="sys-num">8.18</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>#1B1305</code></td><td><code>--g2</code> (button hover)</td><td class="sys-num">11.49</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>--g2</code></td><td><code>#1B1305</code> (ink button)</td><td class="sys-num">11.49</td><td class="sys-pass">AAA</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= TYPE ================= -->
+<section class="sys-sec" id="type">
+  <h2>Type</h2>
+  <p>Two families and no more. Clash Display is a tight, slightly condensed grotesque with a barber-shop confidence to it, and it carries every number on the site because it has lining figures. Supreme reads underneath it at 16px without competing. Nothing is set in a third face, and neither family goes above two weights.</p>
+
+  <div class="sys-scroll"><table class="sys-t">
+    <tr><th>Role</th><th>Family</th><th>Weight</th><th>Size</th><th>Line</th><th>Tracking</th><th>Measure</th></tr>
+    <tr><td>Display <code>.cl .h1</code></td><td>Clash Display</td><td>700</td><td class="sys-num">clamp(36, 4.2vw, 74)</td><td class="sys-num">.92</td><td class="sys-num">-.03em</td><td>Under 8 words</td></tr>
+    <tr><td>Section <code>.cl .h2</code></td><td>Clash Display</td><td>700</td><td class="sys-num">clamp(30, 4.2vw, 66)</td><td class="sys-num">.92</td><td class="sys-num">-.03em</td><td>46ch block</td></tr>
+    <tr><td>Sub <code>.sp__r h3</code></td><td>Clash Display</td><td>700</td><td class="sys-num">clamp(21, 2.3vw, 34)</td><td class="sys-num">1.06</td><td class="sys-num">-.02em</td><td>&nbsp;</td></tr>
+    <tr><td>Body</td><td>Supreme</td><td>400</td><td class="sys-num">16</td><td class="sys-num">1.62</td><td class="sys-num">0</td><td>52ch, set by <code>.tx</code></td></tr>
+    <tr><td>Support <code>.tx</code></td><td>Supreme</td><td>400</td><td class="sys-num">16 / 13.5 small</td><td class="sys-num">1.62</td><td class="sys-num">0</td><td>52 to 60ch</td></tr>
+    <tr><td>Eyebrow <code>.kk</code></td><td>Supreme</td><td>400</td><td class="sys-num">11</td><td class="sys-num">1.6</td><td class="sys-num">.28em</td><td>Two or three words</td></tr>
+    <tr><td>Price <code>.sr__p</code></td><td>Clash Display</td><td>700</td><td class="sys-num">22</td><td class="sys-num">1</td><td class="sys-num">0</td><td>Tabular figures</td></tr>
+    <tr><td>Button <code>.bt</code></td><td>Clash Display</td><td>600</td><td class="sys-num">15</td><td class="sys-num">1</td><td class="sys-num">0</td><td>Three words maximum</td></tr>
+  </table></div>
+
+  <div class="sys-rule"><b>Numbers</b><p>Every figure on the site is set in Clash Display with <code>font-variant-numeric:tabular-nums</code>, so a column of prices lines up and a counter does not jitter as it ticks. A number set in Supreme is a bug.</p></div>
+
+  <div class="sys-demo sys-demo--col" style="margin-top:22px">
+    <div><span class="sys-lbl">Display, h1</span><span class="cl h1">Sit down. Take your time.</span></div>
+    <div><span class="sys-lbl">Section, h2</span><span class="cl h2">Everything we do, with the price</span></div>
+    <div><span class="sys-lbl">Body and support</span><p class="tx">A cut, a shave, and a drink while you wait. We will take our time over it, and you will know the price before you sit down.</p></div>
+    <div><span class="sys-lbl">Eyebrow</span><span class="kk">Nuselská, Prague 4</span></div>
+    <div><span class="sys-lbl">Price, tabular</span><span class="sr__p">1&nbsp;100 Kč</span></div>
+  </div>
+</section>
+
+<!-- ================= SCALES ================= -->
+<section class="sys-sec" id="scales">
+  <h2>Scales, each with a ceiling</h2>
+
+  <h3 class="sys-sub">Space</h3>
+  <div class="sys-space">
+    <div><i style="width:4px"></i>4</div>
+    <div><i style="width:8px"></i>8</div>
+    <div><i style="width:10px"></i>10 &middot; gallery gutter</div>
+    <div><i style="width:12px"></i>12</div>
+    <div><i style="width:16px"></i>16 &middot; smallest page margin</div>
+    <div><i style="width:26px"></i>26</div>
+    <div><i style="width:40px"></i>40</div>
+    <div><i style="width:58px"></i>58 &middot; largest page margin</div>
+    <div><i style="width:120px"></i>120 &middot; largest section padding</div>
+  </div>
+  <p style="margin-top:14px">One rail, one gutter. The page margin is <code>--pad</code> and the shell is <code>--shell: 1720px</code>, and every block on every page starts at that same x. No section indents itself, and no column centres itself inside the rail.</p>
+
+  <h3 class="sys-sub">Radius, ceiling 999px and only for pills</h3>
+  <div class="sys-rad">
+    <div style="border-radius:0">0 &middot; default</div>
+    <div style="border-radius:2px">2 &middot; fields</div>
+    <div style="border-radius:999px;width:130px">999 &middot; pills only</div>
+  </div>
+  <p style="margin-top:14px">Square by default. The pill radius is allowed on three named things and nothing else may borrow it: buttons, the floating navigation, and the price tags in the hero. Cards, panels, photographs and the booking sheet are square corners.</p>
+
+  <h3 class="sys-sub">Shadow, ceiling two</h3>
+  <p>Hairlines separate; shadows only lift a thing that genuinely floats over the page. There are exactly two in the site: the hero price tags at <code>0 14px 34px rgba(0,0,0,.5)</code> and the reservation badge at <code>0 14px 40px rgba(217,164,65,.32)</code>. A card does not get one.</p>
+</section>
+
+<!-- ================= MOTION ================= -->
+<section class="sys-sec" id="motion">
+  <h2>Motion budget</h2>
+  <div class="sys-scroll"><table class="sys-t">
+    <tr><th>Curve</th><th>Value</th><th>Used for</th></tr>
+    <tr><td>The one curve</td><td><code>--ez: cubic-bezier(.22,.75,.28,1)</code></td><td>Every hover, every transition, every entrance</td></tr>
+    <tr><td>Linear</td><td><code>linear</code></td><td>Two continuous things only: the badge rotation, and the slow photo drift behind the service list</td></tr>
+  </table></div>
+  <div class="sys-scroll"><table class="sys-t" style="margin-top:22px">
+    <tr><th>Duration</th><th>What</th></tr>
+    <tr><td class="sys-num">180 to 250ms</td><td>Hover and press. Anything you touch answers inside a quarter second.</td></tr>
+    <tr><td class="sys-num">500 to 700ms</td><td>Something arriving: a photo crossfade, a review advancing, a section revealing.</td></tr>
+    <tr><td class="sys-num">700ms</td><td>The ceiling. Nothing on this site animates longer, apart from the two linear loops above.</td></tr>
+  </table></div>
+  <div class="sys-rule"><b>One signature gesture</b><p>Gold buttons tilt as they lift, and the two outline buttons tilt the other way. That is the whole personality of the motion, and it is why nothing else needs a flourish. Every animation is off under <code>prefers-reduced-motion</code>.</p></div>
+</section>
+
+<!-- ================= BUTTONS ================= -->
+<section class="sys-sec" id="buttons">
+  <h2>Buttons</h2>
+  <p>Four fills, two grounds. Gold and outline are the pair used on the dark page; ink and line are the same pair on the gold band, and they exist only because gold on gold cannot be seen. Every one is <code>.bt</code>, so the shape, the height and the type are decided once.</p>
+
+  <span class="sys-lbl" style="margin-top:22px">On the page, rest and disabled. Hover and focus them.</span>
+  <div class="sys-demo">
+    <button class="bt bt--g">Reserve a chair</button>
+    <a class="bt bt--o" href="#buttons">See the prices</a>
+    <button class="bt bt--g" disabled style="opacity:.34;cursor:not-allowed">Fully booked</button>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">On the gold band</span>
+  <div class="sys-demo" style="background:var(--g);border-color:var(--g)">
+    <button class="bt bt--ink">Reserve a chair</button>
+    <a class="bt bt--line" href="#buttons">WhatsApp</a>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">Round control, used by the lightbox and the reviews</span>
+  <div class="sys-demo">
+    <button class="rnd">&larr;</button>
+    <span class="cnt">03 / 10</span>
+    <button class="rnd">&rarr;</button>
+  </div>
+
+  <div class="sys-scroll"><table class="sys-t" style="margin-top:22px">
+    <tr><th>State</th><th>What happens</th></tr>
+    <tr><td>Rest</td><td>52px tall, 15px Clash 600, pill radius, 28px of side padding</td></tr>
+    <tr><td>Hover</td><td>Lifts 3px and tilts. Gold goes to <code>--g2</code>, outline goes gold in both border and label</td></tr>
+    <tr><td>Focus visible</td><td>2px <code>--g2</code> ring, offset 4px, set once on <code>:focus-visible</code> for the whole site</td></tr>
+    <tr><td>Active</td><td>Inherits the hover transform. No separate press state, because the lift already reads</td></tr>
+    <tr><td>Disabled</td><td>34% opacity, cursor not-allowed. Only the booking sheet produces one</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= NAV ================= -->
+<section class="sys-sec" id="nav">
+  <h2>Navigation</h2>
+  <p>One floating bar, on every page, holding the logo, the links, WhatsApp and the reserve button. It is not welded to the top of the screen: it sits 14px inside all three edges and darkens once you scroll past the hero. Below 780px the links collapse into the drawer and the burger takes their place.</p>
+
+  <span class="sys-lbl" style="margin-top:22px">The bar, as it appears on every page</span>
+  <div class="sys-demo" style="display:block;padding:20px">
+    <div class="nav" style="position:relative;top:auto;left:auto;right:auto">
+      <a class="nav__lg" href="../"><img src="../img/logo.png" alt="MasDos8"><b>MasDos8</b></a>
+      <div class="nav__l"><a href="../about/">About</a><a href="../#work">Gallery</a><a href="../#prices">Services</a><a href="../#find">Find us</a></div>
+      <a class="nav__wa" href="../">WhatsApp</a>
+      <button class="bt bt--g" style="min-height:44px;padding:11px 22px">Reserve</button>
+    </div>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">The drawer, under 780px</span>
+  <div class="sys-demo" style="display:block;padding:20px">
+    <div class="drw" style="position:relative;inset:auto;display:grid;max-width:340px">
+      <a href="../about/">About</a><a href="../#work">Gallery</a><a href="../#prices">Services</a>
+      <a href="../#find">Find us</a><a href="../">+420 773 267 463</a><a href="../">WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="sys-scroll"><table class="sys-t" style="margin-top:22px">
+    <tr><th>Rule</th><th>Value</th></tr>
+    <tr><td>Link size</td><td>16px, never smaller, on desktop and on the phone</td></tr>
+    <tr><td>Hit height</td><td>44px minimum on every item including the logo</td></tr>
+    <tr><td>Gap between items</td><td>20px, so they never read as one run of text</td></tr>
+    <tr><td>Rest and hover</td><td><code>--w-d</code> going to <code>--g2</code></td></tr>
+    <tr><td>Current page</td><td><code>aria-current="page"</code>, which the drawer and the bar both carry</td></tr>
+    <tr><td>Scrolled</td><td><code>.pin</code>, the only change is the bar ground going from 88% to 97% opaque</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= SURFACES ================= -->
+<section class="sys-sec" id="surfaces">
+  <h2>Surfaces</h2>
+  <p>Three grounds, stacked in one order: page, then panel, then field. A panel never sits on a panel, and a hairline is the first thing to reach for when two things need separating.</p>
+
+  <span class="sys-lbl" style="margin-top:22px">The gold band. One per page, and it always asks for the booking.</span>
+  <div class="sys-demo" style="display:block;padding:0;border:0">
+    <section class="cta"><div class="w cta__g">
+      <p class="cta__t">Shall we hold a chair for you this week?</p>
+      <div class="cta__a"><button class="bt bt--ink">Reserve a chair</button><a class="bt bt--line" href="#surfaces">WhatsApp</a></div>
+    </div></section>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">The price tag, hero only, five of them and no more</span>
+  <div class="sys-demo" style="padding-block:34px">
+    <span class="tag" style="position:relative;right:auto;top:auto;rotate:-4deg"><span>Classic cut</span><b>600 Kč</b></span>
+    <span class="tag" style="position:relative;right:auto;top:auto;rotate:3deg"><span>Beard trim</span><b>250 Kč</b></span>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">The summary block, used by the booking sheet</span>
+  <div class="sys-demo" style="display:block">
+    <div class="sum" style="max-width:420px">
+      <div class="sum__r"><span>Full service</span><b>1&nbsp;100 Kč</b></div>
+      <div class="sum__r"><span>Saturday 16 August, 14:30</span><b>&nbsp;</b></div>
+      <div class="sum__t"><span>Total</span><b>1&nbsp;100 Kč</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROWS ================= -->
+<section class="sys-sec" id="rows">
+  <h2>Rows and ledgers</h2>
+  <p>One row component carries the price list. It is a button that opens the booking sheet with that service already chosen. The hover state and the selected state are the same treatment, so a row you are hovering looks like the row you picked.</p>
+
+  <span class="sys-lbl" style="margin-top:22px">Rest, hover, selected, long name, four-figure price</span>
+  <div class="sys-demo" style="display:block">
+    <div class="svc__l" style="max-width:640px">
+      <button class="sr"><span><span class="sr__n">Classic adult cut</span><span class="sr__x">Contours, brows, ears, cologne and a drink</span></span><span><span class="sr__p">600 Kč</span><span class="sr__go">Reserve &rarr;</span></span></button>
+      <button class="sr on"><span><span class="sr__n">Cut, wash and massage</span><span class="sr__x">Selected, and the same treatment as hover</span></span><span><span class="sr__p">700 Kč</b><span class="sr__go" style="opacity:1">Reserve &rarr;</span></span></button>
+      <button class="sr"><span><span class="sr__n">Dreadlocks, fitted and finished over a full afternoon</span><span class="sr__x">The longest name on the list, wrapping</span></span><span><span class="sr__p">2&nbsp;500 Kč</span><span class="sr__go">Reserve &rarr;</span></span></button>
+      <button class="sr"><span><span class="sr__n">Hair ornaments</span></span><span><span class="sr__p">100 Kč</span><span class="sr__go">Reserve &rarr;</span></span></button>
+    </div>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">The fact row, used in the hero and on the About page</span>
+  <div class="sys-demo">
+    <div class="hero__meta" style="margin:0">
+      <div><b>4.8</b><span>Google, 225 reviews</span></div>
+      <div><b>2025</b><span>Golden Company</span></div>
+      <div><b>09:00</b><span>Open every day</span></div>
+    </div>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">The detail row, used by Find us</span>
+  <div class="sys-demo" style="display:block">
+    <div class="find__c" style="max-width:520px">
+      <div class="find__r"><b>Address</b><span>Nuselská 133/134, 140 00 Prague 4</span></div>
+      <div class="find__r"><b>Open</b><span>Every day from 09:00</span></div>
+      <div class="find__r"><b>Phone</b><span>+420 773 267 463</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MEDIA ================= -->
+<section class="sys-sec" id="media">
+  <h2>Photography</h2>
+  <p>Photographs are sized by grid span, never by aspect ratio, so no tile ever lands half a row out. The gallery runs on twelve columns with four spans: the default third, the tall third, the half and the quarter. Every image is desaturated a quarter at rest and comes back to full colour under the cursor, which is how the page shows you it is interactive without a single icon.</p>
+
+  <span class="sys-lbl" style="margin-top:22px">Rest, and the caption that appears on hover or focus</span>
+  <div class="sys-demo" style="display:block">
+    <div class="gal" style="grid-auto-rows:120px">
+      <button class="hf"><img src="../img/g05-s.webp" alt=""><figcaption>Half, span 6</figcaption></button>
+      <button><img src="../img/g07-s.webp" alt=""><figcaption>Default, span 4</figcaption></button>
+      <button class="qt"><img src="../img/g04-s.webp" alt=""><figcaption>Quarter</figcaption></button>
+      <button class="qt"><img src="../img/g13-s.webp" alt=""><figcaption>Quarter</figcaption></button>
+    </div>
+    <p class="gal__n">The caption line under a gallery is the only place a count is written out.</p>
+  </div>
+
+  <div class="sys-scroll"><table class="sys-t" style="margin-top:22px">
+    <tr><th>Where</th><th>Ratio</th><th>Treatment</th></tr>
+    <tr><td>Gallery tile</td><td>Set by span, rows of 110 to 180px</td><td>grayscale .25 to 0 on hover, scale 1.05</td></tr>
+    <tr><td>Service photograph</td><td>4 / 5.2</td><td>Sticky, crossfades as you move down the list</td></tr>
+    <tr><td>Story photograph</td><td>16 / 10</td><td>Scales 1.04 when its row is hovered</td></tr>
+    <tr><td>Hero portrait</td><td>4 / 5.1</td><td>Radial mask, so it dissolves into the page rather than sitting in a box</td></tr>
+    <tr><td>Plaque pair</td><td>1 / 1</td><td>Gold hairline, no crop past the engraving</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= FORMS ================= -->
+<section class="sys-sec" id="forms">
+  <h2>Fields and slots</h2>
+  <p>Only the booking sheet takes input, so there is exactly one field treatment and one time slot. A slot has four states and all four are below, including the one that matters most: a time somebody else already took.</p>
+
+  <span class="sys-lbl" style="margin-top:22px">Field, rest and focus</span>
+  <div class="sys-demo" style="display:block;max-width:460px">
+    <div class="fl"><span>Service</span>
+      <select><option>Classic adult cut, 600 Kč</option></select></div>
+    <div class="fl" style="margin-top:14px"><span>Your name</span><input value="Michael" readonly></div>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">Slots: free, chosen, taken</span>
+  <div class="sys-demo" style="display:block;max-width:460px">
+    <div class="slots">
+      <button class="slot">09:00</button>
+      <button class="slot" aria-pressed="true">14:30</button>
+      <button class="slot" disabled>15:00</button>
+      <button class="slot">15:30</button>
+      <button class="slot" disabled>16:00</button>
+      <button class="slot">16:30</button>
+    </div>
+    <p class="note" style="margin-top:12px">A taken slot is struck through and cannot be pressed, so nobody books a time that is gone.</p>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">Confirmed, the end of the flow</span>
+  <div class="sys-demo" style="display:block">
+    <div class="ok" style="min-height:0">
+      <div class="ok__i">&#10003;</div>
+      <p class="cl" style="font-size:26px">We have you down</p>
+      <p class="tx" style="margin-inline:auto">Saturday 16 August at 14:30, full service. We will call if anything changes.</p>
+      <p class="ok__ref">MD8-0816-1430</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUOTES ================= -->
+<section class="sys-sec" id="quotes">
+  <h2>Quotes</h2>
+  <p>Reviews are real, they carry the name of the person who wrote them, and one is shown at a time. The stack advances itself every five seconds and stops the moment you hover it or tab into it, so it never moves a quote out from under somebody reading it.</p>
+
+  <div class="sys-demo" style="display:block">
+    <div class="rv" style="border:0;padding:0">
+      <div class="rv__st" style="min-height:200px">
+        <blockquote class="rv__s on"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <p>"No stress, no messing around. Precise, quick, but with style."</p>
+          <cite>fredy mercedes &middot; Google, a year ago</cite></blockquote>
+        <div class="rv__p"><i style="width:38%"></i></div>
+      </div>
+      <div class="rv__b"><button class="rnd">&larr;</button><span class="cnt">04 / 10</span><button class="rnd">&rarr;</button></div>
+    </div>
+  </div>
+
+  <div class="sys-rule"><b>Never invent one</b><p>Every quote on this site is copied from their Google profile with the author's name attached. If a section needs a quote and there is not a real one, the section changes.</p></div>
+</section>
+
+<!-- ================= INVENTORY ================= -->
+<section class="sys-sec" id="inventory">
+  <h2>Component inventory</h2>
+  <p>Every component this site owns, what it is for in one sentence, and where it appears. Two rows with the same sentence would be one component, so there are none.</p>
+  <div class="sys-scroll"><table class="sys-t">
+    <tr><th>Component</th><th>Purpose</th><th>Variants</th><th>Appears on</th></tr>
+    <tr><td><code>.bt</code></td><td>Take an action</td><td><code>--g</code> <code>--o</code> <code>--ink</code> <code>--line</code></td><td>Home, About, nav, drawer, gold band, sheet</td></tr>
+    <tr><td><code>.rnd</code></td><td>Step forward or back through a set of things</td><td>none</td><td>Lightbox, reviews</td></tr>
+    <tr><td><code>.nav</code> + <code>.drw</code></td><td>Get to any page from any page</td><td>Drawer under 780px</td><td>Every page</td></tr>
+    <tr><td><code>.hero</code></td><td>Open a page: name it, say what it is, ask for the booking</td><td>Portrait, or word only on About</td><td>Home, About</td></tr>
+    <tr><td><code>.cta</code></td><td>Ask for the booking once in the middle of the page</td><td>none</td><td>Home, About</td></tr>
+    <tr><td><code>.sr</code></td><td>Show one service with its price so it can be compared and booked</td><td><code>.on</code></td><td>Home services, sheet</td></tr>
+    <tr><td><code>.tag</code></td><td>Put a real price in front of somebody before they scroll</td><td>Five positions</td><td>Home hero, About hero</td></tr>
+    <tr><td><code>.gal</code> tile</td><td>Show one photograph and open it larger</td><td><code>.t</code> <code>.wd</code> <code>.hf</code> <code>.qt</code></td><td>Home gallery</td></tr>
+    <tr><td><code>.rv</code></td><td>Show one real review at a time in the customer's own words</td><td>none</td><td>Home, About</td></tr>
+    <tr><td><code>.find__r</code></td><td>Give one fact about getting here</td><td>none</td><td>Home, About footer</td></tr>
+    <tr><td><code>.hero__meta</code> fact</td><td>Give one number that proves something</td><td>none</td><td>Home hero, About hero</td></tr>
+    <tr><td><code>.sp__r</code></td><td>Tell one chapter of the story with its photograph</td><td>none</td><td>About</td></tr>
+    <tr><td><code>.sum</code></td><td>Show what is being booked and what it costs, before it is confirmed</td><td>none</td><td>Sheet</td></tr>
+    <tr><td><code>.slot</code></td><td>Offer one time, and refuse it if it is taken</td><td>chosen, taken</td><td>Sheet</td></tr>
+    <tr><td><code>.fl</code></td><td>Take one piece of information from the visitor</td><td>select, input</td><td>Sheet</td></tr>
+    <tr><td><code>.spin</code></td><td>Reach the booking from anywhere on the page</td><td>none</td><td>Every page</td></tr>
+    <tr><td><code>.ft</code></td><td>Close the page with the address, the hours and the other rooms</td><td>none</td><td>Every page</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= ONE EDIT ================= -->
+<section class="sys-sec" id="oneedit">
+  <h2>The one-edit test</h2>
+  <p>The client asks for a change. How many places does it take? If the honest answer is more than one, the system is wrong and every future request carries the same tax.</p>
+  <div class="sys-scroll"><table class="sys-t">
+    <tr><th>The request</th><th>Edits</th><th>Where</th></tr>
+    <tr><td>Make every gold button red</td><td class="sys-num">1</td><td><code>--g</code> in <code>app.css</code></td></tr>
+    <tr><td>Change the body typeface</td><td class="sys-num">1</td><td>The <code>'Su'</code> face, one <code>@font-face</code> pair</td></tr>
+    <tr><td>Make prices a different colour</td><td class="sys-num">1</td><td><code>--g2</code>, which every price already uses</td></tr>
+    <tr><td>Round the corners on everything</td><td class="sys-num">1</td><td>There is one radius rule outside the pills</td></tr>
+    <tr><td>Widen the page</td><td class="sys-num">1</td><td><code>--shell</code></td></tr>
+    <tr><td>Slow every animation down</td><td class="sys-num">1</td><td><code>--ez</code>, and the durations that read from it</td></tr>
+    <tr><td>Add a fourth service to the price list</td><td class="sys-num">1</td><td>One <code>.sr</code> row, which brings its own photograph and booking entry</td></tr>
+  </table></div>
+  <div class="sys-rule"><b>A page never owns a component</b><p>If a new page needs something this list does not have, it is added here first and used there second. That is what stops the About page and the home page ending up with two versions of the same card.</p></div>
+</section>
+
+</main>
+</div>
+
+<a class="spin" href="../#prices" aria-label="Reservations">
+  <svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="c" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+    <text><textPath href="#c">RESERVATIONS &middot; MASDOS8 &middot; </textPath></text></svg>
+  <b>&rarr;</b>
+</a>
+
+</body>
+</html>

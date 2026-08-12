@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shop 8 web guideline. MasDos8</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../img/logo.png">
+<link rel="stylesheet" href="../app.css">
+<link rel="stylesheet" href="../../system.css">
+<style>
+/* the chrome reads the site's own tokens. Nothing below restyles a component. */
+:root{--s-bg:var(--paper);--s-ink:var(--ink);--s-dim:var(--ink-d);--s-line:var(--ln);--s-accent:var(--gold-d);
+ --s-panel:var(--paper2);--s-dark:var(--bk);--s-ok:#2E6B2E;--s-no:#A8331F}
+.sys-head h1,.sys-sec>h2{font-family:'Pa',Georgia,serif;font-weight:900;text-transform:uppercase;
+ line-height:.98;letter-spacing:-.015em}
+.sys-rail a,.sys-rail strong{font-family:'Ra',system-ui,sans-serif}
+</style>
+</head>
+<body>
+
+<div class="sys-wrap">
+
+<nav class="sys-rail">
+  <strong>Shop 8</strong>
+  <a href="#colour">Colour</a>
+  <a href="#type">Type</a>
+  <a href="#scales">Scales</a>
+  <a href="#motion">Motion</a>
+  <a href="#buttons">Buttons</a>
+  <a href="#switcher">The switcher</a>
+  <a href="#nav">Navigation</a>
+  <a href="#stage">The stage</a>
+  <a href="#steps">Steps</a>
+  <a href="#ledger">Ledger</a>
+  <a href="#media">Media</a>
+  <a href="#quotes">Quotes</a>
+  <a href="#inventory">Inventory</a>
+  <a href="#oneedit">The one-edit test</a>
+  <a href="../">&larr; The site</a>
+</nav>
+
+<main>
+
+<header class="sys-head">
+  <a class="sys-back" href="../../">MasDos8 proposals</a>
+  <h1>Shop 8, the web guideline</h1>
+  <p class="sys-lede">Every token and every component this site owns, in every state, on one page. Four pages already share it: barbershop, tattoo, permanent makeup and the story. They are generated from one template by <code>tools/shop8.mjs</code> and they all link <code>shop-8/app.css</code>, which is the file this page is rendering from, so nothing here can quietly drift away from the site.</p>
+</header>
+
+<!-- ================= COLOUR ================= -->
+<section class="sys-sec" id="colour">
+  <h2>Colour</h2>
+  <p>Paper and ink, with the gold sampled from the MasDos8 logo. The site runs light and turns dark twice on purpose: the stage on the left, and the footer at the end. Those are the only dark grounds, and everything in between is paper.</p>
+
+  <h3 class="sys-sub">Roles</h3>
+  <div class="sys-scroll"><table class="sys-t">
+    <tr><th>Token</th><th>Value</th><th>Means</th><th>Never</th></tr>
+    <tr><td><code>--paper</code></td><td><code>#EDE7DC</code></td><td>The page, and every reading surface on it.</td><td>Text, except on the two dark grounds</td></tr>
+    <tr><td><code>--paper2</code></td><td><code>#E2DACC</code></td><td>A panel that needs to lift slightly off the page.</td><td>Large areas, or two steps deep</td></tr>
+    <tr><td><code>--ink</code></td><td><code>#14120F</code></td><td>Everything you read, and the fill of the switcher button.</td><td>Decoration</td></tr>
+    <tr><td><code>--ink-d</code></td><td><code>#6A6459</code></td><td>The supporting line: a caption, a credit, a service description.</td><td>A price, a heading, a button label</td></tr>
+    <tr><td><code>--gold</code></td><td><code>#C79A2E</code></td><td>A fill you press, and gold as text on the two dark grounds.</td><td>Text on paper. It measures 2.11 there and it fails</td></tr>
+    <tr><td><code>--gold-l</code></td><td><code>#E3BA5A</code></td><td>The hover of a gold fill.</td><td>A fill at rest</td></tr>
+    <tr><td><code>--gold-d</code></td><td><code>#7E5C10</code></td><td>Gold as text on paper: the emphasis inside a heading, a big number, a step count.</td><td>A fill</td></tr>
+    <tr><td><code>--bk</code></td><td><code>#0E0D0C</code></td><td>The stage and the footer. The two dark grounds, and there are no others.</td><td>A section in the middle of the page</td></tr>
+    <tr><td><code>--bk2</code></td><td><code>#171514</code></td><td>A panel on a dark ground: the switcher menu.</td><td>Paper</td></tr>
+    <tr><td><code>--ln</code></td><td><code>rgba(20,18,15,.16)</code></td><td>A hairline that separates.</td><td>A border that carries meaning</td></tr>
+  </table></div>
+
+  <div class="sys-rule"><b>One gold, three values, and the split matters</b><p>They are the same colour at three lightnesses because paper and near-black cannot take the same one. Press-me is <code>--gold</code>, read-me on paper is <code>--gold-d</code>. Putting <code>--gold</code> on paper as text is the single easiest mistake to make here, and it is the one that fails.</p></div>
+
+  <h3 class="sys-sub">Swatches</h3>
+  <div class="sys-sw">
+    <div><div class="chip" style="background:#EDE7DC;color:#14120F">Page</div><div class="meta"><b>--paper #EDE7DC</b>Everything sits here</div></div>
+    <div><div class="chip" style="background:#E2DACC;color:#14120F">Panel</div><div class="meta"><b>--paper2 #E2DACC</b>One step up from the page</div></div>
+    <div><div class="chip" style="background:#14120F;color:#EDE7DC">Ink</div><div class="meta"><b>--ink #14120F</b>Everything you read</div></div>
+    <div><div class="chip" style="background:#6A6459;color:#EDE7DC">Support</div><div class="meta"><b>--ink-d #6A6459</b>Captions and descriptions</div></div>
+    <div><div class="chip" style="background:#C79A2E;color:#14120F">Press me</div><div class="meta"><b>--gold #C79A2E</b>Sampled from the logo</div></div>
+    <div><div class="chip" style="background:#E3BA5A;color:#14120F">Hover</div><div class="meta"><b>--gold-l #E3BA5A</b>Gold under the cursor</div></div>
+    <div><div class="chip" style="background:#7E5C10;color:#EDE7DC">Read me</div><div class="meta"><b>--gold-d #7E5C10</b>Gold as text on paper</div></div>
+    <div><div class="chip" style="background:#0E0D0C;color:#EDE7DC">Dark ground</div><div class="meta"><b>--bk #0E0D0C</b>Stage and footer only</div></div>
+  </div>
+
+  <h3 class="sys-sub">Computed contrast</h3>
+  <p>Every pair the site actually puts together, measured rather than judged. WCAG AA wants 4.5 for body text and 3.0 for large text and controls.</p>
+  <div class="sys-scroll"><table class="sys-t">
+    <tr><th>Foreground</th><th>On</th><th>Ratio</th><th>Verdict</th></tr>
+    <tr><td><code>--ink</code></td><td><code>--paper</code></td><td class="sys-num">15.19</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>--ink</code></td><td><code>--paper2</code></td><td class="sys-num">13.47</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>--ink-d</code></td><td><code>--paper</code></td><td class="sys-num">4.77</td><td class="sys-pass">AA</td></tr>
+    <tr><td><code>--gold-d</code></td><td><code>--paper</code></td><td class="sys-num">4.98</td><td class="sys-pass">AA</td></tr>
+    <tr><td><code>--gold-d</code></td><td><code>--paper2</code></td><td class="sys-num">4.42</td><td class="sys-pass">AA large</td></tr>
+    <tr><td><code>--paper</code></td><td><code>--bk</code></td><td class="sys-num">15.78</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>--paper</code></td><td><code>--bk2</code></td><td class="sys-num">14.79</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>--gold</code></td><td><code>--bk</code></td><td class="sys-num">7.48</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>--gold</code></td><td><code>--bk2</code></td><td class="sys-num">7.01</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>--ink</code></td><td><code>--gold</code> (button rest)</td><td class="sys-num">7.20</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>--ink</code></td><td><code>--gold-l</code> (button hover)</td><td class="sys-num">10.18</td><td class="sys-pass">AAA</td></tr>
+    <tr><td><code>--gold</code></td><td><code>--paper</code></td><td class="sys-num">2.11</td><td class="sys-fail">Fails, and this is why <code>--gold-d</code> exists</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= TYPE ================= -->
+<section class="sys-sec" id="type">
+  <h2>Type</h2>
+  <p>Zodiak is a modern antique, a serif with a blade to it, and it does every heading in capitals along with every number. Cabinet Grotesk carries the reading text and the buttons. The reason Zodiak takes the prices is that it has lining figures, so a column of them sits on one line instead of hopping about the way old-style figures do.</p>
+
+  <div class="sys-scroll"><table class="sys-t">
+    <tr><th>Role</th><th>Family</th><th>Weight</th><th>Size</th><th>Line</th><th>Case</th><th>Measure</th></tr>
+    <tr><td>Stage title</td><td>Zodiak</td><td>900</td><td class="sys-num">clamp(44, 6vw, 96)</td><td class="sys-num">.96</td><td>As written</td><td>Two or three words</td></tr>
+    <tr><td>Step heading <code>h2</code></td><td>Zodiak</td><td>900</td><td class="sys-num">clamp(28, 3.6vw, 58)</td><td class="sys-num">.98</td><td>Upper</td><td>16ch</td></tr>
+    <tr><td>The one big line <code>.big b</code></td><td>Zodiak</td><td>900</td><td class="sys-num">clamp(44, 7.4vw, 124)</td><td class="sys-num">.92</td><td>As written</td><td>Three words</td></tr>
+    <tr><td>Price <code>.led b</code></td><td>Zodiak</td><td>700</td><td class="sys-num">23</td><td class="sys-num">1</td><td>Figures</td><td>Tabular</td></tr>
+    <tr><td>Fact <code>.facts b</code></td><td>Zodiak</td><td>900</td><td class="sys-num">clamp(28, 3.2vw, 46)</td><td class="sys-num">1</td><td>Figures</td><td>Tabular</td></tr>
+    <tr><td>Body</td><td>Cabinet Grotesk</td><td>400</td><td class="sys-num">16.5</td><td class="sys-num">1.6</td><td>Sentence</td><td>50ch, set by <code>.tx</code></td></tr>
+    <tr><td>Button <code>.bt</code></td><td>Cabinet Grotesk</td><td>700</td><td class="sys-num">13</td><td class="sys-num">1</td><td>Upper, .11em</td><td>Three words maximum</td></tr>
+    <tr><td>Label <code>.qs cite</code>, <code>.end h4</code></td><td>Cabinet Grotesk</td><td>700</td><td class="sys-num">10.5 to 11.5</td><td class="sys-num">1.6</td><td>Upper, .14 to .2em</td><td>Four words</td></tr>
+    <tr><td>Nav link</td><td>Cabinet Grotesk</td><td>400</td><td class="sys-num">16</td><td class="sys-num">1</td><td>Sentence</td><td>One or two words</td></tr>
+  </table></div>
+
+  <div class="sys-rule"><b>Words in the serif, numbers in the serif, sentences in the grotesque</b><p>Zodiak takes headings and figures. Cabinet takes everything you read in a run. A price set in Cabinet, or a paragraph set in Zodiak, is a bug rather than a choice.</p></div>
+
+  <div class="sys-demo sys-demo--col" style="margin-top:22px">
+    <div><span class="sys-lbl">Step heading, with the gold emphasis</span><h3 class="pa" style="font-size:clamp(28px,3.6vw,58px);margin:0">Everything we do, <i style="font-style:normal;color:var(--gold-d)">with the price</i></h3></div>
+    <div><span class="sys-lbl">Body</span><p class="tx">A cut, a shave, and a drink while you wait. We will take our time over it, and you will know the price before you sit down.</p></div>
+    <div><span class="sys-lbl">Price and fact, both tabular</span><div class="facts" style="margin:0"><div><b>1&nbsp;100</b><span>Full service, Kč</span></div><div><b>4.8</b><span>Google, 225 reviews</span></div><div><b>2025</b><span>Golden Company</span></div></div></div>
+  </div>
+</section>
+
+<!-- ================= SCALES ================= -->
+<section class="sys-sec" id="scales">
+  <h2>Scales, each with a ceiling</h2>
+
+  <h3 class="sys-sub">Space</h3>
+  <div class="sys-space">
+    <div><i style="width:6px"></i>6</div>
+    <div><i style="width:10px"></i>10 &middot; strip gutter</div>
+    <div><i style="width:14px"></i>14</div>
+    <div><i style="width:22px"></i>22 &middot; smallest step inset</div>
+    <div><i style="width:26px"></i>26</div>
+    <div><i style="width:46px"></i>46 &middot; smallest step depth</div>
+    <div><i style="width:80px"></i>80 &middot; largest step inset</div>
+    <div><i style="width:96px"></i>96 &middot; largest step depth</div>
+  </div>
+  <p style="margin-top:14px">The scrolling column has one inset, and every step uses it. A step never indents itself, and the photo strip is the single element allowed to break the inset, on the right only, so it runs off the edge of the screen and reads as draggable.</p>
+
+  <h3 class="sys-sub">Radius, ceiling zero</h3>
+  <div class="sys-rad">
+    <div style="border-radius:0">0 &middot; everything</div>
+    <div style="border-radius:50%;width:66px">50% &middot; the logo only</div>
+  </div>
+  <p style="margin-top:14px">Nothing on this site has a rounded corner. Buttons, panels, photographs, the switcher, the menu, the fields: all square. The one exception is the round MasDos8 logo, which arrived that way. This is the sharpest rule the site has, and it is what keeps it reading as print rather than as an app.</p>
+
+  <h3 class="sys-sub">Shadow, ceiling one</h3>
+  <p>There is exactly one shadow in the whole site: <code>0 26px 60px rgba(0,0,0,.6)</code> under the switcher menu, because it is the only thing that genuinely floats above the page. Everything else separates with a hairline.</p>
+</section>
+
+<!-- ================= MOTION ================= -->
+<section class="sys-sec" id="motion">
+  <h2>Motion budget</h2>
+  <div class="sys-scroll"><table class="sys-t">
+    <tr><th>Curve</th><th>Value</th><th>Used for</th></tr>
+    <tr><td>The one curve</td><td><code>--ez: cubic-bezier(.22,.75,.28,1)</code></td><td>Every hover, every transition, the menu opening</td></tr>
+    <tr><td>Linear</td><td><code>linear</code></td><td>One thing only: the six-second drift on the stage photograph</td></tr>
+  </table></div>
+  <div class="sys-scroll"><table class="sys-t" style="margin-top:22px">
+    <tr><th>Duration</th><th>What</th></tr>
+    <tr><td class="sys-num">180 to 280ms</td><td>Hover and press, including the row sliding right under the cursor</td></tr>
+    <tr><td class="sys-num">500ms</td><td>A photograph in the strip scaling up</td></tr>
+    <tr><td class="sys-num">1s</td><td>The stage crossfading between sections. The ceiling</td></tr>
+  </table></div>
+  <div class="sys-rule"><b>One signature gesture</b><p>Rows slide to the right as you hover them, gaining 12px of left padding and going gold. The ledger, the switcher menu and the navigation all do it, so one movement means one thing across the site: this is the row you are on. Every animation is off under <code>prefers-reduced-motion</code>.</p></div>
+</section>
+
+<!-- ================= BUTTONS ================= -->
+<section class="sys-sec" id="buttons">
+  <h2>Buttons</h2>
+  <p>Three fills. Gold is the action and there is one per surface. Line is for the dark stage, dark is for the paper, and they are the same button in different rooms. All three are <code>.bt</code>, so the 50px height, the uppercase tracking and the square corners are decided once.</p>
+
+  <span class="sys-lbl" style="margin-top:22px">On the stage, where the reserve action lives</span>
+  <div class="sys-demo sys-demo--dark">
+    <a class="bt bt--r" href="#buttons">Reserve</a>
+    <a class="bt bt--l" href="#buttons">+420 773 267 463</a>
+    <a class="bt bt--l" href="#buttons">WhatsApp</a>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">On the paper, where the page ends</span>
+  <div class="sys-demo">
+    <a class="bt bt--r" href="#buttons">Reserve</a>
+    <a class="bt bt--d" href="#buttons">Directions</a>
+    <a class="bt bt--d" href="#buttons">Instagram</a>
+  </div>
+
+  <div class="sys-scroll"><table class="sys-t" style="margin-top:22px">
+    <tr><th>State</th><th>What happens</th></tr>
+    <tr><td>Rest</td><td>50px tall, 13px Cabinet 700, .11em uppercase, square, 24px of side padding</td></tr>
+    <tr><td>Hover</td><td>Gold lifts 2px and lightens to <code>--gold-l</code>. Line fills with paper and inverts. Dark fills with ink and inverts</td></tr>
+    <tr><td>Focus visible</td><td>2px <code>--gold-d</code> ring, offset 3px, set once for the whole site</td></tr>
+    <tr><td>Active</td><td>Inherits hover. No separate press state</td></tr>
+    <tr><td>Disabled</td><td>None exists. This site takes no input, so no button can be unavailable</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= SWITCHER ================= -->
+<section class="sys-sec" id="switcher">
+  <h2>The service switcher</h2>
+  <p>This is the component the whole site is built around. Three trades share one shop, so a visitor who arrived for a fade has to be able to find the tattoo room without going back to the entrance. It sits at the right of the bar, in the same place, on every page, and it names the room you are currently in.</p>
+
+  <span class="sys-lbl" style="margin-top:22px">Closed, then open with the current room marked</span>
+  <div class="sys-demo" style="min-height:300px;align-items:flex-start;gap:30px">
+    <div class="sw">
+      <button class="sw__b" aria-expanded="false"><span class="sw__k">Service</span><span class="sw__t">Barbershop</span>
+        <svg class="sw__c" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+    </div>
+    <div class="sw" data-open>
+      <button class="sw__b" aria-expanded="true"><span class="sw__k">Service</span><span class="sw__t">Barbershop</span>
+        <svg class="sw__c" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      <div class="sw__p" style="animation:none">
+        <a class="sw__i on" href="../"><b>Barbershop</b><span>Cuts, beards, kids &middot; from 100 Kč</span></a>
+        <a class="sw__i" href="../tattoo/"><b>Tattoo</b><span>Small pieces to full backs &middot; from 600 Kč</span></a>
+        <a class="sw__i" href="../pmu/"><b>Permanent makeup</b><span>Brows, lips, eyeliner &middot; from 1 500 Kč</span></a>
+        <a class="sw__all" href="../../gate-2/">All three, from the start &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sys-scroll"><table class="sys-t" style="margin-top:22px">
+    <tr><th>State</th><th>What happens</th></tr>
+    <tr><td>Closed</td><td>Ink fill, gold label, the current room in Zodiak caps</td></tr>
+    <tr><td>Hover, open</td><td>Fill goes to pure black, the chevron turns over</td></tr>
+    <tr><td>Item hover</td><td>Slides 9px right, ground warms</td></tr>
+    <tr><td>Current room</td><td>Lifted ground and a gold dot after the name, plus <code>aria-current="page"</code></td></tr>
+    <tr><td>Keyboard</td><td>Opens on the first item, arrows move, Escape closes and returns focus to the button</td></tr>
+  </table></div>
+
+  <div class="sys-rule"><b>The list is the switcher</b><p>The three services are one array in <code>tools/shop8.mjs</code>. Adding a fourth room writes it into the switcher, the footer and every page at once. There is nowhere to add it twice.</p></div>
+</section>
+
+<!-- ================= NAV ================= -->
+<section class="sys-sec" id="nav">
+  <h2>Navigation</h2>
+  <p>One sticky bar at the top of the scrolling column: page links on the left, the switcher on the right. It behaves the same at every width, so the phone gets the same fixed bar too. WhatsApp lives with the phone number and the reserve action on the stage instead, where somebody looks once they have decided.</p>
+
+  <div class="sys-demo" style="display:block;padding:0">
+    <nav class="pnav" style="position:relative">
+      <div class="pnav__l">
+        <a href="../about/">About</a><a href="../#s2" aria-current="page">Prices</a><a href="../#s3">Our work</a><a href="../#book">Find us</a>
+      </div>
+      <div class="sw"><button class="sw__b"><span class="sw__k">Service</span><span class="sw__t">Barbershop</span>
+        <svg class="sw__c" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button></div>
+    </nav>
+  </div>
+
+  <div class="sys-scroll"><table class="sys-t" style="margin-top:22px">
+    <tr><th>Rule</th><th>Value</th></tr>
+    <tr><td>Link size</td><td>16px on desktop, 15.5px under 900px. Never smaller</td></tr>
+    <tr><td>Hit height</td><td>56px desktop, 52px phone, and the bar itself never drops under 60px</td></tr>
+    <tr><td>Gap between items</td><td>10 to 28px, and the row scrolls sideways before it wraps</td></tr>
+    <tr><td>Current page</td><td>Ink label with a gold underline, plus <code>aria-current</code></td></tr>
+    <tr><td>Phone</td><td>The switcher drops its Service label so the two halves fit on one line at 320px</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= STAGE ================= -->
+<section class="sys-sec" id="stage">
+  <h2>The stage</h2>
+  <p>The left half never scrolls. It holds the photograph, the title of wherever you are in the page, the address, the two proof numbers and the actions, and it crossfades as you move down the right half. On a phone it stops being fixed and becomes the opening screen instead, and nothing else about it changes.</p>
+
+  <div class="sys-demo" style="display:block;padding:0;border:0">
+    <div style="position:relative;height:420px;max-width:520px;overflow:hidden">
+      <aside class="stage" style="position:relative;height:420px">
+        <div class="stage__ph"><img class="on" src="../img/jose.webp" alt="José Luis"></div>
+        <div class="stage__in">
+          <div class="stage__top"><span class="stage__lg"><img src="../img/logo.png" alt="MasDos8"><b>MasDos8</b></span></div>
+          <div class="stage__mid">
+            <div class="stage__num">Sit down</div>
+            <p class="stage__cap">A cut, a shave, and a drink while you wait. We will take our time over it.</p>
+          </div>
+          <div class="stage__foot">
+            <p class="stage__ad">Nuselská 133/134, Prague 4 &middot; open every day from 09:00</p>
+            <div class="stage__act"><a class="bt bt--r" href="#stage">Reserve</a><a class="bt bt--l" href="#stage">WhatsApp</a></div>
+          </div>
+        </div>
+        <div class="prog"><i style="width:42%"></i></div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="sys-scroll"><table class="sys-t" style="margin-top:22px">
+    <tr><th>Part</th><th>Rule</th></tr>
+    <tr><td>Photograph</td><td>One per step, crossfading over one second, drifting 4% over six</td></tr>
+    <tr><td>Gradient</td><td>Fixed three-stop wash so the title and the address stay legible over any photograph</td></tr>
+    <tr><td>Title</td><td>Two or three words. It names the section you are reading, never the brand</td></tr>
+    <tr><td>Proof</td><td>Exactly two numbers, and both are real: 4.8 from 225 reviews, Golden Company 2025</td></tr>
+    <tr><td>Actions</td><td>Reserve, the phone number, WhatsApp. In that order, on every page</td></tr>
+    <tr><td>Progress</td><td>3px gold, the width of how far down the page you are</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= STEPS ================= -->
+<section class="sys-sec" id="steps">
+  <h2>Steps</h2>
+  <p>The right column is a stack of steps and nothing else. Each one has a number in the corner, one heading with a gold phrase inside it, and then exactly one kind of content: a paragraph, a ledger, a photo strip, a pair of plates, a set of quotes or one big line. A step never carries two of them, which is what stops the page turning into a features grid.</p>
+
+  <div class="sys-demo" style="display:block;padding:0;border:0;background:var(--paper)">
+    <section class="step" style="border:1px solid var(--ln)">
+      <span class="step__n">02</span>
+      <h2 style="font-family:'Pa',Georgia,serif;font-weight:900;text-transform:uppercase">Twenty years <i>at the chair</i></h2>
+      <p class="tx">José Luis cuts, shapes and finishes, and he does the tattoos and the permanent makeup as well. The same hands look after you from the first cut to the last.</p>
+      <div class="facts" style="margin-top:22px">
+        <div><b>225</b><span>People left a review</span></div>
+        <div><b>1 752</b><span>Follow on Instagram</span></div>
+        <div><b>13 h</b><span>Open, every day</span></div>
+      </div>
+    </section>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">One big line. Used once per page at most.</span>
+  <div class="sys-demo" style="display:block">
+    <div class="big"><b>M&aacute;s dos <i>8</i></b><p>Spanish for more than two, because in life we are never alone. The eight on its side is infinity.</p></div>
+  </div>
+</section>
+
+<!-- ================= LEDGER ================= -->
+<section class="sys-sec" id="ledger">
+  <h2>The ledger</h2>
+  <p>Every price on the site is a ledger row: name on the left, price on the right, a hairline between them. It is the same component for a 100 Kč hair ornament and an 18 000 Kč back piece, which is the point. Pressing a row goes to the booking.</p>
+
+  <span class="sys-lbl" style="margin-top:22px">Rest, hover it, with and without a description, four figures, and the longest name on the site</span>
+  <div class="sys-demo" style="display:block">
+    <div class="led" style="max-width:640px">
+      <a href="#ledger"><span>Classic adult cut<em>Contours, brows, ears, cologne and a drink</em></span><b>600</b></a>
+      <a href="#ledger"><span>Beard trim</span><b>250</b></a>
+      <a href="#ledger"><span>Large areas<em>Back, both arms, legs, body work</em></span><b>18 000</b></a>
+      <a href="#ledger"><span>Repair of earlier work<em>Correcting permanent makeup done in another studio</em></span><b>3 000</b></a>
+    </div>
+  </div>
+
+  <div class="sys-rule"><b>Every number is theirs</b><p>Prices come off the client's own list. Nothing on this site is rounded, estimated or invented, and where their list is unclear the row says what their list says.</p></div>
+</section>
+
+<!-- ================= MEDIA ================= -->
+<section class="sys-sec" id="media">
+  <h2>Photography</h2>
+  <p>Two treatments and no more. The strip runs sideways, snapping, dragging, and it deliberately runs off the right edge so it is obvious there is more. The pair is two square plates side by side, used for the award and for showing two trades at once.</p>
+
+  <span class="sys-lbl" style="margin-top:22px">The strip. Drag it.</span>
+  <div class="sys-demo" style="display:block;overflow:hidden">
+    <div class="strip" style="margin-right:0">
+      <figure><img src="../img/cut2-s.webp" alt=""></figure>
+      <figure><img src="../img/cut6-s.webp" alt=""></figure>
+      <figure><img src="../img/cut8-s.webp" alt=""></figure>
+      <figure><img src="../img/cut9-s.webp" alt=""></figure>
+      <figure><img src="../img/cut10-s.webp" alt=""></figure>
+    </div>
+  </div>
+
+  <span class="sys-lbl" style="margin-top:22px">The pair</span>
+  <div class="sys-demo" style="display:block">
+    <div class="pair" style="max-width:460px;margin-top:0">
+      <img src="../img/award-s.webp" alt="The Golden Company 2025 plaque">
+      <img src="../img/joseaward-s.webp" alt="José Luis holding the plaque">
+    </div>
+  </div>
+
+  <div class="sys-scroll"><table class="sys-t" style="margin-top:22px">
+    <tr><th>Where</th><th>Ratio</th><th>Rule</th></tr>
+    <tr><td>Stage</td><td>Fills the half, focused 22% down</td><td>One per step, never repeated inside a page</td></tr>
+    <tr><td>Strip</td><td>3 / 4</td><td>180 to 260px wide, snapping, cursor grab</td></tr>
+    <tr><td>Pair</td><td>1 / 1</td><td>Hairline, never cropped past the engraving</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= QUOTES ================= -->
+<section class="sys-sec" id="quotes">
+  <h2>Quotes</h2>
+  <p>Three real reviews per page, stacked, each with the name of the person who left it. A gold rule down the left is the only decoration, and there is no card, no avatar and no star row, because the words are the evidence.</p>
+
+  <div class="sys-demo" style="display:block">
+    <div class="qs" style="max-width:640px">
+      <blockquote><p>"Best barbershop I've been. Jose Luis knows what he is doing, the hair and beard looks amazing."</p><cite>Rafael Frías</cite></blockquote>
+      <blockquote><p>"If you are a man worth your beard, you must visit José. This is the first time I've come out of a barbershop happy."</p><cite>Swatchhanda Kher</cite></blockquote>
+    </div>
+  </div>
+
+  <div class="sys-rule"><b>Never invent one</b><p>Every quote is copied from their Google profile with the author's name attached. If a section needs a quote and there is not a real one, the section changes.</p></div>
+</section>
+
+<!-- ================= INVENTORY ================= -->
+<section class="sys-sec" id="inventory">
+  <h2>Component inventory</h2>
+  <p>Every component this site owns, what it is for in one sentence, and where it appears. Two rows with the same sentence would be one component, so there are none.</p>
+  <div class="sys-scroll"><table class="sys-t">
+    <tr><th>Component</th><th>Purpose</th><th>Variants</th><th>Appears on</th></tr>
+    <tr><td><code>.bt</code></td><td>Take an action</td><td><code>--r</code> <code>--l</code> <code>--d</code></td><td>All four pages, stage and page end</td></tr>
+    <tr><td><code>.sw</code></td><td>Move between the three rooms of the shop from anywhere</td><td>open, current</td><td>All four pages</td></tr>
+    <tr><td><code>.pnav</code></td><td>Get to any page from any page</td><td>none</td><td>All four pages</td></tr>
+    <tr><td><code>.stage</code></td><td>Hold the place, the proof and the booking still while the page moves</td><td>Static under 900px</td><td>All four pages</td></tr>
+    <tr><td><code>.step</code></td><td>Carry one idea and one kind of content</td><td>none</td><td>All four pages, five or six each</td></tr>
+    <tr><td><code>.led</code> row</td><td>Show one service with its price so it can be compared and booked</td><td>with or without description</td><td>Barber, tattoo, permanent makeup</td></tr>
+    <tr><td><code>.facts</code> item</td><td>Give one number that proves something</td><td>counting, static</td><td>All four pages, stage and steps</td></tr>
+    <tr><td><code>.strip</code></td><td>Show the work as a run of photographs you can drag through</td><td>none</td><td>Barber, tattoo, permanent makeup</td></tr>
+    <tr><td><code>.pair</code></td><td>Show two photographs that only mean something together</td><td>none</td><td>About</td></tr>
+    <tr><td><code>.qs</code> quote</td><td>Show one real review in the customer's own words</td><td>none</td><td>All four pages</td></tr>
+    <tr><td><code>.big</code></td><td>Give one idea the whole width, once per page at most</td><td>none</td><td>About</td></tr>
+    <tr><td><code>.end</code></td><td>Close the page with the address, the hours and the other rooms</td><td>none</td><td>All four pages</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= ONE EDIT ================= -->
+<section class="sys-sec" id="oneedit">
+  <h2>The one-edit test</h2>
+  <p>The client asks for a change. How many places does it take? If the honest answer is more than one, the system is wrong and every future request carries the same tax.</p>
+  <div class="sys-scroll"><table class="sys-t">
+    <tr><th>The request</th><th>Edits</th><th>Where</th></tr>
+    <tr><td>Make every gold button red</td><td class="sys-num">1</td><td><code>--gold</code> in <code>app.css</code>, and <code>--gold-l</code> if the hover should follow</td></tr>
+    <tr><td>Change the heading typeface</td><td class="sys-num">1</td><td>The <code>'Pa'</code> face, one <code>@font-face</code> pair</td></tr>
+    <tr><td>Make prices a different colour</td><td class="sys-num">1</td><td>One rule, <code>.led a b</code>, which every price on three pages uses</td></tr>
+    <tr><td>Round the corners on everything</td><td class="sys-num">1</td><td>There is no radius to unpick. One rule adds it</td></tr>
+    <tr><td>Change the phone number</td><td class="sys-num">1</td><td>It is written once in <code>tools/shop8.mjs</code> per surface, and the page count does not matter</td></tr>
+    <tr><td>Add a fourth room to the shop</td><td class="sys-num">1</td><td>One entry in <code>SERVICES</code>, which writes the switcher, the footer and the page</td></tr>
+    <tr><td>Reword every step heading</td><td class="sys-num">1</td><td>The <code>PAGES</code> object. No heading is written in HTML</td></tr>
+  </table></div>
+  <div class="sys-rule"><b>A page never owns a component</b><p>These four pages are one template. There is no per-page stylesheet and no page-level override block, which is the only reason the tattoo page and the barbershop page cannot drift apart.</p></div>
+</section>
+
+</main>
+</div>
+
+</body>
+</html>

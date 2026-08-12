@@ -267,7 +267,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  .find__r a{display:inline-flex;align-items:center;min-height:44px}
  .rv__s cite,.tag span{font-size:13.5px}
 }
-@media (max-width:780px){.nav__l{display:none}.brg{display:grid}
+@media (max-width:780px){.nav__l{display:none}.nav__wa{display:none}.brg{display:grid}
+ /* WhatsApp still reaches the visitor through the drawer at this width */
  .drw{display:grid;position:fixed;inset:70px 14px auto;z-index:89;background:var(--bk2);border:1px solid var(--ln2);
   border-radius:20px;padding:10px;gap:2px}
  .drw[hidden]{display:none}

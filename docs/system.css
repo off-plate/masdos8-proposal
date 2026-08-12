@@ -1,0 +1,83 @@
+/* ============================================================
+   GUIDELINE PAGE CHROME.
+   Shared by /shop-7/system/ and /shop-8/system/. It knows nothing
+   about either palette: each page maps its own tokens onto the
+   --s-* names below, so the chrome never becomes a third design.
+   The components on the page are the real ones, pulled from the
+   site's own stylesheet. Nothing here restyles them.
+   ============================================================ */
+:root{--s-gap:clamp(46px,6vw,96px)}
+
+.sys-wrap{display:grid;grid-template-columns:216px minmax(0,1fr);gap:clamp(20px,3vw,56px);
+ max-width:1500px;margin-inline:auto;padding:clamp(22px,3vw,54px) clamp(16px,3vw,48px) 120px}
+.sys-rail{position:sticky;top:clamp(22px,3vw,54px);align-self:start;display:grid;gap:1px;font-size:14px}
+.sys-rail a{display:flex;align-items:center;min-height:36px;color:var(--s-dim);border-left:2px solid var(--s-line);
+ padding-left:12px}
+.sys-rail a:hover{color:var(--s-ink);border-left-color:var(--s-accent)}
+.sys-rail strong{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--s-accent);
+ margin-bottom:10px;font-weight:400}
+
+.sys-head{border-bottom:1px solid var(--s-line);padding-bottom:clamp(16px,2vw,30px);margin-bottom:var(--s-gap)}
+.sys-head h1{font-size:clamp(30px,4vw,58px);margin:0}
+.sys-head .sys-lede{margin-top:14px;max-width:66ch;color:var(--s-dim);font-size:16px}
+.sys-back{display:inline-flex;align-items:center;min-height:44px;font-size:13px;letter-spacing:.16em;
+ text-transform:uppercase;color:var(--s-accent)}
+
+.sys-sec{margin-bottom:var(--s-gap);scroll-margin-top:24px}
+.sys-sec>h2{font-size:clamp(22px,2.6vw,38px);margin:0 0 18px}
+/* direct children only: a paragraph inside a live demo keeps the site's own colour */
+.sys-sec>p{max-width:74ch;color:var(--s-dim)}
+.sys-sec>p+p{margin-top:12px}
+.sys-sub{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--s-accent);
+ margin:clamp(28px,3vw,44px) 0 14px;font-weight:400}
+
+/* specimen frame: a label, then the live thing */
+.sys-demo{border:1px solid var(--s-line);background:var(--s-panel);padding:clamp(14px,2vw,26px);
+ display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.sys-demo--col{display:grid;gap:16px;align-items:start}
+.sys-demo--dark{background:var(--s-dark);border-color:var(--s-line)}
+.sys-lbl{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--s-dim);
+ margin-bottom:8px}
+.sys-state{display:grid;gap:8px;justify-items:start}
+.sys-row{display:flex;flex-wrap:wrap;gap:clamp(12px,2vw,26px)}
+
+table.sys-t{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:4px}
+.sys-t th{text-align:left;font-weight:400;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+ color:var(--s-accent);padding:0 14px 9px 0;border-bottom:1px solid var(--s-line);vertical-align:bottom}
+.sys-t td{padding:11px 14px 11px 0;border-bottom:1px solid var(--s-line);vertical-align:top;color:var(--s-dim)}
+.sys-t td:first-child{color:var(--s-ink);white-space:nowrap}
+.sys-t code{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--s-ink)}
+.sys-scroll{overflow-x:auto}
+.sys-num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.sys-pass{color:var(--s-ok)}
+.sys-fail{color:var(--s-no)}
+
+/* colour: the swatch carries its own contrast reading */
+.sys-sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.sys-sw>div{border:1px solid var(--s-line)}
+.sys-sw .chip{height:88px;display:grid;align-content:end;padding:10px;font-size:13px}
+.sys-sw .meta{padding:11px;font-size:12.5px;color:var(--s-dim);background:var(--s-panel)}
+.sys-sw .meta b{display:block;color:var(--s-ink);font-family:ui-monospace,Menlo,monospace;font-size:13px;
+ font-weight:400;margin-bottom:3px}
+
+/* the scales */
+.sys-space{display:grid;gap:7px}
+.sys-space div{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--s-dim);font-variant-numeric:tabular-nums}
+.sys-space i{display:block;height:16px;background:var(--s-accent)}
+.sys-rad{display:flex;flex-wrap:wrap;gap:12px}
+.sys-rad div{width:88px;height:66px;border:1px solid var(--s-line);background:var(--s-panel);
+ display:grid;place-items:center;font-size:13px;color:var(--s-dim);text-align:center;padding:0 4px}
+
+/* the rule callouts */
+.sys-rule{border-left:2px solid var(--s-accent);padding:2px 0 2px 18px;margin-top:18px;max-width:74ch}
+.sys-rule b{display:block;color:var(--s-ink);margin-bottom:4px}
+.sys-rule p{color:var(--s-dim);margin:0}
+
+@media (max-width:900px){
+ .sys-wrap{grid-template-columns:minmax(0,1fr);padding-bottom:80px}
+ .sys-rail{position:static;display:flex;flex-wrap:wrap;gap:4px 6px;border-bottom:1px solid var(--s-line);
+  padding-bottom:14px;margin-bottom:26px}
+ .sys-rail strong{width:100%;margin-bottom:4px}
+ .sys-rail a{border-left:0;border:1px solid var(--s-line);padding:0 12px;min-height:44px;font-size:14px}
+ .sys-t{font-size:14px}
+}

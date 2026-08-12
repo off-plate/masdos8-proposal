@@ -53,13 +53,20 @@ p{color:#7d776d;font-size:12.5px;margin:18px 0 0;max-width:82ch}
   </ol>
 </div>
 
+<h2>Web guideline, one per template</h2>
+<ol>
+<li><a class="row" href="shop-7/system/"><em>&rarr;</em><b>Shop 7 guideline</b><i>every token, every component, every state, on one page</i></a></li>
+<li><a class="row" href="shop-8/system/"><em>&rarr;</em><b>Shop 8 guideline</b><i>same, including the switcher and the stage</i></a></li>
+</ol>
+
 <div class="box">
   <h3>What changed in this round</h3>
   <ul>
     <li><strong>The copy was rewritten in their voice.</strong> Their own site is warm, proud and plain: "Krásné výsledky. Osobní přístup." Mine was clipped and scored points off other shops. Every "X, not Y" line is gone, and the linter now fails the build on that whole family of constructions so it cannot come back. The voice is written down in <code>research/04-voice.md</code>.</li>
     <li><strong>Gate 2</strong> never scrolls, at any size from 320 up. Numbers and price lines are gone from the doors, the proof is the loudest thing on the screen, and it now uses shop 7's typefaces.</li>
-    <li><strong>Shop 7</strong>'s rotating strip is replaced by a short gold band that asks for the booking. WhatsApp sits in the nav.</li>
+    <li><strong>Shop 7</strong>'s rotating strip is replaced by a short gold band that asks for the booking. WhatsApp sits in the nav, and a real overlap bug in that bar at small phone widths is fixed.</li>
     <li><strong>Shop 8 has a real navigation:</strong> one sticky bar at the top of the scrolling column carrying the page links and the service switcher together. WhatsApp sits with Reserve and the phone number on the stage.</li>
+    <li><strong>Each remaining template has a guideline page</strong> at <code>/system/</code>: colour roles with computed contrast, type and spacing scales with their ceilings, every component in every state, the inventory, and the one-edit test. Both read their own site's real stylesheet, so nothing on the guideline can drift from what is live.</li>
   </ul>
 </div>
 
