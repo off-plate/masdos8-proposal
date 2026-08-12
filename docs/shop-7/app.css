@@ -81,14 +81,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .tag--5{right:27%;top:54%;rotate:-2deg}
 @media (max-width:1200px){.tag{display:none}}
 
-/* the marquee, tilted so it cuts the page */
-.mqw{overflow:hidden;position:relative;z-index:5}
-.mq{background:var(--g);color:#1B1305;overflow:hidden;padding:11px 0;rotate:-1.4deg;
- width:106%;margin-left:-3%;position:relative;z-index:5}
-.mq__t{display:flex;gap:34px;width:max-content;animation:mq 28s linear infinite}
-.mq__t span{font-family:'Cl',sans-serif;font-weight:700;font-size:19px;white-space:nowrap}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.mq__t{animation:none}}
+/* ---------- THE GOLD BAND ----------
+   A short, loud invitation between the hero and the work. It carries the
+   colour the marquee used to carry, and it asks for the booking. */
+.cta{background:var(--g);color:#1B1305}
+.cta__g{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:clamp(14px,2.4vw,40px);
+ padding-block:clamp(20px,3vw,40px)}
+.cta__t{font-family:'Cl',sans-serif;font-weight:700;font-size:clamp(21px,2.7vw,40px);line-height:1.05;
+ letter-spacing:-.02em;max-width:22ch}
+.cta__a{display:flex;gap:10px;flex-wrap:wrap}
+.bt--ink{background:#1B1305;color:var(--g2)}.bt--ink:hover{background:#000;transform:translateY(-3px) rotate(-1.2deg)}
+.bt--line{border:1px solid rgba(27,19,5,.45);color:#1B1305}
+.bt--line:hover{border-color:#1B1305;transform:translateY(-3px) rotate(1.2deg)}
+.nav__wa{display:flex;align-items:center;min-height:44px;padding:0 12px;font-size:16px;color:var(--w-d)}
+.nav__wa:hover{color:var(--g2)}
 
 .sec{position:relative;padding-block:clamp(56px,7vw,120px)}
 .hd{display:grid;gap:12px;margin-bottom:clamp(24px,3vw,48px);max-width:46ch}

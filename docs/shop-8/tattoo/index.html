@@ -55,9 +55,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .stage__lg{display:flex;align-items:center;gap:10px;color:var(--paper)}
 .stage__lg img{height:46px;border-radius:50%;background:#fff;padding:2px}
 .stage__lg b{font-family:'Pa',Georgia,serif;font-weight:900;font-size:19px;letter-spacing:.01em}
-.stage__ab{color:rgba(237,231,220,.8);font-size:14.5px;min-height:44px;display:flex;align-items:center;
- border-bottom:1px solid rgba(237,231,220,.34);transition:color .2s var(--ez),border-color .2s var(--ez)}
-.stage__ab:hover,.stage__ab[aria-current]{color:var(--gold-l);border-color:var(--gold-l)}
 .stage__mid{display:grid;gap:10px;align-content:center;color:var(--paper)}
 .stage__num{font-family:'Pa',Georgia,serif;font-weight:900;font-size:clamp(44px,6vw,96px);line-height:.96;letter-spacing:-.02em;color:var(--paper)}
 .stage__cap{font-size:14px;color:rgba(237,231,220,.88);max-width:32ch;text-shadow:0 1px 12px rgba(14,13,12,.7)}
@@ -82,15 +79,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
    ============================================================ */
 .sw{position:relative;z-index:20}
 .sw__b{display:flex;align-items:center;gap:9px;min-height:44px;padding:6px 14px;
- border:1px solid rgba(237,231,220,.34);background:rgba(14,13,12,.78);color:var(--paper);
- transition:border-color .2s var(--ez),background .2s var(--ez)}
-.sw__b:hover,.sw[data-open] .sw__b{border-color:var(--gold);background:rgba(14,13,12,.78)}
+ border:1px solid var(--ink);background:var(--ink);color:var(--paper);white-space:nowrap;
+ transition:background .2s var(--ez)}
+.sw__b:hover,.sw[data-open] .sw__b{background:#000}
 .sw__k{font-family:'Ra',sans-serif;font-weight:600;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;
  color:var(--gold)}
 .sw__t{font-family:'Pa',Georgia,serif;font-weight:900;font-size:15px;letter-spacing:0;text-transform:uppercase}
 .sw__c{width:10px;height:6px;transition:transform .25s var(--ez)}
 .sw[data-open] .sw__c{transform:rotate(180deg)}
-.sw__p{position:absolute;top:calc(100% + 8px);left:0;min-width:334px;background:var(--bk2);
+.sw__p{position:absolute;top:calc(100% + 8px);right:0;left:auto;min-width:min(334px,calc(100vw - 24px));background:var(--bk2);
  border:1px solid rgba(237,231,220,.2);box-shadow:0 26px 60px rgba(0,0,0,.6);display:grid;
  animation:sw .2s var(--ez)}
 @keyframes sw{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
@@ -107,8 +104,22 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .sw__all:hover{background:rgba(237,231,220,.06)}
 @media (prefers-reduced-motion:reduce){.sw__p{animation:none}}
 
-/* RIGHT: the scrolling column. Rows, not cards. */
+/* ============================================================
+   THE NAVIGATION.
+   One bar at the top of the scrolling column, sticky, carrying the
+   page links on the left and the service switcher on the right. The
+   stage keeps the badge and nothing else.
+   ============================================================ */
 .flow{background:var(--paper);min-width:0}
+.pnav{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:14px;justify-content:space-between;
+ padding:0 clamp(14px,4vw,80px);background:rgba(237,231,220,.96);backdrop-filter:none;
+ border-bottom:1px solid var(--ln);min-height:60px}
+.pnav__l{display:flex;align-items:center;gap:clamp(10px,1.8vw,28px);overflow-x:auto;scrollbar-width:none}
+.pnav__l::-webkit-scrollbar{display:none}
+.pnav__l a{display:flex;align-items:center;min-height:56px;font-size:16px;color:var(--ink-d);white-space:nowrap;
+ border-bottom:2px solid transparent;transition:color .2s var(--ez),border-color .2s var(--ez)}
+.pnav__l a:hover{color:var(--ink)}
+.pnav__l a[aria-current]{color:var(--ink);border-bottom-color:var(--gold)}
 .step{padding:clamp(46px,7vh,96px) clamp(22px,4vw,80px);border-bottom:1px solid var(--ln);position:relative;min-width:0}
 .step:last-of-type{border-bottom:0}
 .step__n{position:absolute;right:clamp(18px,3vw,54px);top:clamp(22px,3vh,40px);
@@ -162,13 +173,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  .stage__in{min-height:74svh}
  .strip{margin-right:0}
  .end__g{grid-template-columns:1fr}
- /* the stage scrolls away on a phone, so the switcher follows the reader.
-    The wordmark stands down for it: the badge alone is enough identification. */
- .sw{position:fixed;top:10px;right:10px;z-index:100}
- .sw__p{left:auto;right:0;min-width:min(304px,calc(100vw - 20px))}
- .sw__b{background:rgba(14,13,12,.94)}
+ /* the bar carries both jobs on a phone, so nothing floats over the page */
  .sw__k{display:none}
- .stage__lg b{display:none}
+ .pnav{padding-inline:14px;gap:10px}
+ .pnav__l a{font-size:15.5px;min-height:52px}
  /* phone sizing: nothing under 13px, nothing under a 44px hit box */
  .end__c{gap:0}
  .end__c a{display:flex;align-items:center;min-height:44px}
@@ -193,7 +201,37 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <div class="stage__in">
       <div class="stage__top">
         <a class="stage__lg" href="../../gate-2/"><img src="../img/logo.png" alt="MasDos8"><b>MasDos8</b></a>
-        
+      </div>
+      <div class="stage__mid">
+        <div class="stage__num" id="stage-t">Hold still</div>
+        <p class="stage__cap" id="stage-c">The same hands that cut hair all week. A consultation first, then a date, then the needle.</p>
+      </div>
+      <div class="stage__foot">
+        <p class="stage__ad">Nuselská 133/134, Prague 4 &middot; open every day from 09:00</p>
+        <div class="facts" style="gap:24px">
+          <div><b style="color:var(--paper)" class="num" data-count="4.8" data-dec="1">0</b><span style="color:rgba(237,231,220,.6)">Google, 225 reviews</span></div>
+          <div><b style="color:var(--paper)">2025</b><span style="color:rgba(237,231,220,.6)">Golden Company</span></div>
+        </div>
+        <div class="stage__act">
+          <a class="bt bt--r" href="#book">Reserve</a>
+          <a class="bt bt--l" href="tel:+420773267463">+420 773 267 463</a>
+          <a class="bt bt--l" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="prog"><i id="prog"></i></div>
+  </aside>
+
+  <main class="flow">
+
+    <nav class="pnav">
+      <div class="pnav__l">
+        <a href="../about/">About</a>
+        <a href="#s2">Prices</a>
+        <a href="#s3">Our work</a>
+        <a href="#book">Find us</a>
+      </div>
+      
   <div class="sw" data-sw>
     <button class="sw__b" aria-expanded="false" aria-haspopup="true" id="swb">
       <span class="sw__k">Service</span>
@@ -210,33 +248,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <a class="sw__all" role="menuitem" href="../../gate-2/">All three, from the start &rarr;</a>
     </div>
   </div>
-        <a class="stage__ab" href="../about/">About the shop</a>
-      </div>
-      <div class="stage__mid">
-        <div class="stage__num" id="stage-t">Hold still</div>
-        <p class="stage__cap" id="stage-c">The same hands that cut hair all week. Consultation first, then a date, then the needle.</p>
-      </div>
-      <div class="stage__foot">
-        <p class="stage__ad">Nuselská 133/134, Prague 4 &middot; open every day from 09:00</p>
-        <div class="facts" style="gap:24px">
-          <div><b style="color:var(--paper)" class="num" data-count="4.8" data-dec="1">0</b><span style="color:rgba(237,231,220,.6)">Google, 225 reviews</span></div>
-          <div><b style="color:var(--paper)">2025</b><span style="color:rgba(237,231,220,.6)">Golden Company</span></div>
-        </div>
-        <div class="stage__act">
-          <a class="bt bt--r" href="#book">Reserve</a>
-          <a class="bt bt--l" href="tel:+420773267463">+420 773 267 463</a>
-        </div>
-      </div>
-    </div>
-    <div class="prog"><i id="prog"></i></div>
-  </aside>
+    </nav>
 
-  <main class="flow">
-
-    <section class="step" data-stage="0">
+    <section class="step" data-stage="0" id="s1">
       <span class="step__n">01</span>
-      <h2>The barber <i>is</i> the tattooist</h2>
-      <p class="tx">José Luis does both, in the same rooms, on the same day if the diary allows. Customers who came in for a fade end up booking a piece, which is the whole reason this shop is two trades under one badge. Every piece starts with a consultation, and the consultation is free.</p>
+      <h2>The same hands, <i>with a needle</i></h2>
+      <p class="tx">José Luis cuts hair and tattoos, in the same rooms, on the same day if the diary allows. Plenty of people come in for a fade and leave with a piece booked, which is how the shop came to carry both trades. Every piece starts with a consultation, and the consultation is free.</p>
       <div class="facts" style="margin-top:22px"><div><b>600</b><span>A small piece, from</span></div><div><b>18 000</b><span>A back, arms or legs</span></div><div><b>0</b><span>Cost of the consultation</span></div></div>
       
       
@@ -246,9 +263,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       
     </section>
 
-    <section class="step" data-stage="1">
+    <section class="step" data-stage="1" id="s2">
       <span class="step__n">02</span>
-      <h2>Priced by <i>size</i>, not by the hour</h2>
+      <h2>Priced by <i>size</i>, agreed up front</h2>
       
       
       <div class="led"><a href="#book"><span>Small piece<em>Lettering, a symbol, something you can cover with a hand</em></span><b>600</b></a><a href="#book"><span>Medium piece<em>A forearm, a shoulder, a calf</em></span><b>3 000</b></a><a href="#book"><span>Large piece<em>A chest panel or a full forearm sleeve</em></span><b>6 000</b></a><a href="#book"><span>Half sleeve<em>Shoulder to elbow, usually across two sittings</em></span><b>6 000</b></a><a href="#book"><span>Large areas<em>Back, both arms, legs, body work</em></span><b>18 000</b></a></div>
@@ -259,9 +276,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       
     </section>
 
-    <section class="step" data-stage="2">
+    <section class="step" data-stage="2" id="s3">
       <span class="step__n">03</span>
-      <h2>Left <i>this room</i></h2>
+      <h2>Let us show you <i>our work</i></h2>
       <p class="tx" style="margin-bottom:20px">Drag sideways.</p>
       
       
@@ -272,9 +289,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       
     </section>
 
-    <section class="step" data-stage="3">
+    <section class="step" data-stage="3" id="s4">
       <span class="step__n">04</span>
-      <h2>What they <i>actually</i> wrote</h2>
+      <h2>What our <i>customers</i> say</h2>
       
       
       
@@ -288,7 +305,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <section class="step" data-stage="4" id="book">
       <span class="step__n">05</span>
       <h2>Nuselská 133/134, <i>Prague 4</i></h2>
-      <p class="tx">Bring a reference, a rough idea, or nothing at all. The consultation sets the size, the size sets the price, and the price does not move afterwards.</p>
+      <p class="tx">Bring a reference, a rough idea, or nothing at all. We agree the size together, the size sets the price, and the price stays where we agreed it.</p>
       
       
       
@@ -321,7 +338,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <script>
 (()=>{
   /* the fixed stage reacts to which step is in view */
-  const COPY=[["Hold still","The same hands that cut hair all week. Consultation first, then a date, then the needle."],["The list","Five sizes, five numbers, published by the studio before you walk in."],["The work","Pieces that left this room, photographed the day they were finished."],["The room","Nuselská 133/134, behind the barber chairs, same door."],["Come in","Call and the consultation is usually the same week."]];
+  const COPY=[["Hold still","The same hands that cut hair all week. A consultation first, then a date, then the needle."],["Our prices","Five sizes, and the price agreed before we start."],["Our work","Pieces from this room, photographed the day they were finished."],["Our room","Nuselská 133/134, behind the barber chairs, through the same door."],["Come in","Call us and we can usually see you for a consultation the same week."]];
   const imgs=[...document.querySelectorAll('.stage__ph img')];
   const steps=[...document.querySelectorAll('.step')];
   const t=document.getElementById('stage-t'),c=document.getElementById('stage-c'),prog=document.getElementById('prog');

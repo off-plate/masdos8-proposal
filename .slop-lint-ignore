@@ -1,0 +1,7 @@
+# The research notes quote the banned copy on purpose: 04-voice.md is a catalogue of
+# the constructions to avoid, and 01/02/03 record what was said and why it was wrong.
+# They stay linted for everything else.
+research/01-client-and-strategy.md: manufactured-contrast,rather-than,not-just-but,slop-copy
+research/02-decisions.md: manufactured-contrast,rather-than,not-just-but,slop-copy,glassmorphism
+research/03-reviews.md: manufactured-contrast,rather-than,not-just-but,slop-copy
+research/04-voice.md: manufactured-contrast,rather-than,not-just-but,slop-copy,slop-headline

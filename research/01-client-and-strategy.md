@@ -31,7 +31,7 @@ business is a person, not a facility.
 
 `f2adcd_51e6e3e7...mv2.png`, pixel counted:
 
-- **Navy `#003058`** (8,147 px) — dominant
+- **Navy `#003058`** (8,147 px), dominant
 - **Oxblood `#881818`** (2,381 px)
 - blue-greys `#608098`, `#7088A0` as shading
 

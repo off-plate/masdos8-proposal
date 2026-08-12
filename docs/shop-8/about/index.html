@@ -55,9 +55,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .stage__lg{display:flex;align-items:center;gap:10px;color:var(--paper)}
 .stage__lg img{height:46px;border-radius:50%;background:#fff;padding:2px}
 .stage__lg b{font-family:'Pa',Georgia,serif;font-weight:900;font-size:19px;letter-spacing:.01em}
-.stage__ab{color:rgba(237,231,220,.8);font-size:14.5px;min-height:44px;display:flex;align-items:center;
- border-bottom:1px solid rgba(237,231,220,.34);transition:color .2s var(--ez),border-color .2s var(--ez)}
-.stage__ab:hover,.stage__ab[aria-current]{color:var(--gold-l);border-color:var(--gold-l)}
 .stage__mid{display:grid;gap:10px;align-content:center;color:var(--paper)}
 .stage__num{font-family:'Pa',Georgia,serif;font-weight:900;font-size:clamp(44px,6vw,96px);line-height:.96;letter-spacing:-.02em;color:var(--paper)}
 .stage__cap{font-size:14px;color:rgba(237,231,220,.88);max-width:32ch;text-shadow:0 1px 12px rgba(14,13,12,.7)}
@@ -82,15 +79,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
    ============================================================ */
 .sw{position:relative;z-index:20}
 .sw__b{display:flex;align-items:center;gap:9px;min-height:44px;padding:6px 14px;
- border:1px solid rgba(237,231,220,.34);background:rgba(14,13,12,.78);color:var(--paper);
- transition:border-color .2s var(--ez),background .2s var(--ez)}
-.sw__b:hover,.sw[data-open] .sw__b{border-color:var(--gold);background:rgba(14,13,12,.78)}
+ border:1px solid var(--ink);background:var(--ink);color:var(--paper);white-space:nowrap;
+ transition:background .2s var(--ez)}
+.sw__b:hover,.sw[data-open] .sw__b{background:#000}
 .sw__k{font-family:'Ra',sans-serif;font-weight:600;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;
  color:var(--gold)}
 .sw__t{font-family:'Pa',Georgia,serif;font-weight:900;font-size:15px;letter-spacing:0;text-transform:uppercase}
 .sw__c{width:10px;height:6px;transition:transform .25s var(--ez)}
 .sw[data-open] .sw__c{transform:rotate(180deg)}
-.sw__p{position:absolute;top:calc(100% + 8px);left:0;min-width:334px;background:var(--bk2);
+.sw__p{position:absolute;top:calc(100% + 8px);right:0;left:auto;min-width:min(334px,calc(100vw - 24px));background:var(--bk2);
  border:1px solid rgba(237,231,220,.2);box-shadow:0 26px 60px rgba(0,0,0,.6);display:grid;
  animation:sw .2s var(--ez)}
 @keyframes sw{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
@@ -107,8 +104,22 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .sw__all:hover{background:rgba(237,231,220,.06)}
 @media (prefers-reduced-motion:reduce){.sw__p{animation:none}}
 
-/* RIGHT: the scrolling column. Rows, not cards. */
+/* ============================================================
+   THE NAVIGATION.
+   One bar at the top of the scrolling column, sticky, carrying the
+   page links on the left and the service switcher on the right. The
+   stage keeps the badge and nothing else.
+   ============================================================ */
 .flow{background:var(--paper);min-width:0}
+.pnav{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:14px;justify-content:space-between;
+ padding:0 clamp(14px,4vw,80px);background:rgba(237,231,220,.96);backdrop-filter:none;
+ border-bottom:1px solid var(--ln);min-height:60px}
+.pnav__l{display:flex;align-items:center;gap:clamp(10px,1.8vw,28px);overflow-x:auto;scrollbar-width:none}
+.pnav__l::-webkit-scrollbar{display:none}
+.pnav__l a{display:flex;align-items:center;min-height:56px;font-size:16px;color:var(--ink-d);white-space:nowrap;
+ border-bottom:2px solid transparent;transition:color .2s var(--ez),border-color .2s var(--ez)}
+.pnav__l a:hover{color:var(--ink)}
+.pnav__l a[aria-current]{color:var(--ink);border-bottom-color:var(--gold)}
 .step{padding:clamp(46px,7vh,96px) clamp(22px,4vw,80px);border-bottom:1px solid var(--ln);position:relative;min-width:0}
 .step:last-of-type{border-bottom:0}
 .step__n{position:absolute;right:clamp(18px,3vw,54px);top:clamp(22px,3vh,40px);
@@ -162,13 +173,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  .stage__in{min-height:74svh}
  .strip{margin-right:0}
  .end__g{grid-template-columns:1fr}
- /* the stage scrolls away on a phone, so the switcher follows the reader.
-    The wordmark stands down for it: the badge alone is enough identification. */
- .sw{position:fixed;top:10px;right:10px;z-index:100}
- .sw__p{left:auto;right:0;min-width:min(304px,calc(100vw - 20px))}
- .sw__b{background:rgba(14,13,12,.94)}
+ /* the bar carries both jobs on a phone, so nothing floats over the page */
  .sw__k{display:none}
- .stage__lg b{display:none}
+ .pnav{padding-inline:14px;gap:10px}
+ .pnav__l a{font-size:15.5px;min-height:52px}
  /* phone sizing: nothing under 13px, nothing under a 44px hit box */
  .end__c{gap:0}
  .end__c a{display:flex;align-items:center;min-height:44px}
@@ -194,7 +202,37 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <div class="stage__in">
       <div class="stage__top">
         <a class="stage__lg" href="../../gate-2/"><img src="../img/logo.png" alt="MasDos8"><b>MasDos8</b></a>
-        
+      </div>
+      <div class="stage__mid">
+        <div class="stage__num" id="stage-t">The family</div>
+        <p class="stage__cap" id="stage-c">His father cut hair. So did his grandfather, and his great-grandfather. José started as a child.</p>
+      </div>
+      <div class="stage__foot">
+        <p class="stage__ad">Nuselská 133/134, Prague 4 &middot; open every day from 09:00</p>
+        <div class="facts" style="gap:24px">
+          <div><b style="color:var(--paper)" class="num" data-count="4.8" data-dec="1">0</b><span style="color:rgba(237,231,220,.6)">Google, 225 reviews</span></div>
+          <div><b style="color:var(--paper)">2025</b><span style="color:rgba(237,231,220,.6)">Golden Company</span></div>
+        </div>
+        <div class="stage__act">
+          <a class="bt bt--r" href="#book">Reserve</a>
+          <a class="bt bt--l" href="tel:+420773267463">+420 773 267 463</a>
+          <a class="bt bt--l" href="https://wa.me/420773267463?text=Dobr%C3%BD%20den%2C%20r%C3%A1d%20bych%20se%20objednal." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="prog"><i id="prog"></i></div>
+  </aside>
+
+  <main class="flow">
+
+    <nav class="pnav">
+      <div class="pnav__l">
+        <a href="../">Barbershop</a>
+        <a href="#s1">Our story</a>
+        <a href="#s4">The name</a>
+        <a href="#book">Find us</a>
+      </div>
+      
   <div class="sw" data-sw>
     <button class="sw__b" aria-expanded="false" aria-haspopup="true" id="swb">
       <span class="sw__k">Service</span>
@@ -211,33 +249,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <a class="sw__all" role="menuitem" href="../../gate-2/">All three, from the start &rarr;</a>
     </div>
   </div>
-        <a class="stage__ab" href="./" aria-current="page">About the shop</a>
-      </div>
-      <div class="stage__mid">
-        <div class="stage__num" id="stage-t">The family</div>
-        <p class="stage__cap" id="stage-c">His father cut hair. So did his grandfather, and his great-grandfather. José started as a child.</p>
-      </div>
-      <div class="stage__foot">
-        <p class="stage__ad">Nuselská 133/134, Prague 4 &middot; open every day from 09:00</p>
-        <div class="facts" style="gap:24px">
-          <div><b style="color:var(--paper)" class="num" data-count="4.8" data-dec="1">0</b><span style="color:rgba(237,231,220,.6)">Google, 225 reviews</span></div>
-          <div><b style="color:var(--paper)">2025</b><span style="color:rgba(237,231,220,.6)">Golden Company</span></div>
-        </div>
-        <div class="stage__act">
-          <a class="bt bt--r" href="#book">Reserve</a>
-          <a class="bt bt--l" href="tel:+420773267463">+420 773 267 463</a>
-        </div>
-      </div>
-    </div>
-    <div class="prog"><i id="prog"></i></div>
-  </aside>
+    </nav>
 
-  <main class="flow">
-
-    <section class="step" data-stage="0">
+    <section class="step" data-stage="0" id="s1">
       <span class="step__n">01</span>
       <h2>It was never <i>a career choice</i></h2>
-      <p class="tx">José Luis grew up in a Dominican barbershop. His father was a barber, so was his grandfather, and so was his great-grandfather before that. He started cutting as a child, which is why he says the trade is in his blood rather than on his CV. Twenty years later he is still behind the chair, most days, himself.</p>
+      <p class="tx">José Luis grew up in a Dominican barbershop. His father was a barber, so was his grandfather, and so was his great-grandfather before him. He started cutting as a child, and as he puts it, the passion for this trade is in his blood. Twenty years later he is still at the chair most days himself.</p>
       <div class="facts" style="margin-top:22px"><div><b class="num" data-count="4">0</b><span>Generations of barbers</span></div><div><b>20 +</b><span>Years behind the chair</span></div><div><b class="num" data-count="1">0</b><span>Pair of hands, most days</span></div></div>
       
       
@@ -247,10 +264,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       
     </section>
 
-    <section class="step" data-stage="1">
+    <section class="step" data-stage="1" id="s2">
       <span class="step__n">02</span>
-      <h2>Other people's salons <i>first</i></h2>
-      <p class="tx">After moving to the Czech Republic he worked in a string of salons around Prague, learning how the city cuts and what Czech customers expect, before he opened a room of his own on Nuselská. The shop is what he wanted the other ones to be.</p>
+      <h2>Until he could open <i>his own</i></h2>
+      <p class="tx">After moving to the Czech Republic he worked in salons around Prague, learning how the city cuts and what Czech customers like, and saving for a room of his own. He found it on Nuselská, and it has been his ever since.</p>
       
       
       
@@ -260,10 +277,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       
     </section>
 
-    <section class="step" data-stage="2">
+    <section class="step" data-stage="2" id="s3">
       <span class="step__n">03</span>
       <h2>The clippers <i>and the needle</i></h2>
-      <p class="tx">Alongside barbering, José tattoos, and he does the permanent makeup as well. Most shops pick one. Putting all three under a single badge is the reason the business exists in the shape it does, and it is why somebody who came in for a fade leaves with a consultation booked.</p>
+      <p class="tx">Alongside barbering, José tattoos, and he does the permanent makeup as well. Three trades under one badge, which is how somebody who came in for a fade ends up leaving with a consultation booked for something else entirely.</p>
       
       
       
@@ -273,23 +290,23 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       
     </section>
 
-    <section class="step" data-stage="3">
+    <section class="step" data-stage="3" id="s4">
       <span class="step__n">04</span>
       <h2>What the name <i>means</i></h2>
       
       
       
       
-      <div class="big"><b>M&aacute;s dos <i>8</i></b><p>Spanish for more than two, because nobody gets through life on their own. The eight on its side is infinity: a cycle with no end and no limit. The name carried the idea before the sign went up.</p></div>
+      <div class="big"><b>M&aacute;s dos <i>8</i></b><p>Spanish for more than two, because in life we are never alone. The eight on its side is infinity, a cycle with no end and no limits. The name carried the idea before the sign went up.</p></div>
       
       
       
     </section>
 
-    <section class="step" data-stage="4">
+    <section class="step" data-stage="4" id="s5">
       <span class="step__n">05</span>
       <h2>Golden Company <i>2025</i></h2>
-      <p class="tx">The award goes to businesses on the strength of verified customer reviews gathered across the web, not on an application and not for a fee. MasDos8 holds 4.8 from 225 reviews on Google, which is what put it among the best rated companies in the country. The plaque hangs in the shop. It appears nowhere on their current website.</p>
+      <p class="tx">Zlatá firma goes to businesses on the strength of verified customer reviews gathered across the web. MasDos8 holds 4.8 from 225 reviews on Google, which put the shop among the best rated companies in the country. The plaque hangs on the wall here. It appears nowhere on the current website, and it should.</p>
       
       
       
@@ -302,7 +319,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <section class="step" data-stage="5" id="book">
       <span class="step__n">06</span>
       <h2>Nuselská 133/134, <i>Prague 4</i></h2>
-      <p class="tx">Open every day from nine in the morning. Call ahead on a first visit and José meets you at the door.</p>
+      <p class="tx">Open every day from nine in the morning. Call ahead on your first visit and José will meet you at the door.</p>
       
       
       
@@ -335,7 +352,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <script>
 (()=>{
   /* the fixed stage reacts to which step is in view */
-  const COPY=[["The family","His father cut hair. So did his grandfather, and his great-grandfather. José started as a child."],["Prague","Several other people's salons first, then a room of his own on Nuselská."],["Two trades","The clippers and the needle, in the same rooms, by the same hands."],["The name","Más dos. More than two, because nobody gets through life on their own."],["The plaque","Golden Company 2025, awarded on verified customer reviews rather than an application."],["Come in","Nuselská 133/134, open every day from nine."]];
+  const COPY=[["The family","His father cut hair. So did his grandfather, and his great-grandfather. José started as a child."],["Prague","He worked in other salons until he could open his own, here on Nuselská."],["Two trades","The clippers and the needle, in the same rooms, by the same hands."],["The name","Más dos. More than two, because nobody gets through life on their own."],["The plaque","Zlatá firma 2025, awarded on the strength of verified customer reviews."],["Come in","Nuselská 133/134, open every day from nine."]];
   const imgs=[...document.querySelectorAll('.stage__ph img')];
   const steps=[...document.querySelectorAll('.step')];
   const t=document.getElementById('stage-t'),c=document.getElementById('stage-c'),prog=document.getElementById('prog');

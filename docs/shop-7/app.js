@@ -93,7 +93,7 @@
       <label class="fl"><span>Phone</span><input type="tel" id="f-p" placeholder="+420" autocomplete="tel"></label>
       <div class="sum" id="f-sum"></div>
       <button class="bt bt--g" id="f-go" style="width:100%">Confirm the reservation</button>
-      <p class="note">This is a proposal, so nothing is sent yet. On the live site the slot is written to the calendar and the studio gets it straight away, which is what stops the double bookings people mention in the reviews.</p>`;
+      <p class="note">This is a proposal, so nothing is sent yet. On the live site the slot goes straight into the studio diary and you get a confirmation by text.</p>`;
     p.querySelector('#sx').addEventListener('click',closeSheet);
     const fs=p.querySelector('#f-s'), fd=p.querySelector('#f-d'), ft=p.querySelector('#f-t'),
           fn=p.querySelector('#f-n'), fp=p.querySelector('#f-p'), sum=p.querySelector('#f-sum'), go=p.querySelector('#f-go');
@@ -122,7 +122,7 @@
         <h2 class="cl" style="font-size:28px">The chair is held</h2>
         <p class="ok__ref">${ref}</p>
         <p class="tx" style="margin-inline:auto">${sel.n}, ${sel.d} at ${sel.t}, with José Luis. ${sel.p.toLocaleString('cs-CZ')} Kč in the chair.</p>
-        <p class="note" style="max-width:40ch;margin-inline:auto">On the live site this arrives as a confirmed slot and an SMS. In the proposal it stops here.</p>
+        <p class="note" style="max-width:40ch;margin-inline:auto">On the live site this arrives as a confirmed slot and a text message. In the proposal it stops here.</p>
         <button class="bt bt--o" id="ok-x" style="justify-self:center">Close</button></div>`;
       p.querySelector('#ok-x').addEventListener('click',closeSheet);
     });

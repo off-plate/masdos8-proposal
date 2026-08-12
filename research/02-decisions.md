@@ -200,3 +200,20 @@ Bespoke Slab and Switzer went with it. Both are still in git history and both ar
 in mind: the slab is the most barbershop-looking face of anything tried here, and the rule it
 forced, words in the slab and numbers in the grotesque, is a good rule for any face with
 old-style figures.
+
+---
+
+# Round 4, 2026-08-12. Voice, and the two navigations
+
+- **Gate 2 never scrolls.** `height:100dvh; overflow:hidden`, every size inside set in vmin.
+  Checked at 1680x1000, 1440x720, 1280x620, 834x1112, 393x852 and 320x568: no page scrolls, no
+  content is cut. The doors carry names only, the proof line is the loudest thing on the screen,
+  and the page now uses shop 7's Clash Display and Supreme.
+- **Shop 7's tilted marquee is gone.** A short gold band took its place, carrying the colour and
+  asking for the booking. WhatsApp sits in the nav beside Reserve.
+- **Shop 8 has a real navigation.** The switcher was a control with a text link jammed next to
+  it, which Michael rightly said does not work. There is now one sticky bar at the top of the
+  scrolling column with the page links on the left and the service switcher on the right, at
+  every width. The stage keeps the badge. WhatsApp sits with Reserve and the phone.
+- **The copy was rewritten in their voice.** See `research/04-voice.md`. Two new slop-lint rules
+  fail the build on the manufactured-contrast family, which had reached nearly every page.

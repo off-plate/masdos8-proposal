@@ -3,75 +3,78 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MasDos8 Prague 4. Pick your service</title>
+<title>MasDos8 Prague 4. Barber, tattoo and permanent makeup</title>
 <meta name="robots" content="noindex,nofollow">
-<link rel="preload" href="fonts/archivo-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/clash-display-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/supreme-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="img/logo.png">
 <style>
-@font-face{font-family:'Ar';src:url('fonts/archivo-700.woff2') format('woff2');font-weight:700;font-display:swap}
-@font-face{font-family:'Ar';src:url('fonts/archivo-800.woff2') format('woff2');font-weight:800;font-display:swap}
-@font-face{font-family:'Er';src:url('fonts/erode-400.woff2') format('woff2');font-weight:400;font-display:swap}
-@font-face{font-family:'Er';src:url('fonts/erode-500.woff2') format('woff2');font-weight:500;font-display:swap}
-:root{--bk:#0C0B0A;--w:#F6F3ED;--w-d:#B5AFA5;--copper:#C97B3C;--copper-l:#E39A5C;
+@font-face{font-family:'Cl';src:url('fonts/clash-display-600.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Cl';src:url('fonts/clash-display-700.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Su';src:url('fonts/supreme-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Su';src:url('fonts/supreme-500.woff2') format('woff2');font-weight:500;font-display:swap}
+:root{--bk:#0C0B0A;--w:#F6F3ED;--w-d:#B5AFA5;--g:#D9A441;--g2:#F3C670;
  --ez:cubic-bezier(.25,.8,.3,1)}
 *{margin:0;box-sizing:border-box}
-/* the page is split exactly in half: the room above, the three doors below */
-body{background:var(--bk);color:var(--w);font-family:'Er',Georgia,serif;-webkit-font-smoothing:antialiased;
- min-height:100dvh;display:grid;grid-template-rows:minmax(0,1fr) minmax(0,1fr);overflow-x:hidden}
+/* ============================================================
+   The gateway never scrolls. The room takes the top half, the three
+   doors take the bottom half, and every size inside is set in vmin so
+   a short laptop and a tall phone both get one whole page.
+   ============================================================ */
+html,body{height:100%}
+body{background:var(--bk);color:var(--w);font-family:'Su',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+ height:100dvh;overflow:hidden;display:grid;grid-template-rows:minmax(0,1fr) minmax(0,1fr)}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
-:focus-visible{outline:2px solid var(--copper-l);outline-offset:4px}
+:focus-visible{outline:2px solid var(--g2);outline-offset:-4px}
+.cl{font-family:'Cl',system-ui,sans-serif;font-weight:700;letter-spacing:-.03em;line-height:.94}
 
-/* one photograph of the room, the lockup dead centre, like the reference */
-.stage{position:relative;display:grid;place-items:center;padding:clamp(26px,5vh,64px) 20px;isolation:isolate;
- min-height:0;overflow:hidden}
+.stage{position:relative;display:grid;place-items:center;padding:clamp(14px,3.2vmin,48px) 20px;
+ isolation:isolate;overflow:hidden;min-height:0}
 .stage img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
- filter:grayscale(.35) brightness(.42) contrast(1.12)}
+ filter:grayscale(.4) brightness(.4) contrast(1.12)}
 .stage::after{content:'';position:absolute;inset:0;z-index:-1;
- background:radial-gradient(ellipse at center,rgba(12,11,10,.24) 0%,rgba(12,11,10,.86) 78%)}
-.lock{display:grid;justify-items:center;gap:14px;text-align:center}
-.lock img{height:clamp(78px,8vw,118px);border-radius:50%;background:#fff;padding:5px;
- box-shadow:0 0 0 1px rgba(201,123,60,.5),0 18px 60px rgba(0,0,0,.6)}
-.lock h1{font-family:'Ar',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
- font-size:clamp(28px,4.2vw,62px);line-height:.98}
-.lock h1 em{font-style:normal;color:var(--copper-l)}
-.lock p{font-size:clamp(14px,1.3vw,18px);color:var(--w-d);max-width:44ch}
-.lock .addr{font-family:'Ar',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.22em;
- text-transform:uppercase;color:var(--copper-l)}
-.proof{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;margin-top:4px;font-size:13px;color:var(--w-d)}
-.proof b{font-family:'Ar',sans-serif;font-weight:800;color:var(--w)}
+ background:radial-gradient(ellipse at center,rgba(12,11,10,.2) 0%,rgba(12,11,10,.88) 76%)}
+.lock{display:grid;justify-items:center;gap:clamp(8px,1.6vmin,18px);text-align:center;max-width:min(96vw,900px)}
+.lock img{height:clamp(52px,9vmin,116px);border-radius:50%;background:#fff;padding:4px;
+ box-shadow:0 0 0 1px rgba(217,164,65,.5),0 18px 60px rgba(0,0,0,.6)}
+.lock h1{font-size:clamp(26px,6.4vmin,68px)}
+.lock h1 em{font-style:normal;color:var(--g)}
+.lock p{font-size:clamp(13px,2vmin,20px);color:var(--w-d);max-width:42ch}
 
-/* the three choices as one hard row of doors, holding the bottom half of the screen.
-   Each door shows its own photograph at rest, so all three read as rooms you can walk into. */
+/* the proof reads as three facts, sized to be seen from the doorway */
+.proof{display:flex;flex-wrap:wrap;gap:clamp(12px,3.4vmin,48px);justify-content:center;align-items:baseline;
+ margin-top:clamp(4px,1.2vmin,14px)}
+.proof div{display:grid;justify-items:center;gap:3px}
+.proof b{font-family:'Cl',sans-serif;font-weight:700;font-size:clamp(20px,4vmin,42px);line-height:1;color:var(--g2);
+ font-variant-numeric:tabular-nums;white-space:nowrap}
+.proof span{font-size:clamp(12.5px,1.6vmin,14px);letter-spacing:.04em;color:var(--w-d)}
+
+/* the three doors, names only */
 .pick{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(246,243,237,.16);min-height:0}
-.pick a{position:relative;display:grid;align-content:center;justify-items:center;gap:6px;text-align:center;
- padding:clamp(20px,3vw,40px);border-right:1px solid rgba(246,243,237,.16);
- overflow:hidden;isolation:isolate;transition:color .3s var(--ez)}
+.pick a{position:relative;display:grid;place-content:center;justify-items:center;gap:clamp(6px,1.4vmin,14px);
+ text-align:center;padding:clamp(12px,2.6vmin,40px) 12px;border-right:1px solid rgba(246,243,237,.16);
+ overflow:hidden;isolation:isolate;min-height:0}
 .pick a:last-child{border-right:0}
 .pick a img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
- opacity:.62;transform:scale(1.02);transition:opacity .55s var(--ez),transform .9s var(--ez);
- filter:grayscale(1) brightness(.42) contrast(1.1)}
-/* the wash is heaviest through the middle now, because that is where the words are */
+ opacity:.66;transform:scale(1.02);transition:opacity .55s var(--ez),transform .9s var(--ez);
+ filter:grayscale(1) brightness(.44) contrast(1.1)}
 .pick a::after{content:'';position:absolute;inset:0;z-index:-1;transition:background .4s var(--ez);
- background:radial-gradient(120% 78% at 50% 50%,rgba(12,11,10,.82) 0%,rgba(12,11,10,.6) 62%,rgba(12,11,10,.72) 100%)}
-.pick a:hover img,.pick a:focus-visible img{opacity:1;transform:scale(1.05);filter:grayscale(0) brightness(.5) contrast(1.04)}
-.pick a:hover::after{background:radial-gradient(120% 78% at 50% 50%,rgba(12,11,10,.72) 0%,rgba(12,11,10,.42) 64%,rgba(12,11,10,.6) 100%)}
-.pick__n{font-family:'Ar',sans-serif;font-weight:700;font-size:11px;letter-spacing:.3em;color:var(--copper-l);
- margin-bottom:4px}
-.pick__t{font-family:'Ar',sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(22px,3.1vw,50px);line-height:.98}
-.pick__p{font-size:14.5px;color:var(--w-d)}
-.pick__go{font-family:'Ar',sans-serif;font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;
- color:var(--copper-l);margin-top:6px;transition:transform .4s var(--ez)}
+ background:radial-gradient(120% 78% at 50% 50%,rgba(12,11,10,.8) 0%,rgba(12,11,10,.58) 62%,rgba(12,11,10,.72) 100%)}
+.pick a:hover img,.pick a:focus-visible img{opacity:1;transform:scale(1.05);filter:grayscale(0) brightness(.52) contrast(1.04)}
+.pick a:hover::after{background:radial-gradient(120% 78% at 50% 50%,rgba(12,11,10,.7) 0%,rgba(12,11,10,.4) 64%,rgba(12,11,10,.6) 100%)}
+.pick__t{font-family:'Cl',sans-serif;font-weight:700;font-size:clamp(19px,4.6vmin,50px);line-height:1;letter-spacing:-.02em}
+.pick__go{font-size:clamp(10.5px,1.6vmin,14px);letter-spacing:.2em;text-transform:uppercase;color:var(--g);
+ transition:transform .4s var(--ez)}
 .pick a:hover .pick__go,.pick a:focus-visible .pick__go{transform:translateX(7px)}
 
 @media (max-width:820px){
-  body{grid-template-rows:auto auto}
+  body{grid-template-rows:minmax(0,36fr) minmax(0,64fr)}
   .pick{grid-template-columns:1fr}
-  .pick a{min-height:26dvh}
-  .pick a{border-right:0;border-bottom:1px solid rgba(246,243,237,.16);padding:26px 16px}
-  .pick a img{opacity:.5}
-  .pick__go{opacity:1;transform:none}
-  .stage{min-height:58dvh}
+  .pick a{border-right:0;border-bottom:1px solid rgba(246,243,237,.16)}
+  .pick a:last-child{border-bottom:0}
+  .pick a img{opacity:.56}
+  .lock p{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{transition-duration:1ms!important}}
 </style>
@@ -82,13 +85,12 @@ img{display:block;max-width:100%}
   <img class="bg" src="img/shop1.webp" alt="The MasDos8 studio on Nuselska" fetchpriority="high">
   <div class="lock">
     <img src="img/logo.png" alt="MasDos8">
-    <h1>MasDos8<br><em>Barber &amp; Tattoo</em></h1>
-    <p class="addr">Nuselská 133/134 &middot; Prague 4</p>
-    <p>Three crafts under one roof, and one owner who does all three himself. Pick what you came for.</p>
+    <h1 class="cl">MasDos8 <em>Barber &amp; Tattoo</em></h1>
+    <p>Beautiful results and a personal approach, on Nuselská in Prague 4. Choose where you would like to start.</p>
     <div class="proof">
-      <span><b>4.8</b> from 225 reviews</span>
-      <span><b>Golden Company 2025</b></span>
-      <span><b>From 09:00</b> every day</span>
+      <div><b>4.8</b><span>from 225 Google reviews</span></div>
+      <div><b>Zlatá firma</b><span>2025 laureate</span></div>
+      <div><b>9:00</b><span>open every day</span></div>
     </div>
   </div>
 </section>
@@ -96,23 +98,17 @@ img{display:block;max-width:100%}
 <nav class="pick">
   <a href="../shop-8/">
     <img src="img/cut3.webp" alt="">
-    <span class="pick__n">01</span>
     <span class="pick__t">Barbershop</span>
-    <span class="pick__p">Classic cut 600 CZK</span>
     <span class="pick__go">Enter &rarr;</span>
   </a>
   <a href="../shop-8/tattoo/">
     <img src="img/tat1.webp" alt="">
-    <span class="pick__n">02</span>
     <span class="pick__t">Tattoo</span>
-    <span class="pick__p">From 600 to 18 000 CZK</span>
     <span class="pick__go">Enter &rarr;</span>
   </a>
   <a href="../shop-8/pmu/">
     <img src="img/pmu1.webp" alt="">
-    <span class="pick__n">03</span>
     <span class="pick__t">Permanent makeup</span>
-    <span class="pick__p">Brows, lips, eyeliner</span>
     <span class="pick__go">Enter &rarr;</span>
   </a>
 </nav>
