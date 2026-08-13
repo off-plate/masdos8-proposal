@@ -114,7 +114,7 @@ const PAGES = {
     steps: [
       { n: '01', h: 'The same hands, <i>with a needle</i>',
         p: 'José Luis cuts hair and tattoos, in the same rooms, on the same day if the diary allows. Plenty of people come in for a fade and leave with a piece booked instead. Every piece starts with a free consultation.',
-        facts: [['600', 'A small piece, from', 0], ['18 000', 'A back, arms or legs', 0], ['0', 'Cost of the consultation', 0]] },
+        facts: [['600 Kč', 'A small piece, from', 0], ['18 000 Kč', 'A back, arms or legs', 0], ['0 Kč', 'Cost of the consultation', 0]] },
       { n: '02', h: 'Priced by <i>size</i>, agreed up front',
         led: [['Small piece', 'Lettering, a symbol, something you can cover with a hand', 600],
               ['Medium piece', 'A forearm, a shoulder, a calf', 3000],
@@ -152,7 +152,7 @@ const PAGES = {
     steps: [
       { n: '01', h: 'José does this <i>himself</i>',
         p: 'The permanent makeup is José\'s own work, microblading and eyeliner included. Two customers name him for it in their reviews, so you know exactly whose hands you are in before you sit down.',
-        facts: [['1 500', 'Upper eyeliner, from', 0], ['3 500', 'Brows', 0], ['3 000', 'Repairing another studio', 0]] },
+        facts: [['1 500 Kč', 'Upper eyeliner, from', 0], ['3 500 Kč', 'Brows', 0], ['3 000 Kč', 'Repairing another studio', 0]] },
       { n: '02', h: 'Including the <i>repair</i>',
         led: [['Brows', 'Microblading, shape drawn and agreed before any pigment', 3500],
               ['Full lips', 'Contour and fill together', 5000],
@@ -210,9 +210,9 @@ const PAGES = {
     alts: ['The room on Nuselská', 'The studio', 'A cut in progress', 'Finishing a fade', 'Detail work', 'A cut, finished'],
     steps: [
       { n: '01', h: 'Do I need to <i>book</i>?',
-        p: 'Book if you can. Three of the reviews on our page are about the old booking system letting people down, a closed door with no answer, a wait with barbers standing idle, a barber swapped without warning. This one holds a real slot in the diary, so none of that happens again.' },
+        p: 'Book if you can. A few of our reviews mention the old booking system letting people down. That\'s fixed now, your slot is real and it\'s yours.' },
       { n: '02', h: 'Do you speak <i>English or Spanish</i>?',
-        p: 'Our own customers write their reviews in Czech, Spanish and English, so come in whichever you’re most comfortable with. José is Dominican, and more than one review mentions feeling at home speaking Spanish here.' },
+        p: 'Come in Czech, Spanish or English, whatever you’re comfortable with. José is Dominican, and more than one review mentions feeling at home speaking Spanish here.' },
       { n: '03', h: 'I don’t know exactly <i>what I want</i> yet.',
         p: 'That’s what the tattoo consultation is for, and it’s free. Bring a reference, a rough idea, or nothing at all, and we agree the size and the price together before the needle starts.' },
       { n: '04', h: 'Do you cut <i>children’s</i> hair?',
